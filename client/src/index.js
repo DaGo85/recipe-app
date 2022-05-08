@@ -8,19 +8,22 @@ import Home from "./pages/home/Home";
 import Recipes from "./pages/recipes/Recipes";
 import SingleRecipe from "./pages/singlerecipe/SingleRecipe";
 import NotFound from "./pages/notfound/NotFound";
+import { ThemeProvider } from "./utility/darkmode/ThemeContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="recipes" element={<Recipes />} />
-          <Route path="recipe:singlerecipeId" element={<SingleRecipe />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="recipes" element={<Recipes />} />
+            <Route path="recipe:singlerecipeId" element={<SingleRecipe />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );
