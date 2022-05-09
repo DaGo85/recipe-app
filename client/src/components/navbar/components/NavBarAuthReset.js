@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { sendPasswordReset } from "../../../utility/firebase";
 import { useAuthContext } from "../../../utility/AuthContext";
 
-function NavBarAuthReset() {
+function NavBarAuthReset({ setRegister, setReset }) {
   const [email, setEmail] = useState("");
   const { userData } = useAuthContext();
 
@@ -15,7 +15,6 @@ function NavBarAuthReset() {
           Password-Reset:
         </h1>
       </div>
-      {userData && <div>ist da</div>}
       <div className="flex flex-col space-y-10 items-center">
         <p className="dark:text-gray-300">
           Forgot your account’s password or having trouble logging into your
@@ -37,12 +36,15 @@ function NavBarAuthReset() {
       </div>
       <div className="dark:text-gray-300">
         Don't have an account?{" "}
-        <Link
+        <button
+          onClick={() => {
+            setRegister(true);
+            setReset(false);
+          }}
           className="underline cursor-pointer hover:text-amber-500"
-          to="/register"
         >
           Register
-        </Link>{" "}
+        </button>{" "}
         now.
       </div>
     </div>
