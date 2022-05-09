@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { sendPasswordReset } from "../../utility/firebase";
-import { useAuthContext } from "../../utility/AuthContextProvider";
-import ThemeToggle from "../../darkmode/ThemeToggle";
+import { useAuthContext } from "../../utility/AuthContext";
+import ThemeToggle from "../../utility/darkmode/ThemeToggle";
 
 function Reset() {
   const [email, setEmail] = useState("");

@@ -1,6 +1,6 @@
 // Landing and Login page for the authentification
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ThemeToggle from "../../utility/darkmode/ThemeToggle";
 import {
@@ -12,6 +12,8 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {}, []);
 
   return (
     <main className="flex justify-center items-center h-screen bg-gray-100 dark:bg-slate-900 transition-all">

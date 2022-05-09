@@ -1,10 +1,10 @@
-import { Outlet } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useAuthContext } from "./utility/AuthContext";
 import { auth } from "./utility/firebase";
+import useScrollToTop from "./utility/useScrollToTop";
 
 import NavBar from "./components/navbar/NavBar";
 import Home from "./pages/home/Home";
@@ -12,9 +12,12 @@ import Recipes from "./pages/recipes/Recipes";
 import SingleRecipe from "./pages/singlerecipe/SingleRecipe";
 import NotFound from "./pages/notfound/NotFound";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import Reset from "./pages/reset/Reset";
 
 function App() {
   const { userData, setUserData } = useAuthContext();
+  useScrollToTop();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -35,15 +38,14 @@ function App() {
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />}>
-          <Route index element={<Home />} />
-          <Route path="login" element={<Login />} />
-          <Route path="recipes" element={<Recipes />} />
-          <Route path="recipes" element={<Recipes />} />
-          <Route path="recipes" element={<Recipes />} />
-          <Route path="recipe:singlerecipeId" element={<SingleRecipe />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<Register />} />
+        <Route path="reset" element={<Reset />} />
+        <Route path="recipes" element={<Recipes />} />
+        <Route path="recipe:singlerecipeId" element={<SingleRecipe />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
