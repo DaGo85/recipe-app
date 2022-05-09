@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         component: "#b9462e",
-        componentDark: "",
+        componentDark: "#a3462e",
         background: "",
         backgroundDark: "",
         typography: "",

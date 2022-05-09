@@ -1,8 +1,19 @@
 import React from "react";
+import ThemeToggle from "../../utility/darkmode/ThemeToggle";
+import NavBarAuth from "./components/NavBarAuth";
+import NavBarLinks from "./components/NavBarLinks";
+import NavBarLogo from "./components/NavBarLogo";
 
 function NavBar() {
   return (
-    <header className="z-30 w-full  flex flex-col items-center justify-between bg-component h-20"></header>
+    <header className="w-full flex flex-row items-center justify-between bg-component dark:bg-componentDark p-3">
+      <NavBarLogo />
+      <NavBarLinks />
+      <div className="flex flex-row items-center">
+        <ThemeToggle />
+        <NavBarAuth />
+      </div>
+    </header>
   );
 }
 
