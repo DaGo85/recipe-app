@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import ThemeToggle from "../../darkmode/ThemeToggle";
+import ThemeToggle from "../../utility/darkmode/ThemeToggle";
 import {
   logInWithEmailAndPassword,
   signInWithGoogle,
