@@ -4,6 +4,7 @@ import {
   logInWithEmailAndPassword,
   signInWithGoogle,
 } from "../../../utility/firebase";
+import NavBarAuthHeadline from "./NavBarAuthHeadline";
 
 function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
   const [email, setEmail] = useState("");
@@ -12,12 +13,10 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
 
   return (
     <div className="auth-card-setup">
-      <div className="flex flex-row justify-between w-full items-center">
-        <h1 className="font-bold text-2xl dark:text-gray-300 ">Login:</h1>
-      </div>
+      <NavBarAuthHeadline headline="Login" />
       <input
         type="email"
-        className="px-1 py-1 border-2 shadow-lg border-slate-400 w-64 dark:placeholder-gray-700"
+        className="auth-input-setup"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="E-mail Address"
@@ -25,13 +24,13 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
       <div className="flex flex-col space-y-10 items-center">
         <input
           type="password"
-          className="px-1 py-1 border-2 shadow-lg border-slate-400 w-64 dark:placeholder-gray-700"
+          className="auth-input-setup"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
         <button
-          className="px-4 py-1 border-2 bg-slate-100 text-lg border-slate-600 rounded-lg w-28"
+          className="auth-button-setup"
           onClick={() => {
             logInWithEmailAndPassword(email, password);
             setLogin(false);
@@ -43,7 +42,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
       <p className="flex flex-row dark:text-gray-300">
         Login with
         <span
-          className="ml-1 underline cursor-pointer hover:text-amber-500"
+          className="auth-link-setup ml-1"
           onClick={() => {
             signInWithGoogle();
             setLogin(false);
@@ -61,7 +60,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
               setLogin(false);
               setReset(true);
             }}
-            className="ml-1 underline cursor-pointer hover:text-amber-500"
+            className="auth-link-setup ml-1"
           >
             here
           </button>
@@ -75,7 +74,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
             setLogin(false);
             setRegister(true);
           }}
-          className="underline cursor-pointer hover:text-amber-500"
+          className="auth-link-setup"
         >
           Register
         </button>{" "}

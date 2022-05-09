@@ -16,7 +16,7 @@ function NavBarAuth() {
     <div className="relative">
       <div className="rounded-3xl border-2 p-2 flex items-center justify-center">
         <svg
-          className="w-6 fill-typography dark:fill-typographyDark"
+          className="svg-setup w-6"
           onClick={() => {
             setIsOpen(!isOpen);
           }}

@@ -6,6 +6,7 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../../../utility/firebase";
+import NavBarAuthHeadline from "./NavBarAuthHeadline";
 
 function NavBarAuthRegister({ setLogin, setRegister }) {
   const [email, setEmail] = useState("");
@@ -22,19 +23,17 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
 
   return (
     <div className="auth-card-setup">
-      <div className="flex flex-row justify-between w-full items-center">
-        <h1 className="font-bold text-2xl dark:text-gray-300 ">Register:</h1>
-      </div>
+      <NavBarAuthHeadline headline="Register" />
       <input
         type="text"
-        className="px-1 py-1 border-2 shadow-lg border-slate-400 w-64 dark:placeholder-gray-700"
+        className="auth-input-setup"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Full Name"
       />
       <input
         type="text"
-        className="px-1 py-1 border-2 shadow-lg border-slate-400 w-64 dark:placeholder-gray-700"
+        className="auth-input-setup"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="E-mail Address"
@@ -42,24 +41,18 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
       <div className="flex flex-col space-y-10 items-center">
         <input
           type="password"
-          className="px-1 py-1 border-2 shadow-lg border-slate-400 w-64 dark:placeholder-gray-700"
+          className="auth-input-setup"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button
-          className="px-4 py-1 border-2 bg-slate-100 text-lg border-slate-600 rounded-lg"
-          onClick={registerHandler}
-        >
+        <button className="auth-button-setup" onClick={registerHandler}>
           Register
-        </button>{" "}
+        </button>
       </div>
       <p className="flex flex-row dark:text-gray-300">
         Register with
-        <span
-          className="ml-1 underline cursor-pointer hover:text-amber-500"
-          onClick={signInWithGoogle}
-        >
+        <span className="auth-link-setup ml-1" onClick={signInWithGoogle}>
           Google
         </span>
         .
@@ -71,8 +64,7 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
             setRegister(false);
             setLogin(true);
           }}
-          className="underline cursor-pointer hover:text-amber-500"
-          to="/"
+          className="auth-link-setup"
         >
           Login
         </button>{" "}

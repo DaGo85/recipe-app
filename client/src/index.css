@@ -51,7 +51,22 @@
 
 @layer components {
   .auth-card-setup {
-    @apply p-4 bg-component rounded-xl shadow-lg flex flex-col items-start space-y-10 
-    text-lg w-72 dark:bg-componentDark border-4 border-double border-border dark:border-borderDark;
+    @apply p-4 bg-primary rounded-xl shadow-lg flex flex-col items-start space-y-10 
+    text-lg w-72 dark:bg-primaryDark dark:text-typographyDark border-4 border-double border-primaryL dark:border-primaryDDark;
+  }
+
+  .auth-input-setup {
+    @apply px-1 py-1 border-2 shadow-lg border-slate-400 w-64 dark:text-typographyDark dark:placeholder-typographyDark/50 dark:bg-primaryLDark;
+  }
+  .auth-button-setup {
+    @apply px-4 py-1 border-2 bg-slate-100 dark:bg-primaryDDark dark:text-typographyDark dark:border-primaryLDark text-lg border-slate-600 rounded-lg;
+  }
+
+  .auth-link-setup {
+    @apply underline cursor-pointer hover:text-amber-500;
+  }
+
+  .svg-setup {
+    @apply dark:fill-typographyDark/60 fill-typographyDark/60 hover:opacity-[87%];
   }
 }

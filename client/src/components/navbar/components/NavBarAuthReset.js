@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { sendPasswordReset } from "../../../utility/firebase";
 import { useAuthContext } from "../../../utility/AuthContext";
+import NavBarAuthHeadline from "./NavBarAuthHeadline";
 
 function NavBarAuthReset({ setLogin, setRegister, setReset }) {
   const [email, setEmail] = useState("");
@@ -10,11 +11,7 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
 
   return (
     <div className="auth-card-setup">
-      <div className="flex flex-row justify-between w-full items-center">
-        <h1 className="font-bold text-2xl dark:text-gray-300 ">
-          Password-Reset:
-        </h1>
-      </div>
+      <NavBarAuthHeadline headline="Password-Reset" />
       <div className="flex flex-col space-y-10 items-center">
         <p className="dark:text-gray-300">
           Forgot your account’s password or having trouble logging into your
@@ -22,13 +19,13 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
         </p>
         <input
           type="text"
-          className="px-1 py-1 border-2 shadow-lg border-slate-400 w-64 dark:placeholder-gray-700"
+          className="auth-input-setup"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <button
-          className="px-4 py-1 border-2 bg-slate-100 text-lg border-slate-600 rounded-lg"
+          className="auth-button-setup"
           onClick={() => {
             sendPasswordReset(email);
             setReset(false);
@@ -45,7 +42,7 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
             setRegister(true);
             setReset(false);
           }}
-          className="underline cursor-pointer hover:text-amber-500"
+          className="auth-link-setup"
         >
           Register
         </button>{" "}
