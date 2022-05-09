@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import { sendPasswordReset } from "../../../utility/firebase";
 import { useAuthContext } from "../../../utility/AuthContext";
 
-function NavBarAuthReset({ setRegister, setReset }) {
+function NavBarAuthReset({ setLogin, setRegister, setReset }) {
   const [email, setEmail] = useState("");
   const { userData } = useAuthContext();
 
   return (
-    <div className="p-4 bg-white rounded-xl shadow-lg flex flex-col items-start space-y-8 text-lg w-72 dark:bg-slate-700">
+    <div className="auth-card-setup">
       <div className="flex flex-row justify-between w-full items-center">
         <h1 className="font-bold text-2xl dark:text-gray-300 ">
           Password-Reset:
@@ -29,7 +29,11 @@ function NavBarAuthReset({ setRegister, setReset }) {
         />
         <button
           className="px-4 py-1 border-2 bg-slate-100 text-lg border-slate-600 rounded-lg"
-          onClick={() => sendPasswordReset(email)}
+          onClick={() => {
+            sendPasswordReset(email);
+            setReset(false);
+            setLogin(true);
+          }}
         >
           Send recovery email
         </button>

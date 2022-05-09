@@ -6,14 +6,16 @@ module.exports = {
       colors: {
         component: "#b9462e",
         componentDark: "#a3462e",
-        background: "",
-        backgroundDark: "",
+        background: "#3071e8ff",
+        backgroundDark: "#151e34ff",
         typography: "",
         typographyDark: "",
         failure: "",
         failureDark: "",
         success: "",
         successDark: "",
+        border: "#000000",
+        borderDark: "#fff",
       },
     },
     container: {

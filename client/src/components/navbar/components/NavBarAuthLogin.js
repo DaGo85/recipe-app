@@ -5,13 +5,13 @@ import {
   signInWithGoogle,
 } from "../../../utility/firebase";
 
-function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
+function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   return (
-    <div className="p-4 bg-white rounded-xl shadow-lg flex flex-col items-start space-y-10 text-lg w-72 dark:bg-slate-700">
+    <div className="auth-card-setup">
       <div className="flex flex-row justify-between w-full items-center">
         <h1 className="font-bold text-2xl dark:text-gray-300 ">Login:</h1>
       </div>
@@ -32,7 +32,10 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
         />
         <button
           className="px-4 py-1 border-2 bg-slate-100 text-lg border-slate-600 rounded-lg w-28"
-          onClick={() => logInWithEmailAndPassword(email, password)}
+          onClick={() => {
+            logInWithEmailAndPassword(email, password);
+            setLogin(false);
+          }}
         >
           Login
         </button>
@@ -41,7 +44,10 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
         Login with
         <span
           className="ml-1 underline cursor-pointer hover:text-amber-500"
-          onClick={signInWithGoogle}
+          onClick={() => {
+            signInWithGoogle();
+            setLogin(false);
+          }}
         >
           Google
         </span>

@@ -11,9 +11,6 @@ import Home from "./pages/home/Home";
 import Recipes from "./pages/recipes/Recipes";
 import SingleRecipe from "./pages/singlerecipe/SingleRecipe";
 import NotFound from "./pages/notfound/NotFound";
-import Login from "./pages/login/Login";
-import Register from "./pages/register/Register";
-import Reset from "./pages/reset/Reset";
 
 function App() {
   const { userData, setUserData } = useAuthContext();
@@ -40,9 +37,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route index element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="register" element={<Register />} />
-        <Route path="reset" element={<Reset />} />
         <Route path="recipes" element={<Recipes />} />
         <Route path="recipe:singlerecipeId" element={<SingleRecipe />} />
         <Route path="*" element={<NotFound />} />

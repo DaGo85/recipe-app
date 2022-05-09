@@ -50,4 +50,8 @@
 }
 
 @layer components {
+  .auth-card-setup {
+    @apply p-4 bg-component rounded-xl shadow-lg flex flex-col items-start space-y-10 
+    text-lg w-72 dark:bg-componentDark border-4 border-double border-border dark:border-borderDark;
+  }
 }

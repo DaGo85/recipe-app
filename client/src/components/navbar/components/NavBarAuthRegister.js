@@ -16,10 +16,12 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
   const registerHandler = () => {
     if (!name) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password);
+    setRegister(false);
+    setLogin(true);
   };
 
   return (
-    <div className="p-4 bg-white rounded-xl shadow-lg flex flex-col items-start space-y-10 text-lg w-72 dark:bg-slate-700">
+    <div className="auth-card-setup">
       <div className="flex flex-row justify-between w-full items-center">
         <h1 className="font-bold text-2xl dark:text-gray-300 ">Register:</h1>
       </div>
