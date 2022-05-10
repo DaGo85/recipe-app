@@ -6,7 +6,10 @@ import NavBarLogo from "./components/NavBarLogo";
 
 function NavBar() {
   return (
-    <header className="w-full flex flex-row items-center justify-between bg-primary dark:bg-primaryDark p-3">
+    <header
+      className="p-3 w-full flex flex-row items-center justify-between
+     bg-lightVariantSurface dark:bg-darkVariantSurface text-lightVariantSurfaceOn dark:text-darkVariantSurfaceOn"
+    >
       <NavBarLogo />
       <NavBarLinks />
       <div className="flex flex-row items-center">

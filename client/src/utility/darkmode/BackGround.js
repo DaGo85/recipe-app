@@ -1,8 +1,8 @@
 const Background = ({ children }) => {
   return (
-    <body className="bg-background dark:bg-backgroundDark transition-all">
+    <main className="w-full bg-backgroundLight dark:bg-backgroundDark transition-all">
       {children}
-    </body>
+    </main>
   );
 };
 

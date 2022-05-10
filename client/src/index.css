@@ -51,22 +51,33 @@
 
 @layer components {
   .auth-card-setup {
-    @apply p-4 bg-primary rounded-xl shadow-lg flex flex-col items-start space-y-10 
-    text-lg w-72 dark:bg-primaryDark dark:text-typographyDark border-4 border-double border-primaryL dark:border-primaryDDark;
+    @apply p-4 bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn rounded-xl shadow-lg flex flex-col items-start space-y-10 
+    text-lg w-72 border-4 border-double border-lightOutline dark:border-darkOutline;
   }
 
   .auth-input-setup {
-    @apply px-1 py-1 border-2 shadow-lg border-slate-400 w-64 dark:text-typographyDark dark:placeholder-typographyDark/50 dark:bg-primaryLDark;
+    @apply px-1 py-1 border-2 shadow-lg w-64 border-lightOutline dark:border-darkOutline
+    text-primaryLightContainerOn dark:text-primaryDarkContainerOn placeholder-primaryLightContainerOn/40
+    dark:placeholder-primaryDarkContainerOn/40 bg-lightVariantSurface dark:bg-darkSurface;
   }
   .auth-button-setup {
-    @apply px-4 py-1 border-2 bg-slate-100 dark:bg-primaryDDark dark:text-typographyDark dark:border-primaryLDark text-lg border-slate-600 rounded-lg;
+    @apply px-4 py-1 border-2 bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60
+     dark:hover:bg-primaryDark/60 text-primaryLightOn dark:text-primaryDarkOn dark:border-darkOutline
+      text-lg border-lightOutline rounded-lg;
   }
 
   .auth-link-setup {
-    @apply underline cursor-pointer hover:text-amber-500;
+    @apply cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn underline;
+  }
+
+  .svg-container {
+    @apply cursor-pointer rounded-3xl border-2 p-2 flex items-center justify-center bg-primaryLightContainer dark:bg-primaryDarkContainer;
   }
 
   .svg-setup {
-    @apply dark:fill-typographyDark/60 fill-typographyDark/60 hover:opacity-[87%];
+    @apply fill-primaryLightContainerOn dark:fill-primaryDarkContainerOn;
+  }
+
+  .svg-container:hover svg-setup {
   }
 }

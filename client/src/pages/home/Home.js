@@ -1,7 +1,7 @@
+import Background from "../../utility/darkmode/BackGround";
+
 function Home() {
-  return (
-    <main className="w-full bg-background dark:bg-backgroundDark">Home</main>
-  );
+  return <Background>Home</Background>;
 }
 
 export default Home;

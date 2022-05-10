@@ -14,12 +14,14 @@ function NavBarAuth() {
 
   return (
     <div className="relative">
-      <div className="rounded-3xl border-2 p-2 flex items-center justify-center">
+      <div
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+        className="svg-container"
+      >
         <svg
-          className="svg-setup w-6"
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
+          className="w-6 svg-setup"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
         >
