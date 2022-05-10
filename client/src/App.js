@@ -11,6 +11,7 @@ import Home from "./pages/home/Home";
 import Recipes from "./pages/recipes/Recipes";
 import SingleRecipe from "./pages/singlerecipe/SingleRecipe";
 import NotFound from "./pages/notfound/NotFound";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const { userData, setUserData } = useAuthContext();
@@ -41,6 +42,7 @@ function App() {
         <Route path="recipe:singlerecipeId" element={<SingleRecipe />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </>
   );
 }
