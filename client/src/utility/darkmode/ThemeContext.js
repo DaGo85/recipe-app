@@ -29,7 +29,6 @@ const ThemeContext = createContext(null);
 const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(getInitialTheme);
   const initTheme = getInitialTheme();
-  console.log(initTheme);
 
   const rawSetTheme = (rawTheme) => {
     const root = window.document.documentElement;
