@@ -13,7 +13,7 @@ function NavBarAuth() {
   const { userData } = useAuthContext();
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <div
         onClick={() => {
           setIsOpen(!isOpen);

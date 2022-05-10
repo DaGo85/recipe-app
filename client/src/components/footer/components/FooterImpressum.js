@@ -1,10 +1,9 @@
 import React from "react";
-import FooterImpressumSocialIcons from "./FooterImpressumSocialIcons";
 
 function FooterImpressum() {
   return (
-    <section className="flex gap-6 py-6">
-      <span className="flex flex-col gap-4 w-full px-6">
+    <section className="flex flex-col md:flex-row gap-6">
+      <span className="flex flex-col gap-4 w-full">
         <h5>According to § 5 TMG:</h5>
         <hr />
         <p>
@@ -15,7 +14,7 @@ function FooterImpressum() {
           46119 Oberhausen
         </p>
       </span>
-      <span className="flex flex-col gap-4 w-full px-6">
+      <span className="flex flex-col gap-4 w-full">
         <h5>Contact:</h5>
         <hr />
         <p>
@@ -25,7 +24,6 @@ function FooterImpressum() {
         </p>
         <hr />
       </span>
-      <FooterImpressumSocialIcons />
     </section>
   );
 }

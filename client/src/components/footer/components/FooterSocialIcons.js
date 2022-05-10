@@ -1,7 +1,7 @@
 import React from "react";
 import { socialIconsList } from "../../../assets/data";
 
-function FooterImpressumSocialIcons() {
+function FooterSocialIcons() {
   return (
     <span className="flex flex-row gap-6 mx-auto">
       {socialIconsList.map((icon) => {
@@ -27,4 +27,4 @@ function FooterImpressumSocialIcons() {
   );
 }
 
-export default FooterImpressumSocialIcons;
+export default FooterSocialIcons;
