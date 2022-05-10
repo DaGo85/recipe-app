@@ -1,10 +1,11 @@
-const db = require("../models/index.js");
+const db = require("../models");
 
-const Recipe = db.recipes;
+const Recipe = db.recipe;
 const Op = db.Sequelize.Op;
 
 // Create and save a new recipe
 exports.create = (req, res) => {
+  console.log(req.body.title);
   // Validate request
   if (!req.body.title) {
     res.status(400).send({

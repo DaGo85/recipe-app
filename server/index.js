@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+require("dotenv").config();
 const decodeIDToken = require("./utility/authenticateToken");
 
 const app = express();
@@ -23,12 +24,14 @@ db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
 });
 
-db.sequelize.sync();
+// db.sequelize.sync();
 
 // simple route
 app.get("/", (req, res) => {
   res.json({ message: "Test" });
 });
+
+require("./routes/recipe.routes.js")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 5000;
