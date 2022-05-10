@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const decodeIDToken = require("./utility/authenticateToken");
+
 const app = express();
 
 const corsOptions = {
@@ -12,7 +14,9 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
-const db = require("./server/models");
+app.use(decodeIDToken);
+
+const db = require("./models");
 
 // for dev only:
 db.sequelize.sync({ force: true }).then(() => {
