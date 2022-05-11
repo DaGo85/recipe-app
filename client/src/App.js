@@ -12,6 +12,7 @@ import Recipes from "./pages/recipes/Recipes";
 import SingleRecipe from "./pages/singlerecipe/SingleRecipe";
 import NotFound from "./pages/notfound/NotFound";
 import Footer from "./components/footer/Footer";
+import Add from "./pages/addrecipe/Add";
 
 function App() {
   const { userData, setUserData } = useAuthContext();
@@ -41,6 +42,8 @@ function App() {
         <Route path="recipes" element={<Recipes />} />
         <Route path="recipe:singlerecipeId" element={<SingleRecipe />} />
         <Route path="*" element={<NotFound />} />
+
+        {userData && <Route path="add" element={<Add />} />}
       </Routes>
       <Footer />
     </>

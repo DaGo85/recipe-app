@@ -19,7 +19,6 @@ exports.create = (req, res) => {
   const recipe = {
     title: req.body.title,
     description: req.body.description,
-    published: req.body.published ? req.body.published : false,
   };
   // Save recipe in the database
   Recipe.create(recipe)
@@ -177,19 +176,6 @@ exports.deleteAll = (req, res) => {
       res.status(500).send({
         message:
           err.message || "Some error occurred while removing all recipes.",
-      });
-    });
-};
-
-// Find all published recipes
-exports.findAllPublished = (req, res) => {
-  Recipe.findAll({ where: { published: true } })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "Some error occurred while retrieving recipes.",
       });
     });
 };
