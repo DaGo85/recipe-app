@@ -19,6 +19,7 @@ db.sequelize = sequelize;
 db.recipes = require("./recipe.model.js")(sequelize, Sequelize);
 db.comments = require("./comment.model.js")(sequelize, Sequelize);
 db.tag = require("./tag.model.js")(sequelize, Sequelize);
+db.images = require("./image.model.js")(sequelize, Sequelize);
 
 db.tag.belongsToMany(db.recipes, {
   through: "recipe_tag",
