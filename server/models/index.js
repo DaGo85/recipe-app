@@ -16,5 +16,12 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
 const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-db.recipe = require("./recipe.model.js")(sequelize, Sequelize);
+db.recipes = require("./recipe.model.js")(sequelize, Sequelize);
+db.comments = require("./comment.model.js")(sequelize, Sequelize);
+db.recipes.hasMany(db.comments, { as: "comments" });
+db.comments.belongsTo(db.recipes, {
+  foreignKey: "recipeId",
+  as: "recipe",
+});
+
 module.exports = db;

@@ -1,6 +1,8 @@
 const db = require("../models");
 
-const Recipe = db.recipe;
+const Recipe = db.recipes;
+const Comment = db.comments;
+
 const Op = db.Sequelize.Op;
 
 // Create and save a new recipe
@@ -32,7 +34,54 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all recipes from the database.
+// Create and save new comments
+exports.createComment = (recipeId, comment) => {
+  return Comment.create({
+    name: comment.name,
+    text: comment.text,
+    recipeId: recipeId,
+  })
+    .then((comment) => {
+      console.log(">> Created comment: " + JSON.stringify(comment, null, 4));
+      return comment;
+    })
+    .catch((err) => {
+      console.log(">> Error while creating comment: ", err);
+    });
+};
+
+// Get the comments for a given recipe
+exports.findRecipeById = (recipeId) => {
+  return Recipe.findByPk(recipeId, { include: ["comments"] })
+    .then((recipe) => {
+      return recipe;
+    })
+    .catch((err) => {
+      console.log(">> Error while finding recipe: ", err);
+    });
+};
+
+// Get the comments for a given comment id
+exports.findCommentById = (id) => {
+  return Comment.findByPk(id, { include: ["recipe"] })
+    .then((comment) => {
+      return comment;
+    })
+    .catch((err) => {
+      console.log(">> Error while finding comment: ", err);
+    });
+};
+
+// Get all recipes include comments
+exports.findAll = () => {
+  return Recipe.findAll({
+    include: ["comments"],
+  }).then((recipe) => {
+    return recipes;
+  });
+};
+
+// Retrieve all recipes from the database
 exports.findAll = (req, res) => {
   const title = req.query.title;
   const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
