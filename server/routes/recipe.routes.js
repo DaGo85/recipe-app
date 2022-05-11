@@ -1,6 +1,8 @@
 module.exports = (app) => {
   const recipes = require("../controllers/recipe.controller.js");
   const tag = require("../controllers/tag.controller.js");
+  const uploadController = require("../controllers/upload");
+  const upload = require("../middleware/upload");
 
   let router = require("express").Router();
 
@@ -39,6 +41,9 @@ module.exports = (app) => {
 
   // Add recipe to a tag
   router.post("/tag/:id", tag.addRecipe);
+
+  // Add images to recipe by id
+  router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 
   app.use("/api/recipes", router);
 };

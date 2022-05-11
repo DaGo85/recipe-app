@@ -26,11 +26,6 @@ db.sequelize.sync({ force: true }).then(() => {
 
 // db.sequelize.sync();
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Test" });
-});
-
 require("./routes/recipe.routes.js")(app);
 
 // set port, listen for requests

@@ -28,6 +28,17 @@ const findByTitle = (title) => {
   return http.get(`/recipes?title=${title}`);
 };
 
+const addImages = (data) => {
+  return http.post("/recipes/upload", data);
+};
+
+const getTags = () => {
+  return http.get("/recipes/tags");
+};
+
+const addTag = (data) => {
+  return http.post("/recipes/tags", data);
+};
 const RecipeService = {
   getAll,
   get,
@@ -36,6 +47,9 @@ const RecipeService = {
   remove,
   removeAll,
   findByTitle,
+  addImages,
+  getTags,
+  addTag,
 };
 
 export default RecipeService;

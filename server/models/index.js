@@ -33,10 +33,15 @@ db.recipes.belongsToMany(db.tag, {
 });
 
 db.recipes.hasMany(db.comments, { as: "comments" });
-
 db.comments.belongsTo(db.recipes, {
   foreignKey: "recipeId",
   as: "recipe",
+});
+
+db.recipes.hasMany(db.images, { as: "images" });
+db.images.belongsTo(db.recipes, {
+  foreignKey: "recipeId",
+  as: "images",
 });
 
 module.exports = db;

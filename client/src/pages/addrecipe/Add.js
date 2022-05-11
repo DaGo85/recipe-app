@@ -10,10 +10,12 @@ function Add() {
       url: "",
     },
   ]);
-
-  const fileRef = useRef();
   const { userCreds } = useAuthContext();
   const [difficulty, setDifficulty] = useState("5");
+  const [tags, setTags] = useState([]);
+  const [existingTags, setExistingTags] = useState([]);
+
+  const fileRef = useRef();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,6 +38,12 @@ function Add() {
     RecipeService.create(newRecipe)
       .then((response) => {})
       .catch((err) => {});
+
+    RecipeService.addImages(files)
+      .then((response) => {
+        console.log("response" + JSON.stringify(response));
+      })
+      .catch((err) => {});
   };
 
   const handleImageInput = (e) => {
@@ -50,6 +58,16 @@ function Add() {
 
     setFiles((prevState) => [...prevState, ...tempArr]);
   };
+
+  const handleAddTag = () => {
+    RecipeService.addTag(existingTags[existingTags.length + 1]);
+  };
+
+  useEffect(() => {
+    RecipeService.getTags()
+      .then((response) => setExistingTags(response))
+      .catch((err) => {});
+  }, [existingTags]);
 
   return (
     <main className="background-setup">
@@ -103,7 +121,7 @@ function Add() {
           <img
             key={fileSrc.url}
             src={fileSrc.url}
-            alt="not fount"
+            alt="not found"
             width={"250px"}
           />
         ))}
@@ -115,8 +133,21 @@ function Add() {
           multiple
           ref={fileRef}
         />
-        <div>add one or more? images</div>
-        dropdown with existing tags and option to create a new one
+        <p>
+          {tags.map((tag) => {
+            return <div>tag</div>;
+          })}
+        </p>
+        <div>
+          <ul>
+            {existingTags.map((tag) => {
+              return <li>tag</li>;
+            })}
+            <li>
+              <button onClick={handleAddTag}>Add a new tag</button>
+            </li>
+          </ul>
+        </div>
         <div>
           <input
             id="difficulty"
