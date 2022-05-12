@@ -11,7 +11,7 @@ function Add() {
     },
   ]);
   const { userCreds } = useAuthContext();
-  const [difficulty, setDifficulty] = useState("5");
+  const [difficulty, setDifficulty] = useState(5);
   const [tags, setTags] = useState([]);
   const [existingTags, setExistingTags] = useState([]);
 
@@ -20,10 +20,9 @@ function Add() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { title, description } = e.target.elements;
-    console.log(title);
 
     const newRecipe = {
-      username: "userCreds.name",
+      username: userCreds.name,
       title: title.value,
       difficulty: difficulty,
       description: description.value,
@@ -60,7 +59,7 @@ function Add() {
   };
 
   const handleAddTag = () => {
-    RecipeService.addTag(existingTags[existingTags.length + 1]);
+    RecipeService.addTag(existingTags[existingTags.length - 1]);
   };
 
   useEffect(() => {

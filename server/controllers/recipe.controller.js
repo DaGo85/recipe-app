@@ -7,7 +7,6 @@ const Op = db.Sequelize.Op;
 
 // Create and save a new recipe
 exports.create = (req, res) => {
-  console.log(req.body.title);
   // Validate request
   if (!req.body.title) {
     res.status(400).send({
@@ -19,6 +18,8 @@ exports.create = (req, res) => {
   const recipe = {
     title: req.body.title,
     description: req.body.description,
+    difficulty: req.body.difficulty,
+    username: req.body.username,
   };
   // Save recipe in the database
   Recipe.create(recipe)
@@ -75,7 +76,7 @@ exports.findCommentById = (id) => {
 exports.findAll = () => {
   return Recipe.findAll({
     include: ["comments"],
-  }).then((recipe) => {
+  }).then((recipes) => {
     return recipes;
   });
 };

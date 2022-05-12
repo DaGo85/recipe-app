@@ -3,27 +3,36 @@ const Recipe = db.recipes;
 const Tag = db.tag;
 
 // Create and save new tag
-exports.create = (tag) => {
-  return Tag.create({
-    name: tag.name,
+exports.create = (req, res) => {
+  // Validate request
+  if (!req.body.name) {
+    res.status(400).send({
+      message: "Content can not be empty!",
+    });
+    return;
+  }
+  // Save tag in the database
+  Tag.create({
+    name: req.body.name,
   })
-    .then((tag) => {
-      console.log(">> Created Tag: " + JSON.stringify(tag, null, 2));
-      return tag;
+    .then((data) => {
+      res.send(data);
     })
     .catch((err) => {
-      console.log(">> Error while creating Tag: ", err);
+      res.status(500).send({
+        message: err.message || "Some error occurred while creating the tag.",
+      });
     });
 };
 
-// Find all tags todo
+// Find all recipes by tag
 exports.findAll = () => {
-  return Tag.findAll({
+  Tag.findAll({
     include: [
       {
         model: Recipe,
         as: "recipes",
-        attributes: ["id", "title", "description"],
+        attributes: ["id", "title", "description", "difficulty", "username"],
         through: {
           attributes: [],
         },
@@ -81,4 +90,11 @@ exports.addRecipe = (tagId, recipeId) => {
     .catch((err) => {
       console.log(">> Error while adding recipe to tag: ", err);
     });
+};
+
+// Find all tags
+exports.findAllTags = () => {
+  return Tag.findAll().then((recipes) => {
+    return recipes;
+  });
 };

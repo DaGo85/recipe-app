@@ -34,7 +34,7 @@ module.exports = (app) => {
   router.post("/tag", tag.create);
 
   // Retrieve all tags
-  router.get("/tag", tag.findAll);
+  router.get("/tag", tag.findAllTags);
 
   // Retrieve tag with id
   router.get("/tag/:id", tag.findById);

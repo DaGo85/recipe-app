@@ -33,11 +33,11 @@ const addImages = (data) => {
 };
 
 const getTags = () => {
-  return http.get("/recipes/tags");
+  return http.get("/recipes/tag");
 };
 
 const addTag = (data) => {
-  return http.post("/recipes/tags", data);
+  return http.post("/recipes/tag", data);
 };
 const RecipeService = {
   getAll,
