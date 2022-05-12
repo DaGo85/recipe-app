@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
+import DeleteModal from "../../components/elements/DeleteModal";
 
 import RecipeService from "../../services/recipeService";
 function SingleRecipe() {
   const [recipe, setRecipe] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
   const path = location.pathname.split("/recipe")[1];
+
+  const navigate = useNavigate();
 
   // Fetching singlepost from the API
   useEffect(() => {
@@ -16,7 +20,13 @@ function SingleRecipe() {
     fetchedrecipe();
   }, [path]);
 
-  console.log(JSON.stringify(recipe));
+  //Handler for deleting singlepost from the API
+  const handleDelete = async () => {
+    RecipeService.remove(recipe.id).then(navigate("/"));
+  };
+
+  const deleteHandler = () => setShowModal(true);
+
   return (
     <main className="background-setup">
       <h1>{recipe.title}</h1>
@@ -26,16 +36,24 @@ function SingleRecipe() {
       <ul>
         <li>tags</li>
       </ul>
+      <h6>ingredients:</h6>
       <ul>
         {recipe &&
-          recipe.ingredients.split(", ").map((ingr) => <li>{ingr}</li>)}
+          recipe.ingredients
+            .split(", ")
+            .map((ingr) => <li key={ingr}>{ingr}</li>)}
       </ul>
       <section>
         <p>{recipe.description}</p>
       </section>
-      <button>delete</button>
+      <button onClick={() => deleteHandler()}>delete</button>
       <button>edit</button>
       <section>commentsection if logged in?</section>
+      <DeleteModal
+        handleDelete={handleDelete}
+        showModal={showModal}
+        setShowModal={setShowModal}
+      />
     </main>
   );
 }
