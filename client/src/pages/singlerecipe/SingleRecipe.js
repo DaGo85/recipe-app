@@ -27,7 +27,8 @@ function SingleRecipe() {
         <li>tags</li>
       </ul>
       <ul>
-        <li>ingredients</li>
+        {recipe &&
+          recipe.ingredients.split(", ").map((ingr) => <li>{ingr}</li>)}
       </ul>
       <section>
         <p>{recipe.description}</p>

@@ -15,6 +15,7 @@ exports.create = (req, res) => {
     return;
   }
   // Create a recipe
+  console.log(req.body.ingredients);
   const recipe = {
     title: req.body.title,
     description: req.body.description,
