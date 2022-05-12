@@ -72,20 +72,11 @@ exports.findCommentById = (id) => {
     });
 };
 
-// Get all recipes include comments
-exports.findAll = () => {
-  return Recipe.findAll({
-    include: ["comments", "images"],
-  }).then((recipes) => {
-    return recipes;
-  });
-};
-
-// Retrieve all recipes from the database
+// Retrieve all recipes from the database with comments and images
 exports.findAll = (req, res) => {
   const title = req.query.title;
   const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
-  Recipe.findAll({ where: condition })
+  Recipe.findAll({ where: condition, include: ["comments", "images"] })
     .then((data) => {
       res.send(data);
     })
@@ -99,7 +90,7 @@ exports.findAll = (req, res) => {
 // Find a single recipe with an id
 exports.findOne = (req, res) => {
   const id = req.params.id;
-  Recipe.findByPk(id)
+  Recipe.findByPk(id, { include: ["comments", "images"] })
     .then((data) => {
       if (data) {
         res.send(data);
@@ -160,23 +151,6 @@ exports.delete = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: "Could not delete recipe with id=" + id,
-      });
-    });
-};
-
-// Delete all recipes from the database.
-exports.deleteAll = (req, res) => {
-  Recipe.destroy({
-    where: {},
-    truncate: false,
-  })
-    .then((nums) => {
-      res.send({ message: `${nums} recipes were deleted successfully!` });
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while removing all recipes.",
       });
     });
 };

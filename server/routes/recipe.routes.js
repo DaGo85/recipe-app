@@ -21,9 +21,6 @@ module.exports = (app) => {
   // Delete a recipe with id
   router.delete("/:id", recipes.delete);
 
-  // Delete all recipes
-  router.delete("/", recipes.deleteAll);
-
   // Create comment for recipe
   router.post("/comments", recipes.createComment);
 
@@ -35,13 +32,12 @@ module.exports = (app) => {
 
   // Retrieve all tags
   router.get("/tag", tag.findAllTags);
-  /*
+
   // Retrieve tag with id
   router.get("/tag/:id", tag.findById);
 
   // Add recipe to a tag
   router.post("/tag/:id", tag.addRecipe);
-*/
 
   // Add images to recipe by id
   router.post("/upload", upload.single("file"), uploadController.uploadFiles);
