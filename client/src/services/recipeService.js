@@ -39,6 +39,7 @@ const getTags = () => {
 const addTag = (data) => {
   return http.post("/recipes/tag", data);
 };
+
 const RecipeService = {
   getAll,
   get,

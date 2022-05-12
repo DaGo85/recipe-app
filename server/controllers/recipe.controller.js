@@ -75,7 +75,7 @@ exports.findCommentById = (id) => {
 // Get all recipes include comments
 exports.findAll = () => {
   return Recipe.findAll({
-    include: ["comments"],
+    include: ["comments", "images"],
   }).then((recipes) => {
     return recipes;
   });

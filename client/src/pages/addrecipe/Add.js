@@ -4,12 +4,7 @@ import RecipeService from "../../services/recipeService";
 import { useAuthContext } from "../../utility/AuthContext";
 
 function Add() {
-  const [files, setFiles] = useState([
-    {
-      data: [],
-      url: "",
-    },
-  ]);
+  const [files, setFiles] = useState([]);
   const { userCreds } = useAuthContext();
   const [difficulty, setDifficulty] = useState(5);
   const [tags, setTags] = useState([]);
@@ -26,28 +21,35 @@ function Add() {
       title: title.value,
       difficulty: difficulty,
       description: description.value,
+      tags: "test",
     };
 
-    try {
-      await axios.post("http://localhost:5000/api/recipes", newRecipe);
-    } catch (err) {
-      console.log(err);
-    }
-    console.log(newRecipe);
     RecipeService.create(newRecipe)
       .then((response) => {})
       .catch((err) => {});
 
-    RecipeService.addImages(files)
+    files.forEach((file) => {
+      try {
+        const data = new FormData();
+        const filename = Date.now() + file.name;
+        data.append("name", filename);
+        data.append("file", file.data);
+        axios.post("http://localhost:5000/api/recipes/upload", data);
+      } catch {}
+    });
+
+    /*
+    RecipeService.addImages(data)
       .then((response) => {
         console.log("response" + JSON.stringify(response));
       })
-      .catch((err) => {});
+      .catch((err) => {
+        console.log(err);
+      }); */
   };
 
   const handleImageInput = (e) => {
     const tempArr = [];
-
     [...e.target.files].forEach((file) => {
       tempArr.push({
         data: file,

@@ -5,15 +5,15 @@ const Image = db.images;
 
 const uploadFiles = async (req, res) => {
   try {
-    console.log("upload" + req.data);
-    if (req.file == undefined) {
+    console.log("upload" + req.body.url);
+    if (req.body.url == undefined) {
       return res.send(`You must select a file.`);
     }
     Image.create({
-      type: req.file.mimetype,
-      name: req.file.originalname,
+      type: req.body.mimetype,
+      name: req.body.originalname,
       data: fs.readFileSync(
-        __basedir + "/resources/static/assets/uploads/" + req.file.filename
+        __basedir + "/resources/static/assets/uploads/" + req.body.url
       ),
     }).then((image) => {
       fs.writeFileSync(

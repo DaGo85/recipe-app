@@ -25,6 +25,17 @@ exports.create = (req, res) => {
     });
 };
 
+// Find all tags
+exports.findAllTags = () => {
+  Tag.findAndCountAll().then((data) => {
+    res.send(data).catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while fetching the tags.",
+      });
+    });
+  });
+};
+
 // Find all recipes by tag
 exports.findAll = () => {
   Tag.findAll({
@@ -90,11 +101,4 @@ exports.addRecipe = (tagId, recipeId) => {
     .catch((err) => {
       console.log(">> Error while adding recipe to tag: ", err);
     });
-};
-
-// Find all tags
-exports.findAllTags = () => {
-  return Tag.findAll().then((recipes) => {
-    return recipes;
-  });
 };

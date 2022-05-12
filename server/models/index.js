@@ -23,13 +23,9 @@ db.images = require("./image.model.js")(sequelize, Sequelize);
 
 db.tag.belongsToMany(db.recipes, {
   through: "recipe_tag",
-  as: "recipes",
-  foreignKey: "tag_id",
 });
 db.recipes.belongsToMany(db.tag, {
   through: "recipe_tag",
-  as: "tags",
-  foreignKey: "recipe_id",
 });
 
 db.recipes.hasMany(db.comments, { as: "comments" });
