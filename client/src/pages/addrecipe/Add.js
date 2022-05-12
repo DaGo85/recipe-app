@@ -9,6 +9,8 @@ function Add() {
   const [difficulty, setDifficulty] = useState(5);
   const [tags, setTags] = useState([]);
   const [existingTags, setExistingTags] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
+  const [ingredient, setIngredient] = useState([]);
 
   const fileRef = useRef();
 
@@ -22,6 +24,7 @@ function Add() {
       difficulty: difficulty,
       description: description.value,
       tags: "test",
+      ingredients: ingredients,
     };
 
     RecipeService.create(newRecipe)
@@ -62,6 +65,10 @@ function Add() {
 
   const handleAddTag = () => {
     RecipeService.addTag(existingTags[existingTags.length - 1]);
+  };
+
+  const handleAddIngredient = () => {
+    setIngredients((prevIngredients) => [...prevIngredients, ingredient]);
   };
 
   useEffect(() => {
@@ -139,6 +146,20 @@ function Add() {
             return <div>tag</div>;
           })}
         </p>
+        <div>
+          ingredients:
+          <ul>
+            {ingredients.map((ingredient) => {
+              return <li>{ingredient}</li>;
+            })}
+            <li>
+              <input onChange={(e) => setIngredient(e.target.value)} />
+            </li>
+          </ul>
+          <button onClick={() => handleAddIngredient()}>
+            add this ingredient+++
+          </button>
+        </div>
         <div>
           <ul>
             {existingTags.map((tag) => {

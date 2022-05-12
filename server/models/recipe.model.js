@@ -6,6 +6,7 @@ module.exports = (sequelize, Sequelize) => {
     title: {
       type: Sequelize.STRING,
     },
+    ingredients: { type: Sequelize.STRING },
     difficulty: { type: Sequelize.STRING },
     description: {
       type: Sequelize.STRING,

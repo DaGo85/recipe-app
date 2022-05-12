@@ -20,6 +20,7 @@ exports.create = (req, res) => {
     description: req.body.description,
     difficulty: req.body.difficulty,
     username: req.body.username,
+    ingredients: req.body.ingredients,
   };
   // Save recipe in the database
   Recipe.create(recipe)
