@@ -28,6 +28,7 @@ db.recipes.belongsToMany(db.tag, {
   through: "recipe_tag",
 });
 
+//todo remove comments and implement voting
 db.recipes.hasMany(db.comments, { as: "comments" });
 db.comments.belongsTo(db.recipes, {
   foreignKey: "recipeId",

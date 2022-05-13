@@ -85,7 +85,7 @@ function Add() {
       .then((response) => setExistingTags(response))
       .catch((err) => {});
   }, [existingTags]);
-  console.log(ingredients);
+
   return (
     <main className="background-setup">
       <form onSubmit={handleSubmit}>

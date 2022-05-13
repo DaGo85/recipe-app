@@ -8,7 +8,8 @@ function SingleRecipe() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const [ingredients, setIngredients] = useState("");
+  const [ingredients, setIngredients] = useState([]);
+  const [ingredient, setIngredient] = useState("");
   const [tags, setTags] = useState("");
   const location = useLocation();
   const path = location.pathname.split("/update")[1];
@@ -23,7 +24,7 @@ function SingleRecipe() {
       setTitle(res.data.title);
       setDescription(res.data.description);
       setDifficulty(res.data.difficulty);
-      setIngredients(res.data.ingredients);
+      setIngredients(res.data.ingredients.split(", "));
     };
     fetchedrecipe();
   }, [path]);
@@ -33,10 +34,26 @@ function SingleRecipe() {
       title: title,
       description: description,
       difficulty: difficulty,
-      ingredients: ingredients,
+      ingredients: ingredients.join(", "),
       tags: tags,
     };
+
+    RecipeService.update(path, updatedRecipe).then(navigate(`/recipe${path}`));
   };
+
+  const handleAddIngredient = () => {
+    if (!ingredient) {
+      return;
+    }
+    setIngredients((prevIngredients) => [...prevIngredients, ingredient]);
+    setIngredient("");
+  };
+
+  const handleRemoveIngredient = (ingr) => {
+    const newIngredients = ingredients.filter((rIngred) => rIngred !== ingr);
+    setIngredients(newIngredients);
+  };
+
   return (
     <main className="background-setup">
       <input value={title} onChange={(e) => setTitle(e.target.value)} />
@@ -53,13 +70,31 @@ function SingleRecipe() {
       <ul>
         <li>tags</li>
       </ul>
-      <h6>ingredients:</h6>
-      <ul>
-        {recipe &&
-          recipe.ingredients
-            .split(", ")
-            .map((ingr) => <li key={ingr}>{ingr}</li>)}
-      </ul>
+      <div>
+        ingredients:
+        <ul>
+          {ingredients &&
+            ingredients.map((ingredient) => {
+              return (
+                <li key={ingredient}>
+                  {ingredient}
+                  <button onClick={() => handleRemoveIngredient(ingredient)}>
+                    remove
+                  </button>
+                </li>
+              );
+            })}
+          <li>
+            <input
+              value={ingredient}
+              onChange={(e) => setIngredient(e.target.value)}
+            />
+          </li>
+        </ul>
+        <button onClick={() => handleAddIngredient()}>
+          add this ingredient+++
+        </button>
+      </div>
       <textarea
         value={description}
         onChange={(e) => setDescription(e.target.value)}

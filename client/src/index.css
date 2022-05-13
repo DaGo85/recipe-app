@@ -50,18 +50,23 @@
 
 @layer components {
   .background-setup {
-    @apply flex flex-col py-12 gap-6 justify-center items-center w-full bg-backgroundLight dark:bg-backgroundDark text-backgroundLightOn dark:text-backgroundDarkOn transition-all;
+    @apply flex flex-col py-12 gap-6 justify-center items-center
+     w-full bg-backgroundLight dark:bg-backgroundDark text-backgroundLightOn
+      dark:text-backgroundDarkOn transition-all;
   }
 
   .auth-card-setup {
-    @apply p-4 bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn rounded-xl shadow-lg flex flex-col items-start space-y-10 
+    @apply p-4 bg-secondaryLightContainer dark:bg-secondaryDarkContainer
+     text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn
+      rounded-xl shadow-lg flex flex-col items-start space-y-10 
     text-lg w-72 border-4 border-double border-lightOutline dark:border-darkOutline;
   }
 
   .auth-input-setup {
     @apply px-1 py-1 border-2 shadow-lg w-64 border-lightOutline dark:border-darkOutline
-    text-primaryLightContainerOn dark:text-primaryDarkContainerOn placeholder-primaryLightContainerOn/40
-    dark:placeholder-primaryDarkContainerOn/40 bg-lightVariantSurface dark:bg-darkSurface;
+    text-primaryLightContainerOn dark:text-primaryDarkContainerOn
+     placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 
+     bg-lightVariantSurface dark:bg-darkSurface;
   }
   .auth-button-setup {
     @apply px-4 py-1 border-2 bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60

@@ -52,7 +52,13 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
       </div>
       <p className="flex flex-row dark:text-gray-300">
         Register with
-        <span className="auth-link-setup ml-1" onClick={signInWithGoogle}>
+        <span
+          className="auth-link-setup ml-1"
+          onClick={() => {
+            signInWithGoogle();
+            setRegister(false);
+          }}
+        >
           Google
         </span>
         .

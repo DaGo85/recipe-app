@@ -48,7 +48,7 @@ function SingleRecipe() {
       </section>
       <button onClick={() => deleteHandler()}>delete</button>
       <button onClick={() => navigate(`/update${path}`)}>edit</button>
-      <section>commentsection if logged in?</section>
+      <section>voting section if logged in?</section>
       <DeleteModal
         handleDelete={handleDelete}
         showModal={showModal}

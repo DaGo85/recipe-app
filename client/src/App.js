@@ -65,7 +65,6 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route index element={<Home />} />
         <Route path="recipes" element={<Recipes />} />
         <Route path="recipe:singlerecipeId" element={<SingleRecipe />} />
         <Route path="update:singlerecipeId" element={<SingleRecipeUpdate />} />
