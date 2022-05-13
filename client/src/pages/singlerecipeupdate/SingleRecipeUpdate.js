@@ -99,7 +99,9 @@ function SingleRecipe() {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button onClick={() => handleRecipeUpdate()}>update!</button>
+      <button className="button-setup" onClick={() => handleRecipeUpdate()}>
+        update!
+      </button>
     </main>
   );
 }

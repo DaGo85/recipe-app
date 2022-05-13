@@ -8,6 +8,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.5;
+    font-size: 22px;
   }
 
   *,
@@ -46,6 +47,25 @@
     overflow-wrap: break-word;
   }
   /* CSS reset end*/
+
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  h3 {
+    font-size: 1.17em;
+  }
+  h4 {
+    font-size: 1em;
+  }
+  h5 {
+    font-size: 0.83em;
+  }
+  h6 {
+    font-size: 0.67em;
+  }
 }
 
 @layer components {
@@ -72,6 +92,12 @@
     @apply px-4 py-1 border-2 bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60
      dark:hover:bg-primaryDark/60 text-primaryLightOn dark:text-primaryDarkOn dark:border-darkOutline
       text-lg border-lightOutline rounded-lg;
+  }
+
+  .button-setup {
+    @apply border px-4 py-2 rounded-2xl bg-primaryLight dark:bg-primaryDark
+     text-primaryLightOn dark:text-primaryDarkOn border-lightOutline dark:border-darkOutline
+     hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60;
   }
 
   .auth-link-setup {

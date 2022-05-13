@@ -172,7 +172,9 @@ function Add() {
           />
         </div>
         <textarea id="description" placeholder="Description" required />
-        <button type="submit">submit</button>
+        <button className="button-setup" type="submit">
+          submit
+        </button>
       </form>
     </main>
   );
