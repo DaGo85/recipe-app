@@ -7,6 +7,7 @@ function Add() {
   const [files, setFiles] = useState([]);
   const { userCreds } = useAuthContext();
   const [difficulty, setDifficulty] = useState(5);
+  const [difficultyText, setDifficultyText] = useState("medium");
   const [tags, setTags] = useState([]);
   const [existingTags, setExistingTags] = useState([]);
   const [ingredients, setIngredients] = useState([]);
@@ -86,6 +87,17 @@ function Add() {
       .catch((err) => {});
   }, [existingTags]);
 
+  useEffect(() => {
+    const handleDifficulty = () => {
+      if (difficulty > 8) return setDifficultyText("very hard");
+      if (difficulty > 6) return setDifficultyText("hard");
+      if (difficulty > 4) return setDifficultyText("medium");
+      if (difficulty > 2) return setDifficultyText("easy");
+      if (difficulty > 0) return setDifficultyText("very easy");
+    };
+    handleDifficulty();
+  }, [difficulty]);
+
   return (
     <main className="background-setup">
       <form onSubmit={handleSubmit}>
@@ -159,6 +171,9 @@ function Add() {
           </ul>
         </div>
         <div>
+          <h4>
+            Difficulty: {difficulty}/10 {difficultyText}
+          </h4>
           <input
             id="difficulty"
             type="range"
@@ -166,7 +181,7 @@ function Add() {
             max="10"
             value={difficulty}
             onChange={(e) => setDifficulty(e.target.value)}
-            className=""
+            className="slider-button"
             required
             placeholder="Difficulty"
           />

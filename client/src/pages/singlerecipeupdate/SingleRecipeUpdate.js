@@ -5,6 +5,7 @@ import RecipeService from "../../services/recipeService";
 function SingleRecipe() {
   const [recipe, setRecipe] = useState("");
 
+  const [difficultyText, setDifficultyText] = useState("medium");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -54,19 +55,35 @@ function SingleRecipe() {
     setIngredients(newIngredients);
   };
 
+  useEffect(() => {
+    const handleDifficulty = () => {
+      if (difficulty > 8) return setDifficultyText("very hard");
+      if (difficulty > 6) return setDifficultyText("hard");
+      if (difficulty > 4) return setDifficultyText("medium");
+      if (difficulty > 2) return setDifficultyText("easy");
+      if (difficulty > 0) return setDifficultyText("very easy");
+    };
+    handleDifficulty();
+  }, [difficulty]);
+
   return (
     <main className="background-setup">
       <input value={title} onChange={(e) => setTitle(e.target.value)} />
-      <input
-        type="range"
-        min="1"
-        max="10"
-        value={difficulty}
-        onChange={(e) => setDifficulty(e.target.value)}
-        className=""
-        required
-        placeholder="Difficulty"
-      />
+      <div>
+        <h4>
+          Difficulty: {difficulty}/10 {difficultyText}
+        </h4>
+        <input
+          type="range"
+          min="1"
+          max="10"
+          value={difficulty}
+          onChange={(e) => setDifficulty(e.target.value)}
+          className="slider-button"
+          required
+          placeholder="Difficulty"
+        />
+      </div>
       <ul>
         <li>tags</li>
       </ul>
