@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../utility/AuthContext";
+import LastRecipe from "./components/LastRecipe";
 
 function Home() {
   const { userData } = useAuthContext();
@@ -10,7 +11,7 @@ function Home() {
       <h3>Here you can find and create Gluten- and Sorbitfree recipes!</h3>
       <section className="">Icon/Image for random recipe</section>
       <section className="">Some Statistics</section>
-      <section>latest recipes</section>
+      <LastRecipe />
       {userData ? (
         <Link to="/add">
           <button>Add a Recipe</button>

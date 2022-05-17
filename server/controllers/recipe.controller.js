@@ -90,6 +90,23 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Retrieve all recipes from the database with comments and images
+exports.findLast = (req, res) => {
+  Recipe.findAll({
+    limit: 1,
+    include: ["comments", "images"],
+    order: [["createdAt"]],
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving recipe.",
+      });
+    });
+};
+
 // Find a single recipe with an title
 exports.findOne = (req, res) => {
   const title = req.params.title;

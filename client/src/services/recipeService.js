@@ -8,6 +8,10 @@ const get = (title) => {
   return http.get(`/recipes/${title}`);
 };
 
+const getLast = () => {
+  return http.get("/recipes/last");
+};
+
 const create = (data) => {
   return http.post("/recipes", data);
 };
@@ -43,6 +47,7 @@ const addTag = (data) => {
 const RecipeService = {
   getAll,
   get,
+  getLast,
   create,
   update,
   remove,
