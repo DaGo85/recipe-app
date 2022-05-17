@@ -4,8 +4,8 @@ const getAll = () => {
   return http.get("/recipes");
 };
 
-const get = (id) => {
-  return http.get(`/recipes/${id}`);
+const get = (title) => {
+  return http.get(`/recipes/${title}`);
 };
 
 const create = (data) => {

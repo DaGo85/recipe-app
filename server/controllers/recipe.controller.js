@@ -14,8 +14,8 @@ exports.create = (req, res) => {
     });
     return;
   }
+
   // Create a recipe
-  console.log(req.body.ingredients);
   const recipe = {
     title: req.body.title,
     description: req.body.description,
@@ -23,6 +23,7 @@ exports.create = (req, res) => {
     username: req.body.username,
     ingredients: req.body.ingredients,
   };
+
   // Save recipe in the database
   Recipe.create(recipe)
     .then((data) => {
@@ -89,22 +90,22 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single recipe with an id
+// Find a single recipe with an title
 exports.findOne = (req, res) => {
-  const id = req.params.id;
-  Recipe.findByPk(id, { include: ["comments", "images"] })
+  const title = req.params.title;
+  Recipe.findOne({ where: { title: title } })
     .then((data) => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find recipe with id=${id}.`,
+          message: `Cannot find recipe with title=${title}.`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving recipe with id=" + id,
+        message: "Error retrieving recipe with title=" + title,
       });
     });
 };

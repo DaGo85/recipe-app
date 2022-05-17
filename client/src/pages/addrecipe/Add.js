@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import RecipeService from "../../services/recipeService";
+import { useNavigate } from "react-router";
 import { useAuthContext } from "../../utility/AuthContext";
 
 function Add() {
@@ -12,6 +13,8 @@ function Add() {
   const [existingTags, setExistingTags] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState([]);
+
+  const navigate = useNavigate();
 
   const fileRef = useRef();
 
@@ -28,9 +31,14 @@ function Add() {
       ingredients: ingredients.join(", "),
     };
 
-    RecipeService.create(newRecipe)
-      .then((response) => {})
-      .catch((err) => {});
+    try {
+      await RecipeService.create(newRecipe)
+        .then((response) => {
+          newRecipe.id = response.body.data.id;
+          console.log(JSON.stringify(response.body.data.id));
+        })
+        .catch((err) => {});
+    } catch {}
 
     files.forEach((file) => {
       try {
@@ -42,14 +50,7 @@ function Add() {
       } catch {}
     });
 
-    /*
-    RecipeService.addImages(data)
-      .then((response) => {
-        console.log("response" + JSON.stringify(response));
-      })
-      .catch((err) => {
-        console.log(err);
-      }); */
+    navigate(`/recipe${newRecipe.title}`);
   };
 
   const handleImageInput = (e) => {
