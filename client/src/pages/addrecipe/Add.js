@@ -144,7 +144,10 @@ function Add() {
               return (
                 <li key={ingredient}>
                   {ingredient}
-                  <button onClick={() => handleRemoveIngredient(ingredient)}>
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveIngredient(ingredient)}
+                  >
                     remove
                   </button>
                 </li>
@@ -157,7 +160,7 @@ function Add() {
               />
             </li>
           </ul>
-          <button onClick={() => handleAddIngredient()}>
+          <button type="button" onClick={() => handleAddIngredient()}>
             add this ingredient+++
           </button>
         </div>
