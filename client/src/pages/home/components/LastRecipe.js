@@ -1,22 +1,28 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import RecipeService from "../../../services/recipeService";
 
 function LastRecipe() {
-  const [recipe, setRecipe] = useState("");
+  const [recipe, setRecipe] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchedrecipe = async () => {
       const res = await RecipeService.getLast();
-      setRecipe(res.data);
+      setRecipe(res.data[0]);
       console.log(JSON.stringify(res.data));
     };
     fetchedrecipe();
   }, []);
 
+  const handleLink = () => {
+    navigate(`/recipe${recipe.id}`);
+  };
+
   return (
     <>
       {recipe ? (
-        <section>
+        <section onClick={() => handleLink()}>
           <h3>Our last Recipe:</h3>
           {recipe.images && (
             <img src={recipe.images[0]} alt="first img of newest recipe" />
