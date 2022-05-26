@@ -10,9 +10,16 @@ const RecipesContext = createContext(null);
 
 const RecipesProvider = ({ children }) => {
   const [recipesData, setRecipesData] = useState(null);
+  const [recipesFilter, setRecipesFilter] = useState({
+    difficulty: "all",
+    tags: [],
+    input: "",
+  });
 
   return (
-    <RecipesContext.Provider value={{ recipesData, setRecipesData }}>
+    <RecipesContext.Provider
+      value={{ recipesData, setRecipesData, recipesFilter, setRecipesFilter }}
+    >
       {children}
     </RecipesContext.Provider>
   );

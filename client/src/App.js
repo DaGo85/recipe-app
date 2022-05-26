@@ -41,7 +41,7 @@ function App() {
         setUserData(newUser);
       }
     });
-  }, [auth, setUserData]);
+  }, [setUserData]);
 
   useEffect(() => {
     const fetchUserName = async () => {

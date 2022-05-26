@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import Pagination from "../../components/pagination/Pagination";
+import RecipesFilter from "./components/RecipesFilter";
 import RecipeTable from "./components/RecipeTable";
 
 const PageSize = 9;
@@ -19,6 +20,7 @@ function Recipes() {
   return (
     <main className="background-setup">
       <section className="">Filter Section</section>
+      <RecipesFilter />
       <Pagination
         currentPage={currentPage}
         totalCount={filteredRecipes.length}
