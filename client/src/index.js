@@ -6,15 +6,18 @@ import App from "./App";
 import { ThemeProvider } from "./utility/darkmode/ThemeContext";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./utility/AuthContext";
+import { RecipesProvider } from "./utility/RecipesContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeProvider>
       <AuthProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <RecipesProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </RecipesProvider>
       </AuthProvider>
     </ThemeProvider>
   </React.StrictMode>

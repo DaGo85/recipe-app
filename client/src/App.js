@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useAuthContext } from "./utility/AuthContext";
 import { auth } from "./utility/firebase";
 import useScrollToTop from "./utility/useScrollToTop";
+import RecipeService from "./services/recipeService";
 
 import { query, collection, getDocs, where } from "firebase/firestore";
 import { db } from "./utility/firebase";
@@ -16,11 +17,15 @@ import SingleRecipeUpdate from "./pages/singlerecipeupdate/SingleRecipeUpdate";
 import NotFound from "./pages/notfound/NotFound";
 import Footer from "./components/footer/Footer";
 import Add from "./pages/addrecipe/Add";
+import { useRecipesContext } from "./utility/RecipesContext";
 
 // todo BE multiple files fix
 
 function App() {
   const { userData, setUserData, setUserCreds } = useAuthContext();
+  const { recipesData, setRecipesData } = useRecipesContext();
+  console.log(recipesData);
+
   useScrollToTop();
 
   useEffect(() => {
@@ -59,6 +64,15 @@ function App() {
     };
     fetchUserName();
   }, [userData, setUserCreds]);
+
+  useEffect(() => {
+    const fetchedRecipes = async () => {
+      const res = await RecipeService.getAll();
+      setRecipesData(res.data);
+    };
+
+    fetchedRecipes();
+  }, [setRecipesData]);
 
   return (
     <>

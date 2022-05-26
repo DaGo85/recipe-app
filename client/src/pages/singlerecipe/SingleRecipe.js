@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router";
 import DeleteModal from "../../components/elements/DeleteModal";
 
 import RecipeService from "../../services/recipeService";
+
 function SingleRecipe() {
   const [recipe, setRecipe] = useState("");
   const [showModal, setShowModal] = useState(false);
@@ -13,11 +14,12 @@ function SingleRecipe() {
 
   // Fetching singlepost from the API
   useEffect(() => {
-    const fetchedrecipe = async () => {
+    const fetchedRecipe = async () => {
       const res = await RecipeService.get(path);
-      setRecipe(res.data[0]);
+      setRecipe(res.data);
     };
-    fetchedrecipe();
+
+    fetchedRecipe();
   }, [path]);
 
   //Handler for deleting singlepost from the API

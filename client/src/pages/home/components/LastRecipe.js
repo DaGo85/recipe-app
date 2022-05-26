@@ -10,8 +10,8 @@ function LastRecipe() {
     const fetchedrecipe = async () => {
       const res = await RecipeService.getLast();
       setRecipe(res.data[0]);
-      console.log(JSON.stringify(res.data));
     };
+
     fetchedrecipe();
   }, []);
 
