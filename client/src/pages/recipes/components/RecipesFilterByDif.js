@@ -6,7 +6,11 @@ function RecipesFilterByDif({ dif, setDif }) {
   return (
     <div>
       <span>
-        <select onChange={(e) => setDif(e)}>
+        <select
+          onChange={(e) => {
+            setDif(e.target.value);
+          }}
+        >
           {difArray.map((difficulty) => (
             <option key={difficulty} value={difficulty}>
               {difficulty}

@@ -25,9 +25,27 @@ function Recipes() {
   }, [currentPage, filteredRecipes]);
 
   useEffect(() => {
-    setFilteredRecipes(recipesData);
+    let saveFilter = recipesData;
+    if (filter.difficulty !== "all") {
+      let difRange = [];
+      if (filter.difficulty === "very hard") difRange = ["9", "10"];
+      if (filter.difficulty === "hard") difRange = ["7", "8"];
+      if (filter.difficulty === "medium") difRange = ["5", "6"];
+      if (filter.difficulty === "easy") difRange = ["3", "4"];
+      if (filter.difficulty === "very easy") difRange = ["1", "2"];
+
+      saveFilter = saveFilter.filter((sFilter) => {
+        return (
+          (sFilter.difficulty === difRange[0]) |
+          (sFilter.difficulty === difRange[1])
+        );
+      });
+    }
+
+    setFilteredRecipes(saveFilter);
   }, [filter]);
 
+  console.log("filteredRecipes:" + JSON.stringify(filteredRecipes));
   return (
     <main className="background-setup">
       <section className="">Filter Section</section>
