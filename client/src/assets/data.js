@@ -34,3 +34,32 @@ export const socialIconsList = [
     alt: "Google Profil link",
   },
 ];
+
+export const recipesMockData = [
+  {
+    comments: [],
+    createdAt: "2022-05-27T11:37:26.000Z",
+    description: "wasser dünsten braten",
+    difficulty: "8",
+    id: 1,
+    images: [],
+    ingredients: "zwiebel, knoblauch",
+    title: "knoblauchpfanne",
+    updatedAt: "2022-05-27T11:37:26.000Z",
+    username: "David G.",
+    tags: ["a", "c"],
+  },
+  {
+    comments: [],
+    createdAt: "2022-05-27T11:37:26.000Z",
+    description: "nuddeln kochen essig",
+    difficulty: "4",
+    id: 2,
+    images: [],
+    ingredients: "zwiebel, essig",
+    title: "nuddeln gekocht",
+    updatedAt: "2022-05-27T11:37:26.000Z",
+    username: "David G.",
+    tags: ["a", "d"],
+  },
+];

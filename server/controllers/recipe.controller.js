@@ -77,6 +77,7 @@ exports.findCommentById = (id) => {
 
 // Retrieve all recipes from the database with comments and images
 exports.findAll = (req, res) => {
+  console.log("test findall");
   const title = req.query.title;
   const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
   Recipe.findAll({ where: condition, include: ["comments", "images"] })

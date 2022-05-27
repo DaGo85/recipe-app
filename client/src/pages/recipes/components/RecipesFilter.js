@@ -9,14 +9,6 @@ function RecipesFilter({ filter, setFilter }) {
   const [input, setInput] = useState("");
   const [tagMock, setTagMock] = useState(["a", "b", "c", "d", "e"]);
 
-  const handleFilter = () => {
-    setFilter({
-      difficulty: dif,
-      tags: tag,
-      input: input,
-    });
-  };
-
   return (
     <>
       <RecipesFilterByInput input={input} setInput={setInput} />
@@ -29,7 +21,17 @@ function RecipesFilter({ filter, setFilter }) {
         />
       )}
       <RecipesFilterByDif dif={dif} setDif={setDif} />
-      <button onClick={() => handleFilter()}>filter</button>
+      <button
+        onClick={() =>
+          setFilter({
+            difficulty: dif,
+            tags: tag,
+            input: input,
+          })
+        }
+      >
+        filter
+      </button>
     </>
   );
 }
