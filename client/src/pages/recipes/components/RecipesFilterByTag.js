@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
-function RecipesFilterByTag({ tag, setTag }) {
-  const tagMock = ["a", "b", "c", "d", "e"];
+function RecipesFilterByTag({ tag, setTag, tagMock, setTagMock }) {
   const [activeTags, setSactiveTags] = useState();
 
   const activateAll = () => {
     setTag(tagMock);
+  };
+
+  const removeAll = () => {
+    setTag([]);
   };
 
   return (
@@ -32,9 +35,15 @@ function RecipesFilterByTag({ tag, setTag }) {
             )}
           </>
         ))}
-        <li classname="" onClick={activateAll}>
-          all
-        </li>
+        {tag.length > 0 ? (
+          <li classname="" onClick={removeAll}>
+            remove all
+          </li>
+        ) : (
+          <li classname="" onClick={activateAll}>
+            add all
+          </li>
+        )}
       </ul>
     </div>
   );

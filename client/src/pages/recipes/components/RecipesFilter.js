@@ -4,9 +4,10 @@ import RecipesFilterByInput from "./RecipesFilterByInput";
 import RecipesFilterByTag from "./RecipesFilterByTag";
 
 function RecipesFilter({ filter, setFilter }) {
-  const [dif, setDif] = useState();
-  const [tag, setTag] = useState([]);
-  const [input, setInput] = useState();
+  const [dif, setDif] = useState("all");
+  const [tag, setTag] = useState(["a", "b", "c", "d", "e"]);
+  const [input, setInput] = useState("");
+  const [tagMock, setTagMock] = useState(["a", "b", "c", "d", "e"]);
 
   const handleFilter = () => {
     setFilter({
@@ -15,13 +16,20 @@ function RecipesFilter({ filter, setFilter }) {
       input: input,
     });
   };
-  console.log("tags:" + tag);
+
   return (
     <>
       <RecipesFilterByInput input={input} setInput={setInput} />
-      <RecipesFilterByTag tag={tag} setTag={setTag} />
+      {tagMock && (
+        <RecipesFilterByTag
+          tag={tag}
+          setTag={setTag}
+          tagMock={tagMock}
+          setTagMock={setTagMock}
+        />
+      )}
       <RecipesFilterByDif dif={dif} setDif={setDif} />
-      <button onClick={() => handleFilter()}></button>
+      <button onClick={() => handleFilter()}>filter</button>
     </>
   );
 }
