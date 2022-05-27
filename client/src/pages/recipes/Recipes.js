@@ -6,6 +6,11 @@ import RecipeTable from "./components/RecipeTable";
 const PageSize = 9;
 
 function Recipes() {
+  const [filter, setFilter] = useState({
+    difficulty: "all",
+    tags: [],
+    input: "",
+  });
   const [currentPage, setCurrentPage] = useState(1);
   const [filteredRecipes, setFilteredRecipes] = useState([
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
@@ -20,7 +25,7 @@ function Recipes() {
   return (
     <main className="background-setup">
       <section className="">Filter Section</section>
-      <RecipesFilter />
+      <RecipesFilter filter={filter} setFilter={setFilter} />
       <Pagination
         currentPage={currentPage}
         totalCount={filteredRecipes.length}
