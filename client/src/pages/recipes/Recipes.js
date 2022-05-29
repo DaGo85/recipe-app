@@ -28,11 +28,33 @@ function Recipes() {
     let saveFilter = recipesData;
     if (filter.difficulty !== "all") {
       let difRange = [];
+
+      switch (filter.difficulty) {
+        case "very hard":
+          difRange = ["9", "10"];
+          break;
+        case "hard":
+          difRange = ["7", "8"];
+          break;
+        case "medium":
+          difRange = ["5", "6"];
+          break;
+        case "easy":
+          difRange = ["3", "4"];
+          break;
+        case "very easy":
+          difRange = ["1", "2"];
+          break;
+        default:
+          difRange = ["8"];
+      }
+      /*
       if (filter.difficulty === "very hard") difRange = ["9", "10"];
       if (filter.difficulty === "hard") difRange = ["7", "8"];
       if (filter.difficulty === "medium") difRange = ["5", "6"];
       if (filter.difficulty === "easy") difRange = ["3", "4"];
       if (filter.difficulty === "very easy") difRange = ["1", "2"];
+      */
 
       saveFilter = saveFilter.filter((sFilter) => {
         return (
@@ -40,6 +62,10 @@ function Recipes() {
           (sFilter.difficulty === difRange[1])
         );
       });
+    }
+
+    if (filter.tags !== []) {
+      saveFilter = saveFilter.filter((sFilter) => {});
     }
 
     setFilteredRecipes(saveFilter);

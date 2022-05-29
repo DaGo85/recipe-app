@@ -13,34 +13,36 @@ function RecipesFilterByTag({ tag, setTag, tagMock, setTagMock }) {
 
   return (
     <div>
-      <ul classname="">
+      <ul className="">
         {tagMock.map((tagM) => (
-          <>
+          <li key={tagM}>
             {tag.includes(tagM) ? (
-              <li
-                classname=""
+              <div
+                key={tagM}
+                className=""
                 onClick={() =>
                   setTag((prevTag) => prevTag.filter((f) => f !== tagM))
                 }
               >
                 {tagM}
-              </li>
+              </div>
             ) : (
-              <li
-                classname=""
+              <div
+                key={tagM}
+                className=""
                 onClick={() => setTag((prevTag) => [...prevTag, tagM])}
               >
                 {tagM}
-              </li>
+              </div>
             )}
-          </>
+          </li>
         ))}
         {tag.length > 0 ? (
-          <li classname="" onClick={removeAll}>
+          <li className="" onClick={removeAll}>
             remove all
           </li>
         ) : (
-          <li classname="" onClick={activateAll}>
+          <li className="" onClick={activateAll}>
             add all
           </li>
         )}
