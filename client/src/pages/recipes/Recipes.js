@@ -54,11 +54,14 @@ function Recipes() {
         );
       });
     }
-    /*
-    if (filter.tags !== []) {
-      saveFilter = saveFilter.filter((sFilter) => {});
+
+    if (filter.tags.length) {
+      saveFilter = saveFilter.filter((sFilter) => {
+        return sFilter.tags.every((element) => {
+          return filter.tags.includes(element);
+        });
+      });
     }
-    */
 
     setFilteredRecipes(saveFilter);
   }, [filter, recipesData]);
