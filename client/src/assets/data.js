@@ -35,6 +35,14 @@ export const socialIconsList = [
   },
 ];
 
+export const tagList = [
+  "Glutenfree",
+  "Sorbitfree",
+  "Lactosefree",
+  "Fructosefree",
+  "Meatfree",
+];
+
 export const recipesMockData = [
   {
     comments: [],
@@ -47,7 +55,7 @@ export const recipesMockData = [
     title: "knoblauchpfanne",
     updatedAt: "2022-05-27T11:37:26.000Z",
     username: "David G.",
-    tags: ["a", "c"],
+    tags: ["Glutenfree", "Meatfree"],
   },
   {
     comments: [],
@@ -60,6 +68,6 @@ export const recipesMockData = [
     title: "nuddeln gekocht",
     updatedAt: "2022-05-27T11:37:26.000Z",
     username: "David G.",
-    tags: ["a", "d"],
+    tags: ["Fructosefree", "Sorbitfree"],
   },
 ];

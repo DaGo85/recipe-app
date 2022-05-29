@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import RecipeService from "../../services/recipeService";
 import { useNavigate } from "react-router";
 import { useAuthContext } from "../../utility/AuthContext";
+import { tagList } from "../../assets/data";
 
 function Add() {
   const [files, setFiles] = useState([]);
@@ -10,7 +11,6 @@ function Add() {
   const [difficulty, setDifficulty] = useState(5);
   const [difficultyText, setDifficultyText] = useState("medium");
   const [tags, setTags] = useState([]);
-  const [existingTags, setExistingTags] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState([]);
 
@@ -27,7 +27,7 @@ function Add() {
       title: title.value,
       difficulty: difficulty,
       description: description.value,
-      tags: "test",
+      tags: tags,
       ingredients: ingredients.join(", "),
     };
 
@@ -65,10 +65,6 @@ function Add() {
     setFiles((prevState) => [...prevState, ...tempArr]);
   };
 
-  const handleAddTag = () => {
-    RecipeService.addTag(existingTags[existingTags.length - 1]);
-  };
-
   const handleAddIngredient = () => {
     if (!ingredient) {
       return;
@@ -83,12 +79,6 @@ function Add() {
   };
 
   useEffect(() => {
-    RecipeService.getTags()
-      .then((response) => setExistingTags(response))
-      .catch((err) => {});
-  }, [existingTags]);
-
-  useEffect(() => {
     const handleDifficulty = () => {
       if (difficulty > 8) return setDifficultyText("very hard");
       if (difficulty > 6) return setDifficultyText("hard");
@@ -99,6 +89,7 @@ function Add() {
     handleDifficulty();
   }, [difficulty]);
 
+  console.log(tags);
   return (
     <main className="background-setup">
       <form onSubmit={handleSubmit}>
@@ -132,11 +123,6 @@ function Add() {
           multiple
           ref={fileRef}
         />
-        <p>
-          {tags.map((tag) => {
-            return <div>tag</div>;
-          })}
-        </p>
         <div>
           ingredients:
           <ul>
@@ -166,12 +152,29 @@ function Add() {
         </div>
         <div>
           <ul>
-            {existingTags.map((tag) => {
-              return <li>tag</li>;
+            {tagList.map((tagM) => {
+              return (
+                <li key={tagM}>
+                  {tags.includes(tagM) ? (
+                    <div
+                      className=""
+                      onClick={() =>
+                        setTags((prevTag) => prevTag.filter((f) => f !== tagM))
+                      }
+                    >
+                      {tagM}
+                    </div>
+                  ) : (
+                    <div
+                      className=""
+                      onClick={() => setTags((prevTags) => [...prevTags, tagM])}
+                    >
+                      {tagM}
+                    </div>
+                  )}
+                </li>
+              );
             })}
-            <li>
-              <button onClick={handleAddTag}>Add a new tag</button>
-            </li>
           </ul>
         </div>
         <div>

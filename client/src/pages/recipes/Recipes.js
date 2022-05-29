@@ -13,9 +13,7 @@ function Recipes() {
     tags: [],
     input: "",
   });
-  const [filteredRecipes, setFilteredRecipes] = useState([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-  ]);
+  const [filteredRecipes, setFilteredRecipes] = useState([]);
   const { recipesData } = useRecipesContext();
 
   const currentGridData = useMemo(() => {
@@ -48,13 +46,6 @@ function Recipes() {
         default:
           difRange = ["8"];
       }
-      /*
-      if (filter.difficulty === "very hard") difRange = ["9", "10"];
-      if (filter.difficulty === "hard") difRange = ["7", "8"];
-      if (filter.difficulty === "medium") difRange = ["5", "6"];
-      if (filter.difficulty === "easy") difRange = ["3", "4"];
-      if (filter.difficulty === "very easy") difRange = ["1", "2"];
-      */
 
       saveFilter = saveFilter.filter((sFilter) => {
         return (
@@ -63,15 +54,17 @@ function Recipes() {
         );
       });
     }
-
+    /*
     if (filter.tags !== []) {
       saveFilter = saveFilter.filter((sFilter) => {});
     }
+    */
 
     setFilteredRecipes(saveFilter);
-  }, [filter]);
+  }, [filter, recipesData]);
 
   console.log("filteredRecipes:" + JSON.stringify(filteredRecipes));
+
   return (
     <main className="background-setup">
       <section className="">Filter Section</section>

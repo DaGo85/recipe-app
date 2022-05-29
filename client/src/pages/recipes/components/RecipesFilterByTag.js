@@ -1,10 +1,9 @@
 import React, { useState } from "react";
+import { tagList } from "../../../assets/data";
 
-function RecipesFilterByTag({ tag, setTag, tagMock, setTagMock }) {
-  const [activeTags, setSactiveTags] = useState();
-
+function RecipesFilterByTag({ tag, setTag }) {
   const activateAll = () => {
-    setTag(tagMock);
+    setTag(tagList);
   };
 
   const removeAll = () => {
@@ -14,12 +13,12 @@ function RecipesFilterByTag({ tag, setTag, tagMock, setTagMock }) {
   return (
     <div>
       <ul className="">
-        {tagMock.map((tagM) => (
+        {tagList.map((tagM) => (
           <li key={tagM}>
             {tag.includes(tagM) ? (
               <div
                 key={tagM}
-                className=""
+                className="cursor-pointer "
                 onClick={() =>
                   setTag((prevTag) => prevTag.filter((f) => f !== tagM))
                 }
@@ -29,7 +28,7 @@ function RecipesFilterByTag({ tag, setTag, tagMock, setTagMock }) {
             ) : (
               <div
                 key={tagM}
-                className=""
+                className="cursor-pointer "
                 onClick={() => setTag((prevTag) => [...prevTag, tagM])}
               >
                 {tagM}
@@ -38,11 +37,11 @@ function RecipesFilterByTag({ tag, setTag, tagMock, setTagMock }) {
           </li>
         ))}
         {tag.length > 0 ? (
-          <li className="" onClick={removeAll}>
+          <li className="cursor-pointer " onClick={removeAll}>
             remove all
           </li>
         ) : (
-          <li className="" onClick={activateAll}>
+          <li className="cursor-pointer " onClick={activateAll}>
             add all
           </li>
         )}
