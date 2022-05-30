@@ -18,11 +18,10 @@ import { useRecipesContext } from "./utility/RecipesContext";
 // todo BE multiple files fix
 
 function App() {
-  const { userData, setUserData, setUserCreds } = useAuthContext();
-  const { recipesData, setRecipesData } = useRecipesContext();
-  console.log(recipesData);
-
   useScrollToTop();
+  const { userData } = useAuthContext();
+  const { recipesData, setRecipesData } = useRecipesContext();
+  console.log("recipesdata check" + recipesData);
 
   useEffect(() => {
     const fetchedRecipes = async () => {

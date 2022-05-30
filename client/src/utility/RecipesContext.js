@@ -1,7 +1,6 @@
 // Context for recipes
 
 import { useState, useContext, createContext } from "react";
-import { recipesMockData } from "../assets/data";
 
 // Creates Context
 
@@ -10,7 +9,7 @@ const RecipesContext = createContext(null);
 // Context Provider
 
 const RecipesProvider = ({ children }) => {
-  const [recipesData, setRecipesData] = useState(recipesMockData);
+  const [recipesData, setRecipesData] = useState({});
   const [recipesFilter, setRecipesFilter] = useState({
     difficulty: "all",
     tags: [],

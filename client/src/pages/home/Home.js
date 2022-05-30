@@ -1,4 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import RecipeService from "../../services/recipeService";
 import { useAuthContext } from "../../utility/AuthContext";
 import { useRecipesContext } from "../../utility/RecipesContext";
 import LastRecipe from "./components/LastRecipe";
@@ -6,7 +8,20 @@ import RandomRecipe from "./components/RandomRecipe";
 
 function Home() {
   const { userData } = useAuthContext();
-  const { recipesData } = useRecipesContext();
+  const { recipesData, setRecipesData } = useRecipesContext();
+  const location = useLocation();
+  const path = location.pathname;
+  console.log("recipesdata check" + recipesData);
+
+  useEffect(() => {
+    const fetchedRecipes = async () => {
+      const res = await RecipeService.getAll();
+      console.log("response:" + res.data);
+      setRecipesData(res.data);
+    };
+
+    fetchedRecipes();
+  }, [path, setRecipesData]);
 
   return (
     <main className="background-setup">

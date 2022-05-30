@@ -5,6 +5,7 @@ const getAll = () => {
 };
 
 const get = (title) => {
+  console.log(title + "check2");
   return http.get(`/recipes/${title}`);
 };
 
@@ -16,8 +17,8 @@ const create = (data) => {
   return http.post("/recipes", data);
 };
 
-const update = (id, data) => {
-  return http.put(`/recipes/${id}`, data);
+const update = (title, data) => {
+  return http.put(`/recipes/${title}`, data);
 };
 
 const remove = (id) => {

@@ -10,7 +10,7 @@ function SingleRecipe() {
   const location = useLocation();
   const path = location.pathname.split("/recipe")[1];
 
-  const [recipe, setRecipe] = useState();
+  const [recipe, setRecipe] = useState(null);
   const { recipesData } = useRecipesContext();
 
   const navigate = useNavigate();
@@ -21,8 +21,14 @@ function SingleRecipe() {
   };
 
   useEffect(() => {
-    setRecipe(recipesData[path - 1]);
-  }, []);
+    RecipeService.get(path)
+      .then((response) => {
+        setRecipe(response.data);
+      })
+      .catch((err) => {
+        navigate("/notfound");
+      });
+  }, [path]);
 
   const deleteHandler = () => setShowModal(true);
 
@@ -39,10 +45,8 @@ function SingleRecipe() {
           </ul>
           <h6>ingredients:</h6>
           <ul>
-            {/*recipe &&
-              recipe.ingredients
-                .split(", ")
-      .map((ingr) => <li key={ingr}>{ingr}</li>)*/}
+            {recipe &&
+              recipe.ingredients.map((ingr) => <li key={ingr}>{ingr}</li>)}
           </ul>
           <section>
             <p>{recipe.description}</p>

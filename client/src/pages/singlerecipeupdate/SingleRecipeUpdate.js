@@ -12,7 +12,7 @@ function SingleRecipe() {
   const [difficulty, setDifficulty] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState("");
-  const [tags, setTags] = useState("");
+  const [tags, setTags] = useState([]);
   const location = useLocation();
   const path = location.pathname.split("/update")[1];
 
@@ -26,7 +26,7 @@ function SingleRecipe() {
       setTitle(res.data.title);
       setDescription(res.data.description);
       setDifficulty(res.data.difficulty);
-      setIngredients(res.data.ingredients.split(", "));
+      setIngredients(res.data.ingredients);
     };
     fetchedrecipe();
   }, [path]);
@@ -36,11 +36,15 @@ function SingleRecipe() {
       title: title,
       description: description,
       difficulty: difficulty,
-      ingredients: ingredients.join(", "),
+      ingredients: ingredients,
       tags: tags,
+      id: recipe.id,
+      username: recipe.username,
     };
 
-    RecipeService.update(path, updatedRecipe).then(navigate(`/recipe${path}`));
+    RecipeService.update(title, updatedRecipe).then(
+      navigate(`/recipe${title}`)
+    );
   };
 
   const handleAddIngredient = () => {
@@ -58,12 +62,28 @@ function SingleRecipe() {
 
   useEffect(() => {
     const handleDifficulty = () => {
-      if (difficulty > 8) return setDifficultyText("very hard");
-      if (difficulty > 6) return setDifficultyText("hard");
-      if (difficulty > 4) return setDifficultyText("medium");
-      if (difficulty > 2) return setDifficultyText("easy");
-      if (difficulty > 0) return setDifficultyText("very easy");
+      switch (true) {
+        case difficulty > 8:
+          setDifficultyText("very hard");
+          break;
+        case difficulty > 6:
+          setDifficultyText("hard");
+          break;
+        case difficulty > 4:
+          setDifficultyText("medium");
+          break;
+        case difficulty > 2:
+          setDifficultyText("easy");
+          break;
+        case difficulty > 0:
+          setDifficultyText("very easy");
+          break;
+        default:
+          setDifficultyText("very easy");
+          break;
+      }
     };
+
     handleDifficulty();
   }, [difficulty]);
 

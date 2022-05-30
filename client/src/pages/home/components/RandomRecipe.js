@@ -15,7 +15,7 @@ function RandomRecipe({ recipesData }) {
   return (
     <>
       {randomRecipe && (
-        <Link to={`/recipe${randomRecipe.id}`}>{randomRecipe.title}</Link>
+        <Link to={`/recipe${randomRecipe.title}`}>{randomRecipe.title}</Link>
       )}
     </>
   );

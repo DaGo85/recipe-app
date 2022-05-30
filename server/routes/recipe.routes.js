@@ -14,11 +14,11 @@ module.exports = (app) => {
   // Retrieve all recipes
   router.get("/last", recipes.findLast);
 
-  // Retrieve a single recipe with id
+  // Retrieve a single recipe per title
   router.get("/:title", recipes.findOne);
 
   // Update a recipe with id
-  router.put("/:id", recipes.update);
+  router.put("/:title", recipes.update);
 
   // Delete a recipe with id
   router.delete("/:id", recipes.delete);

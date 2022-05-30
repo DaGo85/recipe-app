@@ -75,6 +75,7 @@ exports.findOne = (req, res) => {
   const title = req.params.title;
   Recipe.findOne({ where: { title: title } })
     .then((data) => {
+      console.log("paramscheck" + JSON.stringify(data));
       if (data) {
         res.send(data);
       } else {
@@ -92,9 +93,11 @@ exports.findOne = (req, res) => {
 
 // Update a recipe by the id in the request
 exports.update = (req, res) => {
-  const id = req.params.id;
+  const title = req.params.title;
+
+  console.log("num" + req.params.title);
   Recipe.update(req.body, {
-    where: { id: id },
+    where: { title: title },
   })
     .then((num) => {
       if (num == 1) {
@@ -103,13 +106,14 @@ exports.update = (req, res) => {
         });
       } else {
         res.send({
-          message: `Cannot update recipe with id=${id}. Maybe recipe was not found or req.body is empty!`,
+          message: `Cannot update recipe with title=${title}. Maybe recipe was not found or req.body is empty!`,
         });
       }
     })
     .catch((err) => {
+      console.log("error");
       res.status(500).send({
-        message: "Error updating recipe with id=" + id,
+        message: "Error updating recipe with title=" + title,
       });
     });
 };

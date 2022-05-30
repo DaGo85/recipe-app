@@ -16,7 +16,7 @@ function LastRecipe() {
   }, []);
 
   const handleLink = () => {
-    navigate(`/recipe${recipe.id}`);
+    navigate(`/recipe${recipe.title}`);
   };
 
   return (

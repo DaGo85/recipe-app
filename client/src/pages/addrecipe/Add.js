@@ -104,9 +104,7 @@ function Add() {
     };
     handleDifficulty();
   }, [difficulty]);
-  console.log("dif" + difficultyText);
 
-  console.log(tags);
   return (
     <main className="background-setup">
       <form onSubmit={handleSubmit}>
