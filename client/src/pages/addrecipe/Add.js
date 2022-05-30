@@ -13,6 +13,7 @@ function Add() {
   const [tags, setTags] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState([]);
+  const [addIng, setAddIng] = useState([]);
 
   const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ function Add() {
       difficulty: difficulty,
       description: description.value,
       tags: tags,
-      ingredients: ingredients.join(", "),
+      ingredients: ingredients,
     };
 
     try {
@@ -69,8 +70,8 @@ function Add() {
     if (!ingredient) {
       return;
     }
-    setIngredients((prevIngredients) => [...prevIngredients, ingredient]);
-    setIngredient("");
+    setIngredients((prevIngredients) => [...prevIngredients, addIng]);
+    setAddIng("");
   };
 
   const handleRemoveIngredient = (ingr) => {
@@ -80,14 +81,30 @@ function Add() {
 
   useEffect(() => {
     const handleDifficulty = () => {
-      if (difficulty > 8) return setDifficultyText("very hard");
-      if (difficulty > 6) return setDifficultyText("hard");
-      if (difficulty > 4) return setDifficultyText("medium");
-      if (difficulty > 2) return setDifficultyText("easy");
-      if (difficulty > 0) return setDifficultyText("very easy");
+      switch (true) {
+        case difficulty > 8:
+          setDifficultyText("very hard");
+          break;
+        case difficulty > 6:
+          setDifficultyText("hard");
+          break;
+        case difficulty > 4:
+          setDifficultyText("medium");
+          break;
+        case difficulty > 2:
+          setDifficultyText("easy");
+          break;
+        case difficulty > 0:
+          setDifficultyText("very easy");
+          break;
+        default:
+          setDifficultyText("very easy");
+          break;
+      }
     };
     handleDifficulty();
   }, [difficulty]);
+  console.log("dif" + difficultyText);
 
   console.log(tags);
   return (
@@ -141,8 +158,8 @@ function Add() {
             })}
             <li>
               <input
-                value={ingredient}
-                onChange={(e) => setIngredient(e.target.value)}
+                value={addIng}
+                onChange={(e) => setAddIng(e.target.value)}
               />
             </li>
           </ul>

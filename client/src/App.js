@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     const fetchedRecipes = async () => {
       const res = await RecipeService.getAll();
-      //setRecipesData(res.data);
+      setRecipesData(res.data);
     };
 
     fetchedRecipes();

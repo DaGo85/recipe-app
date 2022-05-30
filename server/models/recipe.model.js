@@ -6,7 +6,16 @@ module.exports = (sequelize, Sequelize) => {
     title: {
       type: Sequelize.STRING,
     },
-    ingredients: { type: Sequelize.STRING },
+    ingredients: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      get() {
+        return this.getDataValue("ingredients").split(";");
+      },
+      set(val) {
+        this.setDataValue("ingredients", val.join(";"));
+      },
+    },
     difficulty: { type: Sequelize.STRING },
     description: {
       type: Sequelize.STRING,
