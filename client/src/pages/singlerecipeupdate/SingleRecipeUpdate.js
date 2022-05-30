@@ -31,7 +31,7 @@ function SingleRecipe() {
     fetchedrecipe();
   }, [path]);
 
-  const handleRecipeUpdate = () => {
+  const handleRecipeUpdate = async () => {
     const updatedRecipe = {
       title: title,
       description: description,
@@ -42,9 +42,8 @@ function SingleRecipe() {
       username: recipe.username,
     };
 
-    RecipeService.update(title, updatedRecipe).then(
-      navigate(`/recipe${title}`)
-    );
+    await RecipeService.update(recipe.title, updatedRecipe);
+    navigate(`/recipe${title}`);
   };
 
   const handleAddIngredient = () => {

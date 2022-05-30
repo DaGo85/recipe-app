@@ -3,21 +3,19 @@ import { useLocation, useNavigate } from "react-router";
 import DeleteModal from "../../components/elements/DeleteModal";
 
 import RecipeService from "../../services/recipeService";
-import { useRecipesContext } from "../../utility/RecipesContext";
 
 function SingleRecipe() {
   const [showModal, setShowModal] = useState(false);
   const location = useLocation();
   const path = location.pathname.split("/recipe")[1];
-
   const [recipe, setRecipe] = useState(null);
-  const { recipesData } = useRecipesContext();
 
   const navigate = useNavigate();
 
   //Handler for deleting singlepost from the API
   const handleDelete = async () => {
-    RecipeService.remove(recipesData[path].id).then(navigate("/"));
+    await RecipeService.remove(recipe.id);
+    navigate("/");
   };
 
   useEffect(() => {
@@ -26,7 +24,7 @@ function SingleRecipe() {
         setRecipe(response.data);
       })
       .catch((err) => {
-        navigate("/notfound");
+        //navigate("/notfound");
       });
   }, [path]);
 
