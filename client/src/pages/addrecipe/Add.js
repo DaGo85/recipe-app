@@ -29,13 +29,13 @@ function Add() {
       description: description.value,
       tags: tags,
       ingredients: ingredients,
+      id: "",
     };
 
     try {
       await RecipeService.create(newRecipe)
         .then((response) => {
-          newRecipe.id = response.body.data.id;
-          console.log(JSON.stringify(response.body.data.id));
+          newRecipe.id = response.data.id;
         })
         .catch((err) => {});
     } catch {}
@@ -46,11 +46,12 @@ function Add() {
         const filename = Date.now() + file.name;
         data.append("name", filename);
         data.append("file", file.data);
-        axios.post("http://localhost:5000/api/recipes/upload", data);
+        data.append("recipeId", newRecipe.id);
+        RecipeService.addImages(data);
       } catch {}
     });
 
-    navigate(`/recipe${newRecipe.title}`);
+    //navigate(`/recipe${newRecipe.title}`);
   };
 
   const handleImageInput = (e) => {

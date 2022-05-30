@@ -2,8 +2,6 @@ const db = require("../models");
 
 const Recipe = db.recipes;
 
-const Op = db.Sequelize.Op;
-
 // Create and save a new recipe
 exports.create = (req, res) => {
   // Validate request
@@ -39,10 +37,7 @@ exports.create = (req, res) => {
 
 // Retrieve all recipes from the database with images
 exports.findAll = (req, res) => {
-  console.log("test findall");
-  const title = req.query.title;
-  const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
-  Recipe.findAll({ where: condition, include: ["images"] })
+  Recipe.findAll()
     .then((data) => {
       res.send(data);
     })
@@ -73,9 +68,8 @@ exports.findLast = (req, res) => {
 // Find a single recipe with an title
 exports.findOne = (req, res) => {
   const title = req.params.title;
-  Recipe.findOne({ where: { title: title } })
+  Recipe.findOne({ where: { title: title }, include: ["images"] })
     .then((data) => {
-      console.log("paramscheck" + JSON.stringify(data));
       if (data) {
         res.send(data);
       } else {
@@ -95,7 +89,6 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const title = req.params.title;
 
-  console.log("num" + req.params.title);
   Recipe.update(req.body, {
     where: { title: title },
   })

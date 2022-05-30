@@ -21,7 +21,7 @@ function App() {
   useScrollToTop();
   const { userData } = useAuthContext();
   const { recipesData, setRecipesData } = useRecipesContext();
-  console.log("recipesdata check" + recipesData);
+  console.log("recipesdata check" + JSON.stringify(recipesData));
 
   useEffect(() => {
     const fetchedRecipes = async () => {

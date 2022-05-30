@@ -5,7 +5,6 @@ const getAll = () => {
 };
 
 const get = (title) => {
-  console.log(title + "check2");
   return http.get(`/recipes/${title}`);
 };
 
@@ -37,14 +36,6 @@ const addImages = (data) => {
   return http.post("/recipes/upload", data);
 };
 
-const getTags = () => {
-  return http.get("/recipes/tag");
-};
-
-const addTag = (data) => {
-  return http.post("/recipes/tag", data);
-};
-
 const RecipeService = {
   getAll,
   get,
@@ -55,8 +46,6 @@ const RecipeService = {
   removeAll,
   findByTitle,
   addImages,
-  getTags,
-  addTag,
 };
 
 export default RecipeService;

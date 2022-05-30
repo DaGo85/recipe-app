@@ -18,6 +18,7 @@ function SingleRecipe() {
     navigate("/");
   };
 
+  //Handler for getting singlepost from the API
   useEffect(() => {
     RecipeService.get(path)
       .then((response) => {
@@ -30,11 +31,13 @@ function SingleRecipe() {
 
   const deleteHandler = () => setShowModal(true);
 
+  console.log("imagecheck" + JSON.stringify(recipe?.images));
   return (
     <>
       {recipe ? (
         <main className="background-setup">
           <h1>{recipe.title}</h1>
+          <img alt="from recipe" />
           <h3>created by: {recipe.username}</h3>
           <h6>created at: {new Date(recipe.createdAt).toDateString()}</h6>
           <h6>difficulty: {recipe.difficulty}/10</h6>
