@@ -1,7 +1,6 @@
 const db = require("../models");
 
 const Recipe = db.recipes;
-const Comment = db.comments;
 
 const Op = db.Sequelize.Op;
 
@@ -37,50 +36,12 @@ exports.create = (req, res) => {
     });
 };
 
-// Create and save new comments
-exports.createComment = (recipeId, comment) => {
-  return Comment.create({
-    name: comment.name,
-    text: comment.text,
-    recipeId: recipeId,
-  })
-    .then((comment) => {
-      console.log(">> Created comment: " + JSON.stringify(comment, null, 4));
-      return comment;
-    })
-    .catch((err) => {
-      console.log(">> Error while creating comment: ", err);
-    });
-};
-
-// Get the comments for a given recipe
-exports.findRecipeById = (recipeId) => {
-  return Recipe.findByPk(recipeId, { include: ["comments"] })
-    .then((recipe) => {
-      return recipe;
-    })
-    .catch((err) => {
-      console.log(">> Error while finding recipe: ", err);
-    });
-};
-
-// Get the comments for a given comment id
-exports.findCommentById = (id) => {
-  return Comment.findByPk(id, { include: ["recipe"] })
-    .then((comment) => {
-      return comment;
-    })
-    .catch((err) => {
-      console.log(">> Error while finding comment: ", err);
-    });
-};
-
-// Retrieve all recipes from the database with comments and images
+// Retrieve all recipes from the database with images
 exports.findAll = (req, res) => {
   console.log("test findall");
   const title = req.query.title;
   const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
-  Recipe.findAll({ where: condition, include: ["comments", "images"] })
+  Recipe.findAll({ where: condition, include: ["images"] })
     .then((data) => {
       res.send(data);
     })
@@ -91,11 +52,11 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Retrieve all recipes from the database with comments and images
+// Retrieve last recipes from the database and images
 exports.findLast = (req, res) => {
   Recipe.findAll({
     limit: 1,
-    include: ["comments", "images"],
+    include: ["images"],
     order: [["createdAt"]],
   })
     .then((data) => {

@@ -16,6 +16,7 @@ const RecipesProvider = ({ children }) => {
     tags: [],
     input: "",
   });
+
   console.log("recipesincontext" + recipesData);
   return (
     <RecipesContext.Provider

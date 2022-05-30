@@ -3,7 +3,7 @@ import { useAuthContext } from "../../../utility/AuthContext";
 import { logout } from "../../../utility/firebase";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 
-function NavBarProfile({ setIsOpen }) {
+function NavBarProfile({ setIsOpen, setLogin }) {
   const { userData, setUserData } = useAuthContext();
 
   return (
@@ -15,6 +15,7 @@ function NavBarProfile({ setIsOpen }) {
           logout();
           setUserData(null);
           setIsOpen(false);
+          setLogin(true);
         }}
       >
         Logout

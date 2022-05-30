@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
+import { tagList } from "../../assets/data";
 
 import RecipeService from "../../services/recipeService";
 function SingleRecipe() {
@@ -85,7 +86,29 @@ function SingleRecipe() {
         />
       </div>
       <ul>
-        <li>tags</li>
+        {tagList.map((tagM) => {
+          return (
+            <li key={tagM}>
+              {tags.includes(tagM) ? (
+                <div
+                  className=""
+                  onClick={() =>
+                    setTags((prevTag) => prevTag.filter((f) => f !== tagM))
+                  }
+                >
+                  {tagM}
+                </div>
+              ) : (
+                <div
+                  className=""
+                  onClick={() => setTags((prevTags) => [...prevTags, tagM])}
+                >
+                  {tagM}
+                </div>
+              )}
+            </li>
+          );
+        })}
       </ul>
       <div>
         ingredients:

@@ -3,29 +3,26 @@ import { useLocation, useNavigate } from "react-router";
 import DeleteModal from "../../components/elements/DeleteModal";
 
 import RecipeService from "../../services/recipeService";
+import { useRecipesContext } from "../../utility/RecipesContext";
 
 function SingleRecipe() {
-  const [recipe, setRecipe] = useState("");
   const [showModal, setShowModal] = useState(false);
   const location = useLocation();
   const path = location.pathname.split("/recipe")[1];
 
+  const [recipe, setRecipe] = useState();
+  const { recipesData } = useRecipesContext();
+
   const navigate = useNavigate();
-
-  // Fetching singlepost from the API
-  useEffect(() => {
-    const fetchedRecipe = async () => {
-      const res = await RecipeService.get(path);
-      setRecipe(res.data);
-    };
-
-    fetchedRecipe();
-  }, [path]);
 
   //Handler for deleting singlepost from the API
   const handleDelete = async () => {
-    RecipeService.remove(recipe.id).then(navigate("/"));
+    RecipeService.remove(recipesData[path].id).then(navigate("/"));
   };
+
+  useEffect(() => {
+    setRecipe(recipesData[path - 1]);
+  }, []);
 
   const deleteHandler = () => setShowModal(true);
 
@@ -42,10 +39,10 @@ function SingleRecipe() {
           </ul>
           <h6>ingredients:</h6>
           <ul>
-            {recipe &&
+            {/*recipe &&
               recipe.ingredients
                 .split(", ")
-                .map((ingr) => <li key={ingr}>{ingr}</li>)}
+      .map((ingr) => <li key={ingr}>{ingr}</li>)*/}
           </ul>
           <section>
             <p>{recipe.description}</p>

@@ -1,6 +1,5 @@
 module.exports = (app) => {
   const recipes = require("../controllers/recipe.controller.js");
-  const tag = require("../controllers/tag.controller.js");
   const uploadController = require("../controllers/upload");
   const upload = require("../middleware/upload");
 
@@ -24,24 +23,6 @@ module.exports = (app) => {
   // Delete a recipe with id
   router.delete("/:id", recipes.delete);
 
-  // Create comment for recipe
-  router.post("/comments", recipes.createComment);
-
-  // Create comment for recipe
-  router.get("/comments", recipes.findRecipeById);
-
-  // Create new tag
-  router.post("/tag", tag.create);
-
-  // Retrieve all tags
-  router.get("/tag", tag.findAllTags);
-  /*
-  // Retrieve tag with id
-  router.get("/tag/:id", tag.findById);
-
-  // Add recipe to a tag
-  router.post("/tag/:id", tag.addRecipe);
-*/
   // Add images to recipe by id
   router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 

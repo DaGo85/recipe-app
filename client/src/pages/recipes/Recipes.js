@@ -46,7 +46,7 @@ function Recipes() {
         default:
           difRange = ["8"];
       }
-
+      console.log("length" + saveFilter.tags);
       saveFilter = saveFilter.filter((sFilter) => {
         return (
           (sFilter.difficulty === difRange[0]) |
@@ -55,7 +55,7 @@ function Recipes() {
       });
     }
 
-    if (filter.tags.length) {
+    if (filter.tags.length > 0) {
       saveFilter = saveFilter.filter((sFilter) => {
         return sFilter.tags.every((element) => {
           return filter.tags.includes(element);

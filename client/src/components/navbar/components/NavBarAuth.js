@@ -1,16 +1,57 @@
-import React, { useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import React, { useEffect, useState } from "react";
 import { useAuthContext } from "../../../utility/AuthContext";
+import { auth, db } from "../../../utility/firebase";
 import NavBarAuthLogin from "./NavBarAuthLogin";
 import NavBarAuthRegister from "./NavBarAuthRegister";
 import NavBarAuthReset from "./NavBarAuthReset";
 import NavBarProfile from "./NavBarProfile";
+
+import { query, collection, getDocs, where } from "firebase/firestore";
 
 function NavBarAuth() {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(true);
   const [register, setRegister] = useState(false);
   const [reset, setReset] = useState(false);
-  const { userData } = useAuthContext();
+  const { userData, setUserData, setUserCreds } = useAuthContext();
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        const email = user.email;
+
+        const newUser = { uid, email };
+        setLogin(false);
+        setUserData(newUser);
+      }
+    });
+  }, [setUserData]);
+
+  useEffect(() => {
+    const fetchUserName = async () => {
+      if (userData) {
+        try {
+          const q = query(
+            collection(db, "users"),
+            where("uid", "==", userData.uid)
+          );
+          const doc = await getDocs(q);
+          const data = doc.docs[0].data();
+          setUserCreds((prevState) => {
+            return { ...prevState, name: data.name };
+          });
+        } catch (err) {
+          console.error(err);
+          alert("An error occured while fetching user data");
+        }
+      }
+    };
+    fetchUserName();
+  }, [userData, setUserCreds]);
 
   return (
     <div className="relative z-50">
@@ -34,7 +75,7 @@ function NavBarAuth() {
         } transition-all origin-top-right duration-300 ease-out transform`}
       >
         {isOpen && userData ? (
-          <NavBarProfile setIsOpen={setIsOpen} />
+          <NavBarProfile setIsOpen={setIsOpen} setLogin={setLogin} />
         ) : (
           <>
             {login && (

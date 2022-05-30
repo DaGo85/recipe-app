@@ -45,7 +45,6 @@ export const tagList = [
 
 export const recipesMockData = [
   {
-    comments: [],
     createdAt: "2022-05-27T11:37:26.000Z",
     description: "wasser dünsten braten",
     difficulty: "8",
@@ -58,7 +57,6 @@ export const recipesMockData = [
     tags: ["Glutenfree", "Meatfree"],
   },
   {
-    comments: [],
     createdAt: "2022-05-27T11:37:26.000Z",
     description: "nuddeln kochen essig",
     difficulty: "4",
