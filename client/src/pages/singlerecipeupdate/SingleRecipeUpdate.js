@@ -42,7 +42,9 @@ function SingleRecipe() {
       username: recipe.username,
     };
 
-    await RecipeService.update(recipe.title, updatedRecipe);
+    await RecipeService.update(recipe.title, updatedRecipe).catch((err) => {
+      navigate("/notfound");
+    });
     navigate(`/recipe${title}`);
   };
 

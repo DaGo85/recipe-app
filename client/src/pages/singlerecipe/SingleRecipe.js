@@ -24,7 +24,7 @@ function SingleRecipe() {
         setRecipe(response.data);
       })
       .catch((err) => {
-        //navigate("/notfound");
+        navigate("/notfound");
       });
   }, [path]);
 

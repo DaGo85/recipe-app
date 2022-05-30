@@ -12,7 +12,6 @@ function Add() {
   const [difficultyText, setDifficultyText] = useState("medium");
   const [tags, setTags] = useState([]);
   const [ingredients, setIngredients] = useState([]);
-  const [ingredient, setIngredient] = useState([]);
   const [addIng, setAddIng] = useState([]);
 
   const navigate = useNavigate();
@@ -67,9 +66,6 @@ function Add() {
   };
 
   const handleAddIngredient = () => {
-    if (!ingredient) {
-      return;
-    }
     setIngredients((prevIngredients) => [...prevIngredients, addIng]);
     setAddIng("");
   };
