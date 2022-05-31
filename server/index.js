@@ -22,11 +22,11 @@ app.use(decodeIDToken);
 const db = require("./models");
 
 // for dev only:
-db.sequelize.sync({ force: true }).then(() => {
+/*db.sequelize.sync({ force: true }).then(() => {
   console.log("Drop and re-sync db.");
-});
+});*/
 
-// db.sequelize.sync();
+db.sequelize.sync();
 
 require("./routes/recipe.routes.js")(app);
 

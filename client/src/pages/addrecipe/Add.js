@@ -40,14 +40,14 @@ function Add() {
         .catch((err) => {});
     } catch {}
 
-    files.forEach((file) => {
+    files.forEach(async (file) => {
       try {
         const data = new FormData();
         const filename = Date.now() + file.name;
         data.append("name", filename);
         data.append("file", file.data);
         data.append("recipeId", newRecipe.id);
-        RecipeService.addImages(data);
+        await RecipeService.addImages(data);
       } catch {}
     });
 

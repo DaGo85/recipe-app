@@ -9,14 +9,13 @@ const RecipesContext = createContext(null);
 // Context Provider
 
 const RecipesProvider = ({ children }) => {
-  const [recipesData, setRecipesData] = useState({});
+  const [recipesData, setRecipesData] = useState([]);
   const [recipesFilter, setRecipesFilter] = useState({
     difficulty: "all",
     tags: [],
     input: "",
   });
 
-  console.log("recipesincontext" + recipesData);
   return (
     <RecipesContext.Provider
       value={{ recipesData, setRecipesData, recipesFilter, setRecipesFilter }}

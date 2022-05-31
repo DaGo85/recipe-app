@@ -30,7 +30,7 @@ function App() {
     };
 
     fetchedRecipes();
-  }, [setRecipesData]);
+  }, []);
 
   return (
     <>

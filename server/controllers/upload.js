@@ -9,9 +9,11 @@ const uploadFiles = async (req, res) => {
       return res.send(`You must select a file.`);
     }
 
+    console.log(req.body);
+
     Image.create({
-      type: req.body.mimetype,
-      name: req.body.originalname,
+      type: req.file.mimetype,
+      name: req.file.filename,
       recipeId: req.body.recipeId,
       data: fs.readFileSync(__basedir + "/uploads/" + req.file.filename),
     }).then((image) => {

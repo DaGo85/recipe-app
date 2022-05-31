@@ -11,12 +11,10 @@ function Home() {
   const { recipesData, setRecipesData } = useRecipesContext();
   const location = useLocation();
   const path = location.pathname;
-  console.log("recipesdata check" + recipesData);
 
   useEffect(() => {
     const fetchedRecipes = async () => {
       const res = await RecipeService.getAll();
-      console.log("response:" + res.data);
       setRecipesData(res.data);
     };
 
