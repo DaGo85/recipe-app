@@ -1,6 +1,5 @@
 import React from "react";
 import FooterImpressum from "./components/FooterImpressum";
-import FooterSocialIcons from "./components/FooterSocialIcons";
 
 function Footer() {
   const scrollToTop = () => {
@@ -16,7 +15,6 @@ function Footer() {
      bg-lightVariantSurface dark:bg-darkVariantSurface text-lightVariantSurfaceOn dark:text-darkVariantSurfaceOn"
     >
       <FooterImpressum />
-      <FooterSocialIcons />
       <button onClick={() => scrollToTop()} className="footer-hover">
         <svg
           className="h-8 svg-setup"

@@ -1,4 +1,5 @@
 import React from "react";
+import FooterSocialIcons from "./FooterSocialIcons";
 
 function FooterImpressum() {
   return (
@@ -18,6 +19,7 @@ function FooterImpressum() {
         <h3>Contact:</h3>
         <hr className="hr-setup" />
         <p>E-Mail: d.goergens@gmail.com</p>
+        <FooterSocialIcons />
       </span>
     </section>
   );
