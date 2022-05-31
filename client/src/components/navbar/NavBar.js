@@ -10,7 +10,7 @@ function NavBar() {
      bg-lightVariantSurface dark:bg-darkVariantSurface text-lightVariantSurfaceOn dark:text-darkVariantSurfaceOn"
     >
       <NavBarLinks />
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row items-center gap-2">
         <ThemeToggle />
         <NavBarAuth />
       </div>

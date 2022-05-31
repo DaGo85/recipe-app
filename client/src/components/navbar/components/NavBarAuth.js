@@ -62,7 +62,7 @@ function NavBarAuth() {
         className="svg-container"
       >
         <svg
-          className="w-6 svg-setup"
+          className="w-6 svg-setup "
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
         >

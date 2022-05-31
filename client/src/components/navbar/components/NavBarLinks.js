@@ -7,11 +7,7 @@ function NavBarLinks() {
     <>
       {NavBarLinkItems.map((item) => {
         return (
-          <Link
-            className="cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn"
-            key={item.name}
-            to={item.link}
-          >
+          <Link className="auth-link-setup" key={item.name} to={item.link}>
             {item.name}
           </Link>
         );
