@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import DeleteModal from "../../components/elements/DeleteModal";
+import imgMock from "../../assets/test.jpg";
 
 import RecipeService from "../../services/recipeService";
 
@@ -25,11 +26,9 @@ function SingleRecipe() {
       .then((response) => {
         setRecipe(response.data);
 
-        const base64String = String.fromCharCode(
-          ...new Uint8Array(response.data.images[0].data.data)
-        );
-        console.log("response check" + JSON.stringify(base64String));
-        setImages(base64String);
+        const blob = new Blob([response.data.images[0].data.data]);
+        const url = URL.createObjectURL(blob);
+        setImages(url);
       })
       .catch((err) => {
         // navigate("/notfound");
@@ -37,25 +36,16 @@ function SingleRecipe() {
   }, [path]);
 
   const deleteHandler = () => setShowModal(true);
-
+  console.log("first" + images);
   console.log("imagecheck" + JSON.stringify(recipe?.images));
   return (
     <>
       {recipe ? (
         <main className="background-setup">
           <h1>{recipe.title}</h1>
-          {images &&
-            recipe.images.map((image) => {
-              return (
-                <img
-                  className="w-20 h-20"
-                  src={URL.createObjectURL(
-                    `data:${image.type};base64,${images}`
-                  )}
-                  alt="from recipe"
-                />
-              );
-            })}
+          {images.length !== 0 && (
+            <img className="w-20 h-20" src={imgMock} alt="from recipe" />
+          )}
           <h3>created by: {recipe.username}</h3>
           <h6>created at: {new Date(recipe.createdAt).toDateString()}</h6>
           <h6>difficulty: {recipe.difficulty}/10</h6>

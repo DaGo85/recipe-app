@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../utility/AuthContext";
 import { logout } from "../../../utility/firebase";
+import { useRecipesContext } from "../../../utility/RecipesContext";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 
 function NavBarProfile({ setIsOpen, setLogin }) {
-  const { userData, setUserData } = useAuthContext();
+  const [recipesCountd, setRecipesCount] = useState("2");
+  const { userCreds, setUserData } = useAuthContext();
+  const { recipesData } = useRecipesContext();
+
+  const recipesCount = useMemo(() => {
+    return recipesData.filter((v) => v.username === userCreds.name).length;
+  }, [recipesData, userCreds.name]);
+
+  const lastRecipe = useMemo(() => {
+    return recipesData.filter((v) => v.username === userCreds.name)[0];
+  }, [recipesData, userCreds.name]);
 
   return (
     <div className="auth-card-setup">
       <NavBarAuthHeadline headline="Profile" />
+      <p>
+        Username: {userCreds.name}
+        <br />
+        created Recipes: {recipesCount}
+        <br />
+        Last Recipe:{" "}
+        <Link to={`recipe${lastRecipe.title}`}>{lastRecipe.title}</Link>
+        <br />
+        Created at: {lastRecipe.createdAt}
+      </p>
       <button
-        className="px-4 py-1 border-2 bg-slate-100 text-lg border-slate-600 rounded-lg"
+        className="auth-button-setup"
         onClick={() => {
           logout();
           setUserData(null);

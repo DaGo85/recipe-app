@@ -1,6 +1,6 @@
 export const NavBarLinkItems = [
-  { name: "home", link: "/" },
-  { name: "recipes", link: "/recipes" },
+  { name: "Home", link: "/" },
+  { name: "Recipes", link: "/recipes" },
   { name: "", link: "" },
 ];
 
