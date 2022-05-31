@@ -6,15 +6,11 @@ function FooterSocialIcons() {
     <span className="flex flex-row gap-6 mx-auto">
       {socialIconsList.map((icon) => {
         return (
-          <a
-            target="_blank"
-            rel="noreferrer"
-            key={icon.name}
-            href={icon.link}
-            className="navsvghover transition-all duration-300"
-          >
+          <a target="_blank" rel="noreferrer" key={icon.name} href={icon.link}>
             <svg
-              className="w-8 h-8 hover:cursor-pointer"
+              className="w-8 h-8 hover:cursor-pointer transition-all duration-300
+              fill-lightVariantSurfaceOn dark:fill-darkVariantSurfaceOn
+              hover:fill-primaryLightOn dark:hover:fill-primaryDarkOn"
               xmlns="http://www.w3.org/2000/svg"
               viewBox={icon.viewBox}
             >

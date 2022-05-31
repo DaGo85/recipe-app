@@ -12,18 +12,14 @@ function Footer() {
 
   return (
     <footer
-      className="py-10 px-2 w-full flex flex-col  items-center justify-center relative pb-16
+      className="py-10 px-2 w-full flex flex-col  items-center justify-center relative pb-16 gap-4
      bg-lightVariantSurface dark:bg-darkVariantSurface text-lightVariantSurfaceOn dark:text-darkVariantSurfaceOn"
     >
       <FooterImpressum />
       <FooterSocialIcons />
-      <button
-        onClick={() => scrollToTop()}
-        className="rounded-3xl border-4 w-12 h-12 bg-red-200 absolute bottom-4 right-4 flex items-center
-      justify-center"
-      >
+      <button onClick={() => scrollToTop()} className="footer-hover">
         <svg
-          className="h-8"
+          className="h-8 svg-setup"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 320 512"
         >

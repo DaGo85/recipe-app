@@ -131,4 +131,20 @@
   .svg-container:hover .svg-setup {
     @apply fill-primaryDarkOn dark:fill-primaryLightOn;
   }
+
+  .footer-hover:hover .svg-setup {
+    @apply fill-primaryDarkOn dark:fill-primaryLightOn;
+  }
+
+  .footer-hover {
+    @apply rounded-3xl border-2 w-12 h-12 cursor-pointer absolute 
+    bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60 
+    border-primaryLightOn dark:border-primaryDarkOn hover:border-primaryDarkOn 
+    dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out bottom-4 right-4 flex items-center
+      justify-center;
+  }
+
+  .hr-setup {
+    @apply border border-lightVariantSurfaceOn dark:border-darkVariantSurfaceOn;
+  }
 }

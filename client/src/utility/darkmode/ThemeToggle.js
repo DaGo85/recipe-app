@@ -6,10 +6,12 @@ const ThemeToggle = () => {
   const { theme, setTheme } = useThemeContext();
 
   return (
-    <div className="svg-container">
+    <div
+      className="svg-container"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+    >
       {theme === "dark" ? (
         <svg
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className="w-6 svg-setup"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
@@ -18,7 +20,6 @@ const ThemeToggle = () => {
         </svg>
       ) : (
         <svg
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className="w-6 svg-setup"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
