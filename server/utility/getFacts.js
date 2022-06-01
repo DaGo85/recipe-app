@@ -1,18 +1,39 @@
-//  data.filter((v, i, a) => a.indexOf(v) === i).length;
+const tagList = [
+  "Glutenfree",
+  "Sorbitfree",
+  "Lactosefree",
+  "Fructosefree",
+  "Meatfree",
+];
 
 const getAvgRecipes = (data) => {
   return data.length / [...new Set(data.map((item) => item.username))].length;
 };
 
-const getTagOccurene = (data) => {
-  const array = recipesData;
-  array
-    .sort(
-      (a, b) =>
-        array.filter((v) => v === a).length -
-        array.filter((v) => v === b).length
-    )
-    .pop();
+const getTagOccurence = (data) => {
+  const result = {
+    Glutenfree: 0,
+    Sorbitfree: 0,
+    Lactosefree: 0,
+    Fructosefree: 0,
+    Meatfree: 0,
+  };
+
+  tagList.map((t) => {
+    data.map((v) => {
+      v.tags.includes(t) && result[t]++;
+    });
+  });
+
+  return {
+    most: Object.keys(result).reduce((a, b) => (result[a] > result[b] ? a : b)),
+    most2:
+      result[
+        Object.keys(result).reduce((a, b) => (result[a] > result[b] ? a : b))
+      ],
+    rare: "",
+    rare2: "",
+  };
 };
 
 const getFacts = (data) => {
@@ -25,10 +46,17 @@ const getFacts = (data) => {
 
   saveFact.push({
     text: "The most used Tag is: ",
-    fact: "test",
+    fact: getTagOccurence(data).most,
+    text2: "with occurence of: ",
+    fact2: getTagOccurence(data).most2,
   });
 
-  saveFact.push({ text: "a", fact: "test" });
+  saveFact.push({
+    text: "The less used Tag is: ",
+    fact: getTagOccurence(data).rare,
+    text2: "with occurence of: ",
+    fact2: getTagOccurence(data).rare2,
+  });
 
   saveFact.push({ text: "b", fact: "test" });
 
