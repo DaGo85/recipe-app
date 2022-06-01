@@ -22,9 +22,9 @@ function Home() {
   }, [path, setRecipesData]);
 
   return (
-    <main className="background-setup">
-      <h1>Welcome to Reciper</h1>
-      <h3>Here you can find and create Gluten- and Sorbitfree recipes!</h3>
+    <main className="background-setup text-center">
+      <h1>Welcome to Reciper!</h1>
+      <h2>Here you can find and create Recipes!</h2>
       <RandomRecipe recipesData={recipesData} />
       <section className="">Some Statistics</section>
       <LastRecipe />

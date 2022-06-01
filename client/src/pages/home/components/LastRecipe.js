@@ -33,7 +33,7 @@ function LastRecipe() {
           <p>
             {recipe.desc}
             <br />
-            {recipe.difficulty}
+            {recipe.difficulty}/10
           </p>
         </section>
       ) : (
