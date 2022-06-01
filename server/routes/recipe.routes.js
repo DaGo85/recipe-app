@@ -11,7 +11,10 @@ module.exports = (app) => {
   // Retrieve all recipes
   router.get("/", recipes.findAll);
 
-  // Retrieve all recipes
+  // Get facts
+  router.get("/facts", recipes.facts);
+
+  // Retrieve last recipe
   router.get("/last", recipes.findLast);
 
   // Retrieve a single recipe per title
@@ -22,9 +25,6 @@ module.exports = (app) => {
 
   // Delete a recipe with id
   router.delete("/:id", recipes.delete);
-
-  // Get facts
-  router.get("/facts", recipes.facts);
 
   // Add images to recipe by id
   router.post("/upload", upload.single("file"), uploadController.uploadFiles);

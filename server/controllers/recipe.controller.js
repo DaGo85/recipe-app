@@ -1,5 +1,5 @@
 const db = require("../models");
-const { getFacts } = require("../utility/getFacts");
+const getFacts = require("../utility/getFacts");
 
 const Recipe = db.recipes;
 
@@ -54,7 +54,7 @@ exports.findLast = (req, res) => {
   Recipe.findAll({
     limit: 1,
     include: ["images"],
-    order: [["createdAt"]],
+    order: [["createdAt", "DESC"]],
   })
     .then((data) => {
       res.send(data);

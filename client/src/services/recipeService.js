@@ -33,7 +33,7 @@ const findByTitle = (title) => {
 };
 
 const facts = () => {
-  return http.get("/facts");
+  return http.get("/recipes/facts");
 };
 
 const addImages = (data) => {

@@ -14,7 +14,7 @@ function Statistics() {
 
     fetchFacts();
   }, [recipesData]);
-
+  console.log("facts:" + facts);
   return (
     <section className="">
       <h2>Some random Facts about Reciper and its Users:</h2>

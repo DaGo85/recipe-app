@@ -1,29 +1,40 @@
-const getFacts = () => {
-  const getTagOccurene = () => {
-    const array = recipesData;
-    array
-      .sort(
-        (a, b) =>
-          array.filter((v) => v === a).length -
-          array.filter((v) => v === b).length
-      )
-      .pop();
-  };
+//  data.filter((v, i, a) => a.indexOf(v) === i).length;
+
+const getAvgRecipes = (data) => {
+  return data.length / [...new Set(data.map((item) => item.username))].length;
+};
+
+const getTagOccurene = (data) => {
+  const array = recipesData;
+  array
+    .sort(
+      (a, b) =>
+        array.filter((v) => v === a).length -
+        array.filter((v) => v === b).length
+    )
+    .pop();
+};
+
+const getFacts = (data) => {
   const saveFact = [];
 
   saveFact.push({
     text: "Recipes each active user uploads in average: ",
-    fact:
-      recipesData.length /
-      recipesData.filter((v, i, a) => a.indexOf(v) === i).length,
+    fact: getAvgRecipes(data),
   });
 
   saveFact.push({
     text: "The most used Tag is: ",
-    fact: getTagOccurene,
+    fact: "test",
   });
 
-  setFacts(saveFact);
+  saveFact.push({ text: "a", fact: "test" });
+
+  saveFact.push({ text: "b", fact: "test" });
+
+  saveFact.push({ text: "c", fact: "test" });
+
+  return saveFact;
 };
 
-export default getFacts;
+module.exports = getFacts;
