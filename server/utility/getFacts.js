@@ -75,13 +75,31 @@ const getIngredients = (data) => {
   data.forEach((v) => {
     ingredientsCounter = ingredientsCounter + v.ingredients.length;
   });
-  console.log(ingredientsCounter);
 
-  return ingredientsCounter / data.length;
+  return (ingredientsCounter / data.length).toFixed(2);
 };
 
 const getRecipesCount = (data) => {
   return data.length;
+};
+
+const getAvgDifficulty = (data) => {
+  let difficultyCounter = 0;
+
+  data.forEach((v) => {
+    difficultyCounter = difficultyCounter + parseInt(v.difficulty);
+  });
+
+  return (difficultyCounter / data.length).toFixed(2);
+};
+
+const getLastRecipes = (data) => {
+  let date = new Date();
+  date.setDate(date.getDate() - 30);
+
+  const last30Data = data.filter((v) => v.createdAt > date);
+
+  return last30Data.length;
 };
 
 const getFacts = (data) => {
@@ -124,13 +142,14 @@ const getFacts = (data) => {
   });
 
   saveFact.push({
-    text: "Amount of Recipes for you: ",
-    fact: getRecipesCount(data),
+    text: "Average difficulty: ",
+    fact: getAvgDifficulty(data),
+    text2: "/ 10",
   });
 
   saveFact.push({
-    text: "Amount of Recipes for you: ",
-    fact: getRecipesCount(data),
+    text: "Amount of Recipes created in the last 30 days: ",
+    fact: getLastRecipes(data),
   });
 
   return saveFact;
