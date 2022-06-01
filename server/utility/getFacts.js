@@ -69,6 +69,17 @@ const getActiveUser = (data) => {
   };
 };
 
+const getIngredients = (data) => {
+  let ingredientsCounter = 0;
+
+  data.forEach((v) => {
+    ingredientsCounter = ingredientsCounter + v.ingredients.length;
+  });
+  console.log(ingredientsCounter);
+
+  return ingredientsCounter / data.length;
+};
+
 const getFacts = (data) => {
   const saveFact = [];
 
@@ -98,7 +109,10 @@ const getFacts = (data) => {
     fact2: getActiveUser(data).most2,
   });
 
-  saveFact.push({ text: "c", fact: "test" });
+  saveFact.push({
+    text: "The average number of ingredients used in our recipes is: ",
+    fact: getIngredients(data),
+  });
 
   return saveFact;
 };
