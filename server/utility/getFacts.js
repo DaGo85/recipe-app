@@ -39,6 +39,36 @@ const getTagOccurence = (data) => {
   };
 };
 
+const getActiveUser = (data) => {
+  let allUsers = new Set();
+
+  data.map((v) => {
+    allUsers.add(v.username);
+  });
+
+  allUsers = Array.from(allUsers);
+
+  const allUsersCounter = Object.assign(
+    ...Array.from(allUsers, (v) => ({ [v]: 0 }))
+  );
+
+  allUsers.map((u) => {
+    data.map((v) => v.username === u && allUsersCounter[u]++);
+  });
+
+  return {
+    most: Object.keys(allUsersCounter).reduce((a, b) =>
+      allUsersCounter[a] > allUsersCounter[b] ? a : b
+    ),
+    most2:
+      allUsersCounter[
+        Object.keys(allUsersCounter).reduce((a, b) =>
+          allUsersCounter[a] > allUsersCounter[b] ? a : b
+        )
+      ],
+  };
+};
+
 const getFacts = (data) => {
   const saveFact = [];
 
@@ -61,7 +91,12 @@ const getFacts = (data) => {
     fact2: getTagOccurence(data).rare2,
   });
 
-  saveFact.push({ text: "b", fact: "test" });
+  saveFact.push({
+    text: "The most active user is: ",
+    fact: getActiveUser(data).most,
+    text2: "with created recipes: ",
+    fact2: getActiveUser(data).most2,
+  });
 
   saveFact.push({ text: "c", fact: "test" });
 

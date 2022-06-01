@@ -21,10 +21,11 @@ function Statistics() {
       {facts &&
         facts.map((f) => {
           return (
-            <div key={f.text}>
+            <p key={f.text}>
               {f.text}
-              {f.fact}
-            </div>
+              {f.fact} {f.text2 && f.text2}
+              {f.fact2 && f.fact2}
+            </p>
           );
         })}
     </section>
