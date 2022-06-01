@@ -1,4 +1,5 @@
 const db = require("../models");
+const { getFacts } = require("../utility/getFacts");
 
 const Recipe = db.recipes;
 
@@ -131,6 +132,21 @@ exports.delete = (req, res) => {
     .catch((err) => {
       res.status(500).send({
         message: "Could not delete recipe with id=" + id,
+      });
+    });
+};
+
+// Get random facts about recipes
+exports.facts = (req, res) => {
+  Recipe.findAll()
+    .then((data) => {
+      const facts = getFacts(data);
+
+      res.send(facts);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "Some error occurred while retrieving recipes.",
       });
     });
 };

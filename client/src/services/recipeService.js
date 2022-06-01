@@ -32,6 +32,10 @@ const findByTitle = (title) => {
   return http.get(`/recipes?title=${title}`);
 };
 
+const facts = () => {
+  return http.get("/facts");
+};
+
 const addImages = (data) => {
   return http.post("/recipes/upload", data);
 };
@@ -45,6 +49,7 @@ const RecipeService = {
   remove,
   removeAll,
   findByTitle,
+  facts,
   addImages,
 };
 

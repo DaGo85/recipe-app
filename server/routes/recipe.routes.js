@@ -23,6 +23,9 @@ module.exports = (app) => {
   // Delete a recipe with id
   router.delete("/:id", recipes.delete);
 
+  // Get facts
+  router.get("/facts", recipes.facts);
+
   // Add images to recipe by id
   router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useRecipesContext } from "../../../utility/RecipesContext";
 
-function RandomRecipe({ recipesData }) {
+function RandomRecipe() {
   const [randomRecipe, setRandomRecipe] = useState(null);
+  const { recipesData } = useRecipesContext();
 
   useEffect(() => {
     const rndRecipe = [

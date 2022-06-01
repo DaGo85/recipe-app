@@ -5,10 +5,11 @@ import { useAuthContext } from "../../utility/AuthContext";
 import { useRecipesContext } from "../../utility/RecipesContext";
 import LastRecipe from "./components/LastRecipe";
 import RandomRecipe from "./components/RandomRecipe";
+import Statistics from "./components/Statistics";
 
 function Home() {
   const { userData } = useAuthContext();
-  const { recipesData, setRecipesData } = useRecipesContext();
+  const { setRecipesData } = useRecipesContext();
   const location = useLocation();
   const path = location.pathname;
 
@@ -25,8 +26,8 @@ function Home() {
     <main className="background-setup text-center">
       <h1>Welcome to Reciper!</h1>
       <h2>Here you can find and create Recipes!</h2>
-      <RandomRecipe recipesData={recipesData} />
-      <section className="">Some Statistics</section>
+      <RandomRecipe />
+      <Statistics />
       <LastRecipe />
       {userData ? (
         <Link to="/add">
