@@ -31,8 +31,11 @@ const getTagOccurence = (data) => {
       result[
         Object.keys(result).reduce((a, b) => (result[a] > result[b] ? a : b))
       ],
-    rare: "",
-    rare2: "",
+    rare: Object.keys(result).reduce((a, b) => (result[a] < result[b] ? a : b)),
+    rare2:
+      result[
+        Object.keys(result).reduce((a, b) => (result[a] < result[b] ? a : b))
+      ],
   };
 };
 
