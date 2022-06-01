@@ -80,6 +80,10 @@ const getIngredients = (data) => {
   return ingredientsCounter / data.length;
 };
 
+const getRecipesCount = (data) => {
+  return data.length;
+};
+
 const getFacts = (data) => {
   const saveFact = [];
 
@@ -112,6 +116,21 @@ const getFacts = (data) => {
   saveFact.push({
     text: "The average number of ingredients used in our recipes is: ",
     fact: getIngredients(data),
+  });
+
+  saveFact.push({
+    text: "Amount of Recipes for you: ",
+    fact: getRecipesCount(data),
+  });
+
+  saveFact.push({
+    text: "Amount of Recipes for you: ",
+    fact: getRecipesCount(data),
+  });
+
+  saveFact.push({
+    text: "Amount of Recipes for you: ",
+    fact: getRecipesCount(data),
   });
 
   return saveFact;
