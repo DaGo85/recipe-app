@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import HRBell from "../../components/elements/HRBell";
 import RecipeService from "../../services/recipeService";
 import { useAuthContext } from "../../utility/AuthContext";
 import { useRecipesContext } from "../../utility/RecipesContext";
 import LastRecipe from "./components/LastRecipe";
 import RandomRecipe from "./components/RandomRecipe";
 import Statistics from "./components/Statistics";
+import SubText from "./components/SubText";
 
 function Home() {
   const { userData } = useAuthContext();
@@ -25,7 +27,9 @@ function Home() {
   return (
     <main className="background-setup text-center">
       <h1>Welcome to Reciper!</h1>
-      <h2>Here you can find and create Recipes!</h2>
+      <HRBell />
+      <hr className="w-4/5 border-backgroundLightOn dark:border-backgroundDarkOn" />
+      <SubText />
       <RandomRecipe />
       <Statistics />
       <LastRecipe />

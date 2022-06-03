@@ -152,7 +152,9 @@ const getFacts = (data) => {
     fact: getLastRecipes(data),
   });
 
-  return saveFact;
+  const shuffled = saveFact.sort(() => 0.5 - Math.random());
+
+  return shuffled.slice(0, 3);
 };
 
 module.exports = getFacts;
