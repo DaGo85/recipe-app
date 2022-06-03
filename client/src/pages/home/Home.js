@@ -28,7 +28,6 @@ function Home() {
     <main className="background-setup text-center">
       <h1>Welcome to Reciper!</h1>
       <HRBell />
-      <hr className="w-4/5 border-backgroundLightOn dark:border-backgroundDarkOn" />
       <SubText />
       <RandomRecipe />
       <Statistics />
