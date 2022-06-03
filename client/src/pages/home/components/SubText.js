@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 
-function SubText({ hueA = 100, hueB = 140 }) {
+function SubText({ hueA = 140, hueB = 100 }) {
   const cardVariants = {
     offscreen: {
       y: 300,
     },
     onscreen: {
-      y: 50,
-      rotate: -10,
+      y: -30,
+      rotate: 0,
       transition: {
         type: "spring",
         bounce: 0.4,
@@ -16,9 +16,6 @@ function SubText({ hueA = 100, hueB = 140 }) {
     },
   };
 
-  const hue = (h) => `hsl(${h}, 100%, 50%)`;
-  const background = `linear-gradient(306deg, ${hue(hueA)}, ${hue(hueB)})`;
-
   return (
     <motion.div
       className="subtext-container"
@@ -26,7 +23,6 @@ function SubText({ hueA = 100, hueB = 140 }) {
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.8 }}
     >
-      <div className="splash" style={{ background }} />
       <motion.h2 className="subtext" variants={cardVariants}>
         Here you can find and create Recipes!
       </motion.h2>
