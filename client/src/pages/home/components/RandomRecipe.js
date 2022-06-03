@@ -20,15 +20,12 @@ function RandomRecipe() {
         <Link to={`/recipe${randomRecipe.title}`}>
           <motion.div
             className="random-container"
-            animate={{
-              rotate: [330, 0, 30, 0, 360, 0],
-            }}
-            transition={{
-              duration: 0.5,
-              ease: "easeInOut",
-              times: [0, 0.1, 0.2, 0.3, 0.4, 0.5],
-              repeat: Infinity,
-              repeatDelay: 1,
+            whileHover={{
+              rotate: [0, 0, -50, 0],
+              transition: {
+                repeat: Infinity,
+                duration: 0.35,
+              },
             }}
           >
             <svg
