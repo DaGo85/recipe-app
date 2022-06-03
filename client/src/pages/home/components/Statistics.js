@@ -14,18 +14,20 @@ function Statistics() {
 
     fetchFacts();
   }, [recipesData]);
-  console.log("facts:" + facts);
+
   return (
     <section className="">
-      <h2>Some random Facts about Reciper and its Users:</h2>
+      <h2>Facts:</h2>
       {facts &&
         facts.map((f) => {
           return (
-            <p key={f.text}>
-              {f.text}
-              {f.fact} {f.text2 && f.text2}
-              {f.fact2 && f.fact2}
-            </p>
+            <>
+              <p key={f.text}>
+                {f.text}
+                {f.fact} {f.text2 && f.text2}
+                {f.fact2 && f.fact2}
+              </p>
+            </>
           );
         })}
     </section>
