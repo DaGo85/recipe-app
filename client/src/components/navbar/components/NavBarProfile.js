@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../utility/AuthContext";
 import { logout } from "../../../utility/firebase";
@@ -6,7 +6,6 @@ import { useRecipesContext } from "../../../utility/RecipesContext";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 
 function NavBarProfile({ setIsOpen, setLogin }) {
-  const [recipesCountd, setRecipesCount] = useState("2");
   const { userCreds, setUserData } = useAuthContext();
   const { recipesData } = useRecipesContext();
 
@@ -21,27 +20,31 @@ function NavBarProfile({ setIsOpen, setLogin }) {
   return (
     <div className="auth-card-setup">
       <NavBarAuthHeadline headline="Profile" />
-      <p>
-        Username: {userCreds.name}
-        <br />
-        created Recipes: {recipesCount}
-        <br />
-        Last Recipe:{" "}
-        <Link to={`recipe${lastRecipe.title}`}>{lastRecipe.title}</Link>
-        <br />
-        Created at: {lastRecipe.createdAt}
-      </p>
-      <button
-        className="auth-button-setup"
-        onClick={() => {
-          logout();
-          setUserData(null);
-          setIsOpen(false);
-          setLogin(true);
-        }}
-      >
-        Logout
-      </button>
+      {recipesData && userCreds && (
+        <>
+          <p>
+            Username: {userCreds?.name}
+            <br />
+            created Recipes: {recipesCount}
+            <br />
+            Last Recipe:{" "}
+            <Link to={`recipe${lastRecipe?.title}`}>{lastRecipe?.title}</Link>
+            <br />
+            Created at: {lastRecipe?.createdAt}
+          </p>
+          <button
+            className="auth-button-setup"
+            onClick={() => {
+              logout();
+              setUserData(null);
+              setIsOpen(false);
+              setLogin(true);
+            }}
+          >
+            Logout
+          </button>
+        </>
+      )}
     </div>
   );
 }

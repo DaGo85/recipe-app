@@ -201,6 +201,7 @@
   .highlight-gradient {
     border-radius: 12px;
     padding: 0 14px 0 6px;
-    @apply bg-gradient-to-r from-primaryLightContainer/75 to-[#bdeeb5];
+    @apply bg-gradient-to-r from-primaryLightContainer/75 to-[#bdeeb5]
+    dark:from-primaryDarkContainer/75 dark:to-[#264d26];
   }
 }
