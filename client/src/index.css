@@ -204,4 +204,19 @@
     @apply bg-gradient-to-r from-primaryLightContainer/75 to-[#bdeeb5]
     dark:from-primaryDarkContainer/75 dark:to-[#264d26];
   }
+
+  .add-button {
+    @apply border-8 px-6 py-6 rounded-2xl
+          bg-primaryLight/60 dark:bg-primaryDark hover:bg-primaryLight
+     dark:hover:bg-primaryDark hover:border-primaryLightOn dark:hover:border-primaryDarkOn
+     border-primaryDarkOn dark:border-primaryLightOn transition-all duration-300 ease-in-out;
+  }
+
+  .add-svg {
+    @apply fill-primaryDarkOn dark:fill-primaryLightOn transition-all duration-300 ease-in-out;
+  }
+
+  .add-button:hover .add-svg {
+    @apply fill-primaryLightOn dark:fill-primaryDarkOn;
+  }
 }
