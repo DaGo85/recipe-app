@@ -10,10 +10,14 @@ function StatisticsFact({ fact, icon }) {
       >
         <path d={icon.d} />
       </svg>
-      <h3>{fact.fact}</h3>
+      <h3>
+        {fact.keyword}
+        {fact.fact}
+      </h3>
       <p>
         {fact.text}
         {fact.fact2}
+        {fact.text2 && fact.text2}
       </p>
     </div>
   );

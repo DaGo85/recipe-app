@@ -106,50 +106,55 @@ const getFacts = (data) => {
   const saveFact = [];
 
   saveFact.push({
-    fact: `Recipes: ${getAvgRecipes(data)}`,
+    keyword: "Recipes: ",
+    fact: getAvgRecipes(data),
     text: "That many recipes each active user uploads in average",
   });
 
   saveFact.push({
     keyword: "Most used Tag: ",
-    text: "This is the most used tag with an occurence of: ",
     fact: getTagOccurence(data).most,
+    text: "This is the most used tag with an occurence of: ",
     fact2: getTagOccurence(data).most2,
   });
 
   saveFact.push({
-    text: "The less used Tag is: ",
+    keyword: "Less used tag is: ",
     fact: getTagOccurence(data).rare,
-    text2: "with occurence of: ",
+    text: "The less used tag has an occurence of: ",
     fact2: getTagOccurence(data).rare2,
   });
 
   saveFact.push({
-    text: "The most active user is: ",
+    keyword: "Most active user: ",
     fact: getActiveUser(data).most,
-    text2: "with created recipes: ",
+    text: "The most active user has created ",
     fact2: getActiveUser(data).most2,
+    text2: " recipes",
   });
 
   saveFact.push({
-    text: "The average number of ingredients used in our recipes is: ",
+    keyword: "Number of ingredients: ",
     fact: getIngredients(data),
+    text: "This is the average number of ingredients used in our recipes",
   });
 
   saveFact.push({
-    text: "Amount of Recipes for you: ",
+    keyword: "Recipes: ",
     fact: getRecipesCount(data),
+    text: "The total amount of recipes available for you",
   });
 
   saveFact.push({
-    text: "Average difficulty: ",
+    keyword: "Difficulty: ",
     fact: getAvgDifficulty(data),
-    text2: "/ 10",
+    text: "The average difficulty of all recipes out of ten",
   });
 
   saveFact.push({
-    text: "Amount of Recipes created in the last 30 days: ",
+    keyword: "Recipes last 30 days: ",
     fact: getLastRecipes(data),
+    text: "That many recipes were created by our users in the last 30 days",
   });
 
   const shuffled = saveFact.sort(() => 0.5 - Math.random());
