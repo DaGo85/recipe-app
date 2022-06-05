@@ -195,7 +195,7 @@
   .statistics-fact {
     border-radius: 93% 7% 95% 5% / 4% 92% 8% 96%;
     @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center gap-6 m-2 max-w-md h-72;
+    flex flex-col justify-center items-center gap-6 m-2 max-w-[310px] md:max-w-md h-72;
   }
 
   .highlight-gradient {

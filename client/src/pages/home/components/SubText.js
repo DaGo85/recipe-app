@@ -21,7 +21,7 @@ function SubText({ text }) {
       className="subtext-container"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true }}
       variants={cardVariants}
     >
       {text}
