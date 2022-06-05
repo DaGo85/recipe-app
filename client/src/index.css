@@ -194,6 +194,13 @@
 
   .statistics-fact {
     border-radius: 93% 7% 95% 5% / 4% 92% 8% 96%;
-    @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4;
+    @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+    flex flex-col justify-center items-center gap-6 m-2 max-w-md h-72;
+  }
+
+  .highlight-gradient {
+    border-radius: 12px;
+    padding: 0 14px 0 6px;
+    @apply bg-gradient-to-r from-primaryLightContainer/75 to-[#bdeeb5];
   }
 }

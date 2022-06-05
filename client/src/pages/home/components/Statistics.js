@@ -18,12 +18,12 @@ function Statistics() {
   }, [recipesData]);
 
   return (
-    <>
+    <section className="flex flex-wrap justify-center items-center m-[-16px]">
       {facts &&
         facts.map((f, i) => {
           return <StatisticsFact fact={f} icon={statisticsSvg[i]} />;
         })}
-    </>
+    </section>
   );
 }
 

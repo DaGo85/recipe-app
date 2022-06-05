@@ -3,7 +3,8 @@ const tagList = [
   "Sorbitfree",
   "Lactosefree",
   "Fructosefree",
-  "Meatfree",
+  "Vegan",
+  "Frugal",
 ];
 
 const getAvgRecipes = (data) => {
@@ -16,7 +17,8 @@ const getTagOccurence = (data) => {
     Sorbitfree: 0,
     Lactosefree: 0,
     Fructosefree: 0,
-    Meatfree: 0,
+    Vegan: 0,
+    Frugal: 0,
   };
 
   tagList.map((t) => {
