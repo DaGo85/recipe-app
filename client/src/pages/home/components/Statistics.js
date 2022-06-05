@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { statisticsSvg } from "../../../assets/data";
 import RecipeService from "../../../services/recipeService";
 import { useRecipesContext } from "../../../utility/RecipesContext";
+import StatisticsFact from "./StatisticsFact";
 
 function Statistics() {
   const [facts, setFacts] = useState();
@@ -16,21 +18,12 @@ function Statistics() {
   }, [recipesData]);
 
   return (
-    <section className="">
-      <h2>Facts:</h2>
+    <>
       {facts &&
-        facts.map((f) => {
-          return (
-            <>
-              <p key={f.text}>
-                {f.text}
-                {f.fact} {f.text2 && f.text2}
-                {f.fact2 && f.fact2}
-              </p>
-            </>
-          );
+        facts.map((f, i) => {
+          return <StatisticsFact fact={f} icon={statisticsSvg[i]} />;
         })}
-    </section>
+    </>
   );
 }
 

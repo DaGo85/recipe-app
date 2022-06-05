@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function SubText({ hueA = 140, hueB = 100 }) {
+function SubText({ text }) {
   const cardVariants = {
     offscreen: {
       y: 300,
@@ -17,16 +17,15 @@ function SubText({ hueA = 140, hueB = 100 }) {
   };
 
   return (
-    <motion.div
+    <motion.h2
       className="subtext-container"
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.8 }}
+      variants={cardVariants}
     >
-      <motion.h2 className="subtext" variants={cardVariants}>
-        Here you can find and create Recipes!
-      </motion.h2>
-    </motion.div>
+      {text}
+    </motion.h2>
   );
 }
 

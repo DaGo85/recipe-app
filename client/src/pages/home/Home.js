@@ -33,7 +33,7 @@ function Home() {
         }
         view="0 0 512 512"
       />
-      <SubText />
+      <SubText text="Here you can find and create Recipes!" />
       <RandomRecipe />
       <LastRecipe />
       {userData ? (
@@ -49,6 +49,7 @@ function Home() {
         }
         view="0 0 512 512"
       />
+      <SubText text="Did you know?" />
       <Statistics />
     </main>
   );

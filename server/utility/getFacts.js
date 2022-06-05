@@ -106,14 +106,14 @@ const getFacts = (data) => {
   const saveFact = [];
 
   saveFact.push({
-    text: "Recipes each active user uploads in average: ",
-    fact: getAvgRecipes(data),
+    fact: `Recipes: ${getAvgRecipes(data)}`,
+    text: "That many recipes each active user uploads in average",
   });
 
   saveFact.push({
-    text: "The most used Tag is: ",
+    keyword: "Most used Tag: ",
+    text: "This is the most used tag with an occurence of: ",
     fact: getTagOccurence(data).most,
-    text2: "with occurence of: ",
     fact2: getTagOccurence(data).most2,
   });
 
