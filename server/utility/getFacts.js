@@ -8,7 +8,9 @@ const tagList = [
 ];
 
 const getAvgRecipes = (data) => {
-  return data.length / [...new Set(data.map((item) => item.username))].length;
+  return (
+    data.length / [...new Set(data.map((item) => item.username))].length
+  ).toFixed(2);
 };
 
 const getTagOccurence = (data) => {

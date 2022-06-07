@@ -36,7 +36,7 @@ function SingleRecipe() {
   }, [path]);
 
   const deleteHandler = () => setShowModal(true);
-  console.log("first" + images);
+
   console.log("imagecheck" + JSON.stringify(recipe?.images));
   return (
     <>
