@@ -2,7 +2,7 @@ import React from "react";
 
 function StatisticsFact({ fact, icon }) {
   return (
-    <div key={fact.keyword} className="statistics-fact">
+    <div className="statistics-fact">
       <svg
         className="w-12 fill-secondaryLightContainerOn dark:fill-secondaryDarkContainerOn"
         xmlns="http://www.w3.org/2000/svg"

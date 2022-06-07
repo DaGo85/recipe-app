@@ -8,6 +8,7 @@ function HRIcon({ view, path }) {
       <div className="flex flex-row justify-center items-center">
         <AnimatePresence>
           <motion.div
+            key="left"
             initial={{ x: -150 }}
             animate={{ x: 0 }}
             transition={{ ease: "easeIn", duration: 0.5 }}
@@ -21,6 +22,7 @@ function HRIcon({ view, path }) {
             </svg>
           </motion.div>
           <motion.div
+            key="middle"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ ease: "easeIn", duration: 0.5 }}
@@ -34,6 +36,7 @@ function HRIcon({ view, path }) {
             </svg>
           </motion.div>
           <motion.div
+            key="right"
             initial={{ x: 150 }}
             animate={{ x: 0 }}
             transition={{ ease: "easeIn", duration: 0.5 }}

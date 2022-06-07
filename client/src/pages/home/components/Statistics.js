@@ -39,6 +39,7 @@ function Statistics() {
         facts.map((f, i) => {
           return (
             <motion.div
+              key={f.keyword + f.fact}
               initial="offscreen"
               whileInView="onscreen"
               viewport={{ once: true }}
