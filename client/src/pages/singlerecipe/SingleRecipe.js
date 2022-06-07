@@ -37,8 +37,6 @@ function SingleRecipe() {
       });
   }, [path]);
 
-  const deleteHandler = () => setShowModal(true);
-
   console.log("imagecheck" + JSON.stringify(recipe?.images));
   return (
     <>
@@ -89,7 +87,7 @@ function SingleRecipe() {
             </pre>
             <button
               className="delete-button-setup"
-              onClick={() => deleteHandler()}
+              onClick={() => setShowModal(true)}
             >
               delete
             </button>

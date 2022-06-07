@@ -1,5 +1,5 @@
-// DeleteModal for conformation to delete a SingleStory or SinglePost
-// todo buttons
+// DeleteModal for conformation to delete a recipe
+// todo rework
 
 function DeleteModal({ handleDelete, showModal, setShowModal }) {
   return (
