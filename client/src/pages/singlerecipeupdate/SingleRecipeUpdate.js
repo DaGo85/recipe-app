@@ -12,6 +12,9 @@ function SingleRecipe() {
   const [difficulty, setDifficulty] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [ingredient, setIngredient] = useState("");
+
+  const [addIng, setAddIng] = useState([]);
+
   const [tags, setTags] = useState([]);
   const location = useLocation();
   const path = location.pathname.split("/update")[1];
@@ -27,6 +30,7 @@ function SingleRecipe() {
       setDescription(res.data.description);
       setDifficulty(res.data.difficulty);
       setIngredients(res.data.ingredients);
+      setTags(res.data.tags);
     };
     fetchedrecipe();
   }, [path]);
@@ -48,12 +52,10 @@ function SingleRecipe() {
     navigate(`/recipe${title}`);
   };
 
-  const handleAddIngredient = () => {
-    if (!ingredient) {
-      return;
-    }
-    setIngredients((prevIngredients) => [...prevIngredients, ingredient]);
-    setIngredient("");
+  const handleAddIngredient = (e) => {
+    e.preventDefault();
+    setIngredients((prevIngredients) => [...prevIngredients, addIng]);
+    setAddIng("");
   };
 
   const handleRemoveIngredient = (ingr) => {
@@ -90,7 +92,95 @@ function SingleRecipe() {
 
   return (
     <main className="background-setup">
-      <input value={title} onChange={(e) => setTitle(e.target.value)} />
+      <input
+        className="px-1 py-1 border-2 shadow-lg w-11/12 border-lightOutline dark:border-darkOutline
+          text-primaryLightContainerOn dark:text-primaryDarkContainerOn
+          placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 
+          bg-lightVariantSurface dark:bg-darkSurface focus:border-darkOutline"
+        value={title}
+        onKeyDown={(e) => {
+          if (e.key === "/") {
+            e.preventDefault();
+          }
+        }}
+        onChange={(e) => {
+          setTitle(e.target.value);
+        }}
+      />
+
+      <div className="flex flex-col text-center">
+        <h2>Choose your tags</h2>
+        <ul className="flex flex-wrap justify-center items-center">
+          {tagList.map((tagM) => {
+            return (
+              <li key={tagM}>
+                {tags.includes(tagM) ? (
+                  <div
+                    className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                     from-primaryLightContainer/75 to-[#bdeeb5] dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                     cursor-not-allowed"
+                    onClick={() =>
+                      setTags((prevTag) => prevTag.filter((f) => f !== tagM))
+                    }
+                  >
+                    {tagM}
+                  </div>
+                ) : (
+                  <div
+                    className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                      dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                     cursor-crosshair"
+                    onClick={() => setTags((prevTags) => [...prevTags, tagM])}
+                  >
+                    {tagM}
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      <ul className="flex flex-col gap-2 px-2 w-full">
+        {ingredients.map((ingredient) => {
+          return (
+            <li key={ingredient}>
+              <div className="flex justify-between items-center z-50 pb-2">
+                {ingredient}
+                <button
+                  className="border rounded-3xl px-2 bg-errorLight dark:bg-errorDarkContainer border-errorLight dark:border-errorDarkContainer
+                   text-errorLightOn dark:text-errorDarkContainerOn hover:bg-errorLight/60 dark:hover:bg-errorDarkContainer/60"
+                  type="button"
+                  onClick={() => handleRemoveIngredient(ingredient)}
+                >
+                  -
+                </button>
+              </div>
+              <hr className="hr-setup" />
+            </li>
+          );
+        })}
+      </ul>
+      <input
+        className="px-1 py-1 border-2 shadow-lg w-11/12 border-lightOutline dark:border-darkOutline
+          text-primaryLightContainerOn dark:text-primaryDarkContainerOn
+          placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 
+          bg-lightVariantSurface dark:bg-darkSurface"
+        value={addIng}
+        onChange={(e) => setAddIng(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key.toLowerCase() === "enter") {
+            handleAddIngredient(e);
+          }
+        }}
+        placeholder="Add Ingredient"
+      />
+      <button
+        className="button-setup"
+        type="button"
+        onClick={(e) => handleAddIngredient(e)}
+      >
+        Add Ingredient
+      </button>
       <div>
         <h4>
           Difficulty: {difficulty}/10 {difficultyText}
@@ -106,57 +196,11 @@ function SingleRecipe() {
           placeholder="Difficulty"
         />
       </div>
-      <ul>
-        {tagList.map((tagM) => {
-          return (
-            <li key={tagM}>
-              {tags.includes(tagM) ? (
-                <div
-                  className=""
-                  onClick={() =>
-                    setTags((prevTag) => prevTag.filter((f) => f !== tagM))
-                  }
-                >
-                  {tagM}
-                </div>
-              ) : (
-                <div
-                  className=""
-                  onClick={() => setTags((prevTags) => [...prevTags, tagM])}
-                >
-                  {tagM}
-                </div>
-              )}
-            </li>
-          );
-        })}
-      </ul>
-      <div>
-        ingredients:
-        <ul>
-          {ingredients &&
-            ingredients.map((ingredient) => {
-              return (
-                <li key={ingredient}>
-                  {ingredient}
-                  <button onClick={() => handleRemoveIngredient(ingredient)}>
-                    remove
-                  </button>
-                </li>
-              );
-            })}
-          <li>
-            <input
-              value={ingredient}
-              onChange={(e) => setIngredient(e.target.value)}
-            />
-          </li>
-        </ul>
-        <button onClick={() => handleAddIngredient()}>
-          add this ingredient+++
-        </button>
-      </div>
       <textarea
+        className="px-1 py-1 border-2 shadow-lg w-11/12 h-96 border-lightOutline dark:border-darkOutline
+    text-primaryLightContainerOn dark:text-primaryDarkContainerOn
+     placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 
+     bg-lightVariantSurface dark:bg-darkSurface"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />

@@ -24,7 +24,7 @@ function Add() {
 
     const newRecipe = {
       username: userCreds.name,
-      title: title.value,
+      title: title.value.replace("/", ","),
       difficulty: difficulty,
       description: description.value,
       tags: tags,
@@ -115,7 +115,7 @@ function Add() {
           className="px-1 py-1 border-2 shadow-lg w-11/12 border-lightOutline dark:border-darkOutline
           text-primaryLightContainerOn dark:text-primaryDarkContainerOn
           placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 
-          bg-lightVariantSurface dark:bg-darkSurface"
+          bg-lightVariantSurface dark:bg-darkSurface focus:border-darkOutline"
           id="title"
           required
           placeholder="Title"
@@ -199,8 +199,7 @@ function Add() {
           Add Ingredient
         </button>
         <div className="flex flex-col text-center">
-          <h2>Tags:</h2>
-          <h3>Choose your tags</h3>
+          <h2>Choose your tags</h2>
           <ul className="flex flex-wrap justify-center items-center">
             {tagList.map((tagM) => {
               return (

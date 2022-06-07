@@ -109,8 +109,8 @@
   }
 
   .slider-button {
-    @apply w-72 h-8 border-2 rounded-xl overflow-hidden
-     bg-primaryLight dark:bg-primaryDark cursor-pointer
+    @apply w-72 h-8 border-2 rounded-xl overflow-hidden bg-gradient-to-r
+     from-primaryLight dark:from-primaryDark via-yellow-300 dark:via-yellow-300 to-errorLight dark:to-errorDarkContainer cursor-pointer
      border-lightOutline dark:border-darkOutline shadow-lg;
     -webkit-appearance: none;
   }
