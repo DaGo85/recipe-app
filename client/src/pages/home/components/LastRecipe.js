@@ -42,45 +42,40 @@ function LastRecipe() {
     <>
       <h2>Our last Recipe:</h2>
       {recipe ? (
-        <motion.div
+        <motion.section
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true }}
           variants={cardVariants}
+          className="cursor-pointer recipe-card"
+          onClick={() => handleLink()}
         >
-          <section className="last-recipe-card" onClick={() => handleLink()}>
-            <h3>{recipe.title}</h3>
-            <img className="" src={imgMock} alt="from recipe" />
-            <div className="flex flex-col gap-1">
-              <h5>
-                created by:
-                <br />
-                <span className="highlight-gradient">{recipe.username}</span>
-              </h5>
-              <h5>
-                created at: <br />
-                <span className="highlight-gradient">{recipe.createdAt}</span>
-              </h5>
-            </div>
-            <div>
-              <p className="text-[1.17em]">
-                {recipe.tags.map((t) => {
-                  return (
-                    <span
-                      key={t}
-                      className="text-lg font-bold highlight-gradient"
-                    >
-                      {t}
-                    </span>
-                  );
-                })}
-                <br />
-                <br />
-                Difficulty: {recipe.difficulty}/10
-              </p>
-            </div>
-          </section>
-        </motion.div>
+          <h3>{recipe.title}</h3>
+          <img className="" src={imgMock} alt="from recipe" />
+          <div className="flex flex-col gap-1">
+            <h5>
+              created by:
+              <br />
+              <span className="highlight-gradient">{recipe.username}</span>
+            </h5>
+            <h5>
+              created at: <br />
+              <span className="highlight-gradient">
+                {new Date(recipe.createdAt).toDateString()}
+              </span>
+            </h5>
+          </div>
+          <p className="text-[1.17em] flex flex-wrap gap-1 items-center justify-center">
+            {recipe.tags.map((t) => {
+              return (
+                <span key={t} className="text-lg font-bold highlight-gradient">
+                  {t}
+                </span>
+              );
+            })}
+            <span className="py-4">Difficulty: {recipe.difficulty}/10</span>
+          </p>
+        </motion.section>
       ) : (
         <section>placeholder</section>
       )}

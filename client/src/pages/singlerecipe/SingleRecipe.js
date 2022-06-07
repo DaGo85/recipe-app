@@ -42,37 +42,55 @@ function SingleRecipe() {
     <>
       {recipe ? (
         <main className="background-setup">
-          <h1>{recipe.title}</h1>
-          {images.length !== 0 && (
-            <img className="w-20 h-20" src={imgMock} alt="from recipe" />
-          )}
-          <h3>created by: {recipe.username}</h3>
-          <h6>created at: {new Date(recipe.createdAt).toDateString()}</h6>
-          <h6>difficulty: {recipe.difficulty}/10</h6>
-          <ul>
-            <li>tags</li>
-          </ul>
-          <h6>ingredients:</h6>
-          <ul>
-            {recipe &&
-              recipe.ingredients.map((ingr) => <li key={ingr}>{ingr}</li>)}
-          </ul>
-          <section>
-            <p>{recipe.description}</p>
-          </section>
-          <button onClick={() => deleteHandler()}>delete</button>
-          <button
-            className="button-setup"
-            onClick={() => navigate(`/update${path}`)}
-          >
-            edit
-          </button>
-          <section>voting section if logged in?</section>
-          <DeleteModal
-            handleDelete={handleDelete}
-            showModal={showModal}
-            setShowModal={setShowModal}
-          />
+          <h1 className="break-all text-center">{recipe.title}</h1>
+          {<img className="" src={imgMock} alt="from recipe" />}
+          <div className="recipe-card pt-10 text-center">
+            <h2 className="text-xl">
+              created by:
+              <br />
+              <span className="highlight-gradient text-2xl">
+                {recipe.username}
+              </span>
+            </h2>
+            <h2 className="text-xl">
+              created at: <br />
+              <span className="highlight-gradient text-2xl">
+                {new Date(recipe.createdAt).toDateString()}
+              </span>
+            </h2>
+            <ul className="w-11/12 flex gap-1 flex-wrap items-center justify-center">
+              {recipe.tags.map((t) => {
+                return (
+                  <li
+                    className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                     from-primaryLightContainer/75 to-[#bdeeb5] dark:from-primaryDarkContainer/75 dark:to-[#264d26]"
+                  >
+                    {t}
+                  </li>
+                );
+              })}
+            </ul>
+            <h2 className="text-xl">ingredients: </h2>
+            <ul>
+              {recipe &&
+                recipe.ingredients.map((ingr) => <li key={ingr}>{ingr}</li>)}
+            </ul>
+            <section>
+              <p>{recipe.description}</p>
+            </section>
+            <button onClick={() => deleteHandler()}>delete</button>
+            <button
+              className="button-setup"
+              onClick={() => navigate(`/update${path}`)}
+            >
+              edit
+            </button>
+            <DeleteModal
+              handleDelete={handleDelete}
+              showModal={showModal}
+              setShowModal={setShowModal}
+            />
+          </div>
         </main>
       ) : (
         <section>placeholder</section>
