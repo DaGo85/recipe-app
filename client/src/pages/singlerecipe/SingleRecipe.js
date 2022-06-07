@@ -5,6 +5,8 @@ import imgMock from "../../assets/test.jpg";
 
 import RecipeService from "../../services/recipeService";
 
+//todo: ingredients
+
 function SingleRecipe() {
   const [showModal, setShowModal] = useState(false);
   const location = useLocation();
@@ -71,16 +73,28 @@ function SingleRecipe() {
               })}
             </ul>
             <h2 className="text-xl">ingredients: </h2>
-            <ul>
+            <ul className="text-left">
               {recipe &&
-                recipe.ingredients.map((ingr) => <li key={ingr}>{ingr}</li>)}
+                recipe.ingredients.map((ingr) => (
+                  <li key={ingr} className="">
+                    {ingr}
+                  </li>
+                ))}
             </ul>
-            <section>
-              <p>{recipe.description}</p>
-            </section>
-            <button onClick={() => deleteHandler()}>delete</button>
+            <h2 className="text-xl">Description: </h2>
+            <pre>
+              <p className="whitespace-pre-line font-reset">
+                {recipe.description}
+              </p>
+            </pre>
             <button
-              className="button-setup"
+              className="delete-button-setup"
+              onClick={() => deleteHandler()}
+            >
+              delete
+            </button>
+            <button
+              className="button-setup mb-6"
               onClick={() => navigate(`/update${path}`)}
             >
               edit

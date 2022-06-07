@@ -1,7 +1,7 @@
 // DeleteModal for conformation to delete a SingleStory or SinglePost
 // todo buttons
 
-function DeleteModal({ handleDelete, showModal, setShowModal, deleteType }) {
+function DeleteModal({ handleDelete, showModal, setShowModal }) {
   return (
     <div
       className={`${
