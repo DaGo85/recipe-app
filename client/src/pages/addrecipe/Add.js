@@ -51,7 +51,7 @@ function Add() {
       } catch {}
     });
 
-    //navigate(`/recipe${newRecipe.title}`);
+    navigate(`/recipe${newRecipe.title}`);
   };
 
   const handleImageInput = (e) => {
@@ -198,14 +198,18 @@ function Add() {
         >
           Add Ingredient
         </button>
-        <div>
-          <ul>
+        <div className="flex flex-col text-center">
+          <h2>Tags:</h2>
+          <h3>Choose your tags</h3>
+          <ul className="flex flex-wrap justify-center items-center">
             {tagList.map((tagM) => {
               return (
                 <li key={tagM}>
                   {tags.includes(tagM) ? (
                     <div
-                      className=""
+                      className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                     from-primaryLightContainer/75 to-[#bdeeb5] dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                     cursor-not-allowed"
                       onClick={() =>
                         setTags((prevTag) => prevTag.filter((f) => f !== tagM))
                       }
@@ -214,7 +218,9 @@ function Add() {
                     </div>
                   ) : (
                     <div
-                      className=""
+                      className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                      dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                     cursor-crosshair"
                       onClick={() => setTags((prevTags) => [...prevTags, tagM])}
                     >
                       {tagM}
@@ -242,7 +248,7 @@ function Add() {
           />
         </div>
         <textarea
-          className="px-1 py-1 border-2 shadow-lg w-11/12 border-lightOutline dark:border-darkOutline
+          className="px-1 py-1 border-2 shadow-lg w-11/12 h-96 border-lightOutline dark:border-darkOutline
     text-primaryLightContainerOn dark:text-primaryDarkContainerOn
      placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 
      bg-lightVariantSurface dark:bg-darkSurface"
