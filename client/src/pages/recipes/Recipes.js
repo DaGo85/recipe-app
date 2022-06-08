@@ -44,9 +44,8 @@ function Recipes() {
           difRange = ["1", "2"];
           break;
         default:
-          difRange = ["8"];
+          difRange = ["5", "6"];
       }
-      console.log("length" + saveFilter.tags);
       saveFilter = saveFilter.filter((sFilter) => {
         return (
           (sFilter.difficulty === difRange[0]) |
@@ -56,10 +55,36 @@ function Recipes() {
     }
 
     if (filter.tags.length > 0) {
+      const checkArrays = (arr, target) => target.every((v) => arr.includes(v));
+
       saveFilter = saveFilter.filter((sFilter) => {
-        return sFilter.tags.every((element) => {
-          return filter.tags.includes(element);
-        });
+        return checkArrays(sFilter.tags, filter.tags);
+      });
+    }
+
+    if (filter.input.length > 0) {
+      const inputFilter = filter.input.replace(",", "").split(" ");
+      const checkDesc = (desc) =>
+        inputFilter.every((v) =>
+          desc
+            .toLowerCase()
+            .replace(",", " ")
+            .replace("\n", " ")
+            .split(" ")
+            .includes(v)
+        );
+
+      console.log(inputFilter);
+      saveFilter = saveFilter.filter((v) => {
+        console.log(
+          "first" +
+            v.description
+              .toLowerCase()
+              .replace(",", " ")
+              .replace("\n", " ")
+              .split(" ")
+        );
+        return checkDesc(v.description);
       });
     }
 

@@ -62,6 +62,7 @@ function SingleRecipe() {
               {recipe.tags.map((t) => {
                 return (
                   <li
+                    key={t}
                     className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
                      from-primaryLightContainer/75 to-[#bdeeb5] dark:from-primaryDarkContainer/75 dark:to-[#264d26]"
                   >
