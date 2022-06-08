@@ -2,9 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import Pagination from "../../components/pagination/Pagination";
 import { useRecipesContext } from "../../utility/RecipesContext";
 import RecipesFilter from "./components/RecipesFilter";
-import RecipeTable from "./components/RecipeTable";
+import FilteredRecipes from "./components/FilteredRecipes";
 
-const PageSize = 9;
+const PageSize = 3;
 
 function Recipes() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -104,7 +104,7 @@ function Recipes() {
         pageSize={PageSize}
         onPageChange={(page) => setCurrentPage(page)}
       />
-      <RecipeTable currentGridData={currentGridData} />
+      <FilteredRecipes currentGridData={currentGridData} />
       <Pagination
         currentPage={currentPage}
         totalCount={filteredRecipes.length}

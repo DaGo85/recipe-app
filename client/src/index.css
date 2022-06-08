@@ -235,4 +235,8 @@
   .font-reset {
     font-family: "Poppins", sans-serif;
   }
+
+  option:hover {
+    @apply bg-black;
+  }
 }

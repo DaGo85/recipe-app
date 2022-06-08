@@ -7,13 +7,13 @@ function RecipesFilterByDif({ setDif }) {
         <select
           className="py-2 px-4 bg-primaryLight dark:bg-primaryDark 
       text-primaryLightOn dark:text-primaryDarkOn dark:border-darkOutline
-       border-lightOutline rounded-lg text-xl font-medium "
+       border-lightOutline rounded-lg text-xl font-medium"
           onChange={(e) => {
             setDif(e.target.value);
           }}
         >
           {difArray.map((difficulty) => (
-            <option className="" key={difficulty} value={difficulty}>
+            <option key={difficulty} value={difficulty}>
               {difficulty}
             </option>
           ))}
