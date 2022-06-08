@@ -71,7 +71,14 @@ This is the in progress version of my fullstack Recipe-App.
 
 ## Room for Improvement
 
-- There is a lot of room for improvment at the moment, because its still in work.
+- Add comment-section
+- Add vote-section
+- Pagination in backend
+- Better search algorithmen
+- Better ingredients options with weight etc
+- Favourite lists
+
+There are a lot of more options for improvements.
 
 ## Contact
 

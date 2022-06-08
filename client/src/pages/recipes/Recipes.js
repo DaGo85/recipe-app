@@ -63,7 +63,8 @@ function Recipes() {
     }
 
     if (filter.input.length > 0) {
-      const inputFilter = filter.input.replace(",", "").split(" ");
+      const inputFilter = filter.input.replace(",", " ").split(" ");
+
       const checkDesc = (desc) =>
         inputFilter.every((v) =>
           desc
@@ -95,7 +96,7 @@ function Recipes() {
 
   return (
     <main className="background-setup">
-      <section className="">Filter Section</section>
+      <h1 className="text-3xl">Recipe Search</h1>
       <RecipesFilter filter={filter} setFilter={setFilter} />
       <Pagination
         currentPage={currentPage}

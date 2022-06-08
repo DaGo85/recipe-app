@@ -13,8 +13,9 @@ function RecipesFilter({ filter, setFilter }) {
     <>
       <RecipesFilterByInput input={input} setInput={setInput} />
       <RecipesFilterByTag tag={tag} setTag={setTag} />
-      <RecipesFilterByDif dif={dif} setDif={setDif} />
+      <RecipesFilterByDif setDif={setDif} />
       <button
+        className="button-setup"
         onClick={() =>
           setFilter({
             difficulty: dif,
@@ -23,7 +24,7 @@ function RecipesFilter({ filter, setFilter }) {
           })
         }
       >
-        filter
+        Filter
       </button>
     </>
   );

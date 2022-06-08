@@ -4,6 +4,7 @@ function RecipesFilterByInput({ input, setInput }) {
   return (
     <div>
       <input
+        className="w-72"
         type="text"
         placeholder="Please enter one or more filters"
         onChange={(e) => setInput(e.target.value)}
