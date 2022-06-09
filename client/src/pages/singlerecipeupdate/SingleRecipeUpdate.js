@@ -117,7 +117,7 @@ function SingleRecipe() {
                 {tags.includes(tagM) ? (
                   <div
                     className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
-                     from-primaryLightContainer/75 to-[#bdeeb5] dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                     from-primaryLightContainer/75 to-[#bdeeb5] dark:from-primaryDarkContainer dark:to-[#264d26]
                      cursor-not-allowed"
                     onClick={() =>
                       setTags((prevTag) => prevTag.filter((f) => f !== tagM))
@@ -128,7 +128,7 @@ function SingleRecipe() {
                 ) : (
                   <div
                     className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
-                      dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                       dark:from-secondaryDarkContainer/40 dark:to-secondaryDarkContainer
                      cursor-crosshair"
                     onClick={() => setTags((prevTags) => [...prevTags, tagM])}
                   >

@@ -9,10 +9,10 @@ function RecipesFilterByTag({ tag, setTag }) {
           <li key={tagM}>
             {tag.includes(tagM) ? (
               <div
-                key={tagM}
                 className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
-                     from-primaryLightContainer/75 to-[#bdeeb5] dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                      dark:from-primaryDarkContainer dark:to-[#264d26]
                      cursor-not-allowed"
+                key={tagM}
                 onClick={() =>
                   setTag((prevTag) => prevTag.filter((f) => f !== tagM))
                 }
@@ -23,7 +23,7 @@ function RecipesFilterByTag({ tag, setTag }) {
               <div
                 key={tagM}
                 className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
-                      dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                     from-primaryLightContainer/75 to-[#bdeeb5] dark:from-secondaryDarkContainer/40 dark:to-secondaryDarkContainer
                      cursor-crosshair"
                 onClick={() => setTag((prevTag) => [...prevTag, tagM])}
               >
@@ -35,7 +35,7 @@ function RecipesFilterByTag({ tag, setTag }) {
         {tag.length > 0 ? (
           <li
             className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
-                     from-errorLight/75 to-errorLight text-errorLightOn dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                     from-errorLight/75 to-errorLight text-errorLightOn dark:from-errorDarkContainer/75 dark:to-errorDarkContainer dark:text-errorDarkContainerOn
                       cursor-crosshair"
             onClick={() => setTag([])}
           >
@@ -45,7 +45,7 @@ function RecipesFilterByTag({ tag, setTag }) {
           <li
             className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
                     from-slate-300 to-slate-300
-                      dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                      text-backgroundLightOn
                       cursor-not-allowed"
           >
             remove all
