@@ -34,7 +34,8 @@ const Pagination = ({
     <ul className="flex md:gap-3">
       {/* Left navigation arrow */}
       <li
-        className="pagination-arrow pr-1"
+        className="flex items-center h-8 text-center mx-auto my-1 text-d cursor-pointer
+                  md:px-4 md:py-6 pr-1"
         onClick={() => {
           if (currentPage === 1) {
             return;
@@ -44,11 +45,13 @@ const Pagination = ({
       >
         <svg
           className={`h-8 md:h-12 transition-all duration-500 ease-in-out ${
-            currentPage !== 1 && "hover:fill-linkhover button-effect-select"
+            currentPage !== 1 && "hover:fill-linkhover"
           }`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
-          fill={currentPage === 1 ? "grey" : "bg-b"}
+          fill={
+            currentPage === 1 ? "grey" : "bg-primaryLight dark:bg-primaryDark"
+          }
         >
           <path d="M256 0C114.6 0 0 114.6 0 256c0 141.4 114.6 256 256 256s256-114.6 256-256C512 114.6 397.4 0 256 0zM310.6 345.4c12.5 12.5 12.5 32.75 0 45.25s-32.75 12.5-45.25 0l-112-112C147.1 272.4 144 264.2 144 256s3.125-16.38 9.375-22.62l112-112c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25L221.3 256L310.6 345.4z" />
         </svg>
@@ -57,7 +60,11 @@ const Pagination = ({
         // If the pageItem is a DOT, render the DOTS unicode character
         if (pageNumber === DOTS) {
           return (
-            <li key={index} className="pagination-dots">
+            <li
+              key={index}
+              className="flex items-center box-border h-8 text-center mx-auto my-1  
+                        tracking-wide rounded-2xl leading-normal text-lg text-d px-1"
+            >
               ...
             </li>
           );
@@ -68,9 +75,7 @@ const Pagination = ({
           <li
             key={index}
             className={`pagination-item text-slate-100  hover:bg-linkhover transition-all duration-500 ease-in-out ${
-              pageNumber === currentPage
-                ? "bg-linkhover"
-                : "bg-b button-effect-select"
+              pageNumber === currentPage ? "bg-linkhover" : "bg-b "
             }`}
             onClick={() => {
               onPageChange(pageNumber);
@@ -82,7 +87,8 @@ const Pagination = ({
       })}
       {/*  Right Navigation arrow */}
       <li
-        className="pagination-arrow pl-1"
+        className="flex items-center h-8 text-center mx-auto my-1 text-d cursor-pointer
+                  md:px-4 md:py-6 pl-1"
         onClick={() => {
           if (currentPage === lastPage) {
             return;
@@ -92,8 +98,7 @@ const Pagination = ({
       >
         <svg
           className={`h-8 md:h-12 transition-all duration-500 ease-in-out ${
-            currentPage !== lastPage &&
-            "hover:fill-linkhover button-effect-select"
+            currentPage !== lastPage && "hover:fill-linkhover"
           }`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
