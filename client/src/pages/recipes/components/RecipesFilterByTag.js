@@ -1,24 +1,18 @@
-import React from "react";
 import { tagList } from "../../../assets/data";
 
 function RecipesFilterByTag({ tag, setTag }) {
-  const activateAll = () => {
-    setTag(tagList);
-  };
-
-  const removeAll = () => {
-    setTag([]);
-  };
-
+  console.log("tags" + tag);
   return (
     <div>
-      <ul className="">
+      <ul className="flex flex-wrap gap-1 justify-center items-center">
         {tagList.map((tagM) => (
           <li key={tagM}>
             {tag.includes(tagM) ? (
               <div
                 key={tagM}
-                className="cursor-pointer "
+                className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                     from-primaryLightContainer/75 to-[#bdeeb5] dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                     cursor-not-allowed"
                 onClick={() =>
                   setTag((prevTag) => prevTag.filter((f) => f !== tagM))
                 }
@@ -28,7 +22,9 @@ function RecipesFilterByTag({ tag, setTag }) {
             ) : (
               <div
                 key={tagM}
-                className="cursor-pointer "
+                className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                      dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                     cursor-crosshair"
                 onClick={() => setTag((prevTag) => [...prevTag, tagM])}
               >
                 {tagM}
@@ -37,12 +33,22 @@ function RecipesFilterByTag({ tag, setTag }) {
           </li>
         ))}
         {tag.length > 0 ? (
-          <li className="cursor-pointer " onClick={removeAll}>
+          <li
+            className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                     from-errorLight/75 to-errorLight text-errorLightOn dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                      cursor-crosshair"
+            onClick={() => setTag([])}
+          >
             remove all
           </li>
         ) : (
-          <li className="cursor-pointer " onClick={activateAll}>
-            add all
+          <li
+            className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                    from-slate-300 to-slate-300
+                      dark:from-primaryDarkContainer/75 dark:to-[#264d26]
+                      cursor-not-allowed"
+          >
+            remove all
           </li>
         )}
       </ul>

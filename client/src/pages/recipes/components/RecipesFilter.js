@@ -6,7 +6,7 @@ import RecipesFilterByTag from "./RecipesFilterByTag";
 
 function RecipesFilter({ filter, setFilter }) {
   const [dif, setDif] = useState("all");
-  const [tag, setTag] = useState(tagList);
+  const [tag, setTag] = useState([]);
   const [input, setInput] = useState("");
 
   return (
@@ -15,7 +15,7 @@ function RecipesFilter({ filter, setFilter }) {
       <RecipesFilterByTag tag={tag} setTag={setTag} />
       <RecipesFilterByDif setDif={setDif} />
       <button
-        className="button-setup"
+        className="button-setup mb-4"
         onClick={() =>
           setFilter({
             difficulty: dif,

@@ -40,7 +40,7 @@ function LastRecipe() {
 
   return (
     <>
-      <h2>Our last Recipe:</h2>
+      <h2>Newest Recipe:</h2>
       {recipe ? (
         <motion.section
           initial="offscreen"

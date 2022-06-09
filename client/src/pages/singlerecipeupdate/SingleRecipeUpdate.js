@@ -110,7 +110,7 @@ function SingleRecipe() {
 
       <div className="flex flex-col text-center">
         <h2>Choose your tags</h2>
-        <ul className="flex flex-wrap justify-center items-center">
+        <ul className="flex flex-wrap justify-center items-center gap-1">
           {tagList.map((tagM) => {
             return (
               <li key={tagM}>
