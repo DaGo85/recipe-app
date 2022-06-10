@@ -15,7 +15,7 @@ import Footer from "./components/footer/Footer";
 import Add from "./pages/addrecipe/Add";
 import { useRecipesContext } from "./utility/RecipesContext";
 
-// todo BE multiple files fix, unique name
+// todo BE multiple files fix
 
 function App() {
   useScrollToTop();
