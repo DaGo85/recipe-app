@@ -3,7 +3,7 @@ import RecipesFilterByDif from "./RecipesFilterByDif";
 import RecipesFilterByInput from "./RecipesFilterByInput";
 import RecipesFilterByTag from "./RecipesFilterByTag";
 
-function RecipesFilter({ setFilter }) {
+function RecipesFilter({ setFilter, setCurrentPage }) {
   const [dif, setDif] = useState("all");
   const [tag, setTag] = useState([]);
   const [input, setInput] = useState("");
@@ -17,6 +17,7 @@ function RecipesFilter({ setFilter }) {
       tags: [],
       input: "",
     });
+    setCurrentPage(1);
   };
 
   return (
@@ -34,13 +35,14 @@ function RecipesFilter({ setFilter }) {
         </button>
         <button
           className="button-setup mb-4"
-          onClick={() =>
+          onClick={() => {
             setFilter({
               difficulty: dif,
               tags: tag,
               input: input,
-            })
-          }
+            });
+            setCurrentPage(1);
+          }}
         >
           Filter
         </button>

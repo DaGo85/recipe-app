@@ -4,7 +4,7 @@ import { useRecipesContext } from "../../utility/RecipesContext";
 import RecipesFilter from "./components/RecipesFilter";
 import FilteredRecipes from "./components/FilteredRecipes";
 
-const PageSize = 2;
+const PageSize = 1;
 
 function Recipes() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -95,7 +95,7 @@ function Recipes() {
   return (
     <main className="background-setup">
       <h1 className="text-3xl">Recipe Search</h1>
-      <RecipesFilter filter={filter} setFilter={setFilter} />
+      <RecipesFilter setFilter={setFilter} setCurrentPage={setCurrentPage} />
       <Pagination
         currentPage={currentPage}
         totalCount={filteredRecipes.length}

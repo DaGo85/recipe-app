@@ -236,7 +236,20 @@
     font-family: "Poppins", sans-serif;
   }
 
-  option:hover {
-    @apply bg-black;
+  .pagination-item {
+    @apply flex items-center box-border h-8 text-center mx-auto my-1 
+    tracking-wide rounded-2xl leading-normal text-lg 
+    cursor-pointer px-3
+    md:text-2xl md:px-4 md:py-6 md:rounded-3xl;
+  }
+
+  .pagination-dots {
+    @apply flex items-center box-border h-8 text-center mx-auto my-1  
+    tracking-wide rounded-2xl leading-normal text-lg text-backgroundLightOn dark:text-backgroundDarkOn px-1;
+  }
+
+  .pagination-arrow {
+    @apply flex items-center h-8 text-center mx-auto my-1 text-backgroundLightOn dark:text-backgroundDarkOn cursor-pointer
+    md:px-4 md:py-6;
   }
 }
