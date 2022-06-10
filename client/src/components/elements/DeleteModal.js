@@ -6,9 +6,9 @@ function DeleteModal({ handleDelete, showModal, setShowModal }) {
     <div
       className={`${
         showModal ? "block" : "hidden"
-      } overflow-y-auto overflow-x-hidden fixed bottom-50 right-50 left-50 top-50 z-50 md:inset-50 h-modal md:h-full`}
+      } overflow-y-auto overflow-x-hidden fixed bottom-50 right-50 left-50 top-[20rem] z-50 md:inset-50 h-modal md:h-full `}
     >
-      <div className="relative p-4 w-full max-w-md h-full md:h-auto">
+      <div className="relative p-4 w-full max-w-md h-full md:h-auto bg-errorLightContainer dark:bg-errorDarkContainer">
         <div className="relative bg-a rounded-lg shadow">
           <div className="flex justify-end p-2">
             <button
@@ -16,7 +16,7 @@ function DeleteModal({ handleDelete, showModal, setShowModal }) {
                 setShowModal(false);
               }}
               type="button"
-              className="text-d bg-transparent hover:bg-b hover:text-slate-100 rounded-2xl p-1.5 ml-auto inline-flex items-center"
+              className="text-errorLightContainerOn dark:text-errorDarkContainerOn bg-transparent hover:bg-b hover:text-slate-100 rounded-2xl p-1.5 ml-auto inline-flex items-center"
             >
               <svg
                 className="w-5 h-5"
@@ -30,7 +30,7 @@ function DeleteModal({ handleDelete, showModal, setShowModal }) {
           </div>
           <div className="p-6 pt-0 text-center">
             <svg
-              className="mx-auto mb-4 w-14 h-14 text-d"
+              className="mx-auto mb-4 w-14 h-14 text-errorLightContainerOn dark:text-errorDarkContainerOn"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -43,8 +43,8 @@ function DeleteModal({ handleDelete, showModal, setShowModal }) {
                 d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
             </svg>
-            <h3 className="mb-5 text-lg font-normal text-d">
-              Bist du sicher das du diesen Beitrag löschen willst?
+            <h3 className="mb-5 text-lg font-normal text-errorLightContainerOn dark:text-errorDarkContainerOn">
+              Do you really want to delete this recipe?
             </h3>
             <button
               onClick={() => {
@@ -52,18 +52,18 @@ function DeleteModal({ handleDelete, showModal, setShowModal }) {
                 setShowModal(false);
               }}
               type="button"
-              className="text-white bg-serror/80 hover:bg-serror focus:ring-4 focus:outline-none focus:ring-serror/60 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2"
+              className="text-errorLightOn dark:text-errorDarkOn bg-errorLight hover:bg-errorLight/70 dark:bg-errorDark dark:hover:bg-errorDark/70 focus:ring-4 focus:outline-none focus:ring-serror/60 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2 mb-2"
             >
-              Ja, ich bin sicher
+              Yes, i am sure!
             </button>
             <button
               onClick={() => {
                 setShowModal(false);
               }}
               type="button"
-              className="text-d bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10"
+              className="text-black bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10"
             >
-              Nein, abbrechen
+              No, cancel!
             </button>
           </div>
         </div>
