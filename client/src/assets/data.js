@@ -1,7 +1,6 @@
 export const NavBarLinkItems = [
-  { name: "Home", link: "/" },
-  { name: "Recipes", link: "/recipes" },
-  { name: "", link: "" },
+  { name: "Home", link: "/", label: "link to landing page" },
+  { name: "Recipes", link: "/recipes", label: "link to recipes filter" },
 ];
 
 export const socialIconsList = [

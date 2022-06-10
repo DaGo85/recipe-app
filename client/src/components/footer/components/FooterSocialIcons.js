@@ -5,7 +5,14 @@ function FooterSocialIcons() {
     <span className="flex flex-row gap-6 mx-auto">
       {socialIconsList.map((icon) => {
         return (
-          <a target="_blank" rel="noreferrer" key={icon.name} href={icon.link}>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            key={icon.name}
+            href={icon.link}
+            aria-label={icon.alt}
+            alt={icon.alt}
+          >
             <svg
               className="w-8 h-8 hover:cursor-pointer transition-all duration-300
               fill-lightVariantSurfaceOn dark:fill-darkVariantSurfaceOn

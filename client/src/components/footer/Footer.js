@@ -14,7 +14,11 @@ function Footer() {
      bg-lightVariantSurface dark:bg-darkVariantSurface text-lightVariantSurfaceOn dark:text-darkVariantSurfaceOn"
     >
       <FooterImpressum />
-      <button onClick={() => scrollToTop()} className="footer-hover">
+      <button
+        aria-label="scroll smoothly to top of the page"
+        onClick={() => scrollToTop()}
+        className="footer-hover"
+      >
         <svg
           className="h-8 svg-setup"
           xmlns="http://www.w3.org/2000/svg"

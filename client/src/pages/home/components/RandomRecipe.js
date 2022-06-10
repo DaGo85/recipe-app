@@ -23,6 +23,7 @@ function RandomRecipe() {
         >
           <motion.button
             className="random-container"
+            aria-label="leading to a page with a random recipe"
             whileHover={{
               rotate: [0, 0, -50, 0],
               transition: {

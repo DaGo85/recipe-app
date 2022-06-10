@@ -39,6 +39,7 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
             setReset(false);
           }}
           className="auth-link-setup"
+          aria-label="switch to register screen"
         >
           Register
         </button>{" "}

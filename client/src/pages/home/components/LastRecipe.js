@@ -51,17 +51,17 @@ function LastRecipe() {
           <h3>{recipe.title}</h3>
           <img className="" src={imgMock} alt="from recipe" />
           <div className="flex flex-col gap-1">
-            <h5>
+            <h4>
               created by:
               <br />
               <span className="highlight-gradient">{recipe.username}</span>
-            </h5>
-            <h5>
+            </h4>
+            <h4>
               created at: <br />
               <span className="highlight-gradient">
                 {new Date(recipe.createdAt).toDateString()}
               </span>
-            </h5>
+            </h4>
           </div>
           <p className="text-[1.17em] flex flex-wrap gap-1 items-center justify-center">
             {recipe.tags.map((t) => {

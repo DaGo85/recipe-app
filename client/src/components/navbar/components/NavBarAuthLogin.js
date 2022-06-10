@@ -42,11 +42,12 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
       <p className="flex flex-row dark:text-gray-300">
         Login with
         <span
-          className="auth-link-setup ml-1"
           onClick={() => {
             signInWithGoogle();
             setLogin(false);
           }}
+          className="auth-link-setup ml-1"
+          aria-label="login with Google"
         >
           Google
         </span>
@@ -61,6 +62,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
               setReset(true);
             }}
             className="auth-link-setup ml-1"
+            aria-label="click for reseting password"
           >
             here
           </button>
@@ -75,6 +77,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
             setRegister(true);
           }}
           className="auth-link-setup"
+          aria-label="Register with email"
         >
           Register
         </button>{" "}

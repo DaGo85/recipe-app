@@ -6,7 +6,12 @@ function NavBarLinks() {
     <>
       {NavBarLinkItems.map((item) => {
         return (
-          <Link className="auth-link-setup" key={item.name} to={item.link}>
+          <Link
+            aria-label={item.label}
+            className="auth-link-setup"
+            key={item.name}
+            to={item.link}
+          >
             {item.name}
           </Link>
         );
