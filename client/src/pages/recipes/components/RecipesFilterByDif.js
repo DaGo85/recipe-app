@@ -1,8 +1,6 @@
 function RecipesFilterByDif({ dif, setDif }) {
   const difArray = ["all", "very easy", "easy", "medium", "hard", "very hard"];
 
-  console.log(dif + "test");
-
   return (
     <div>
       <span>

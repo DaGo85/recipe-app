@@ -1,4 +1,3 @@
-import React from "react";
 import FooterImpressum from "./components/FooterImpressum";
 
 function Footer() {

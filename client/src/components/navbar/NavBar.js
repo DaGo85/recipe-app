@@ -1,4 +1,3 @@
-import React from "react";
 import ThemeToggle from "../../utility/darkmode/ThemeToggle";
 import NavBarAuth from "./components/NavBarAuth";
 import NavBarLinks from "./components/NavBarLinks";

@@ -1,13 +1,9 @@
-import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { sendPasswordReset } from "../../../utility/firebase";
-import { useAuthContext } from "../../../utility/AuthContext";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 
 function NavBarAuthReset({ setLogin, setRegister, setReset }) {
   const [email, setEmail] = useState("");
-  const { userData } = useAuthContext();
 
   return (
     <div className="auth-card-setup">

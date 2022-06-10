@@ -1,5 +1,3 @@
-import React from "react";
-
 function NotFound() {
   return (
     <main className="background-setup h-[60vh] text-center">

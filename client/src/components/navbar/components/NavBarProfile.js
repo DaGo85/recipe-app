@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../utility/AuthContext";
 import { logout } from "../../../utility/firebase";

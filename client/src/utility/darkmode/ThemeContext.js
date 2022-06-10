@@ -1,6 +1,6 @@
 // Context for darkmode
 
-import React, { useContext, useEffect, useState, createContext } from "react";
+import { useContext, useEffect, useState, createContext } from "react";
 
 // Function for checking prefered mode
 

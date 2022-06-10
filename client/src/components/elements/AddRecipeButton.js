@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../utility/AuthContext";
 import { motion } from "framer-motion";

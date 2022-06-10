@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { statisticsSvg } from "../../../assets/data";
 import RecipeService from "../../../services/recipeService";
 import { useRecipesContext } from "../../../utility/RecipesContext";

@@ -1,4 +1,3 @@
-import React from "react";
 import FooterSocialIcons from "./FooterSocialIcons";
 
 function FooterImpressum() {

@@ -1,4 +1,3 @@
-import React from "react";
 import { socialIconsList } from "../../../assets/data";
 
 function FooterSocialIcons() {

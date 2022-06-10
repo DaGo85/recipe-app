@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import RecipesFilterByDif from "./RecipesFilterByDif";
 import RecipesFilterByInput from "./RecipesFilterByInput";
 import RecipesFilterByTag from "./RecipesFilterByTag";

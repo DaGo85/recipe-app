@@ -1,5 +1,3 @@
-import React from "react";
-
 function StatisticsFact({ fact, icon }) {
   return (
     <div className="statistics-fact">
