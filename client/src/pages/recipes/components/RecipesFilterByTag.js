@@ -10,6 +10,7 @@ function RecipesFilterByTag({ tag, setTag }) {
             {tag.includes(tagM) ? (
               <div
                 className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                from-primaryLightContainer/75 to-[#bdeeb5]
                       dark:from-primaryDarkContainer dark:to-[#264d26]
                      cursor-not-allowed"
                 key={tagM}
@@ -23,7 +24,7 @@ function RecipesFilterByTag({ tag, setTag }) {
               <div
                 key={tagM}
                 className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
-                     from-primaryLightContainer/75 to-[#bdeeb5] dark:from-secondaryDarkContainer/40 dark:to-secondaryDarkContainer
+                      dark:from-secondaryDarkContainer/40 dark:to-secondaryDarkContainer
                      cursor-crosshair"
                 onClick={() => setTag((prevTag) => [...prevTag, tagM])}
               >

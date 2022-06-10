@@ -1,5 +1,7 @@
-function RecipesFilterByDif({ setDif }) {
+function RecipesFilterByDif({ dif, setDif }) {
   const difArray = ["all", "very easy", "easy", "medium", "hard", "very hard"];
+
+  console.log(dif + "test");
 
   return (
     <div>
@@ -11,6 +13,7 @@ function RecipesFilterByDif({ setDif }) {
           onChange={(e) => {
             setDif(e.target.value);
           }}
+          value={dif}
         >
           {difArray.map((difficulty) => (
             <option key={difficulty} value={difficulty}>
