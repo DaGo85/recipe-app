@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router";
 import { tagList } from "../../assets/data";
 
 import RecipeService from "../../services/recipeService";
+import { useAuthContext } from "../../utility/AuthContext";
 function SingleRecipe() {
   const [recipe, setRecipe] = useState("");
 
@@ -11,7 +12,7 @@ function SingleRecipe() {
   const [description, setDescription] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [ingredients, setIngredients] = useState([]);
-  const [ingredient, setIngredient] = useState("");
+  const { userCreds } = useAuthContext();
 
   const [addIng, setAddIng] = useState([]);
 
@@ -46,9 +47,16 @@ function SingleRecipe() {
       username: recipe.username,
     };
 
-    await RecipeService.update(recipe.title, updatedRecipe).catch((err) => {
-      navigate("/notfound");
-    });
+    const headers = {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${userCreds.token}`,
+    };
+
+    await RecipeService.update(recipe.title, updatedRecipe, headers).catch(
+      (err) => {
+        navigate("/notfound");
+      }
+    );
     navigate(`/recipe${title}`);
   };
 

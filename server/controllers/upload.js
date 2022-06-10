@@ -4,6 +4,9 @@ const db = require("../models");
 const Image = db.images;
 
 const uploadFiles = async (req, res) => {
+  const auth = req.currentUser;
+  if (!auth) res.status(403).send("Not authorized!");
+
   try {
     if (req.file == undefined) {
       return res.send(`You must select a file.`);

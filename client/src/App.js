@@ -15,7 +15,7 @@ import Footer from "./components/footer/Footer";
 import Add from "./pages/addrecipe/Add";
 import { useRecipesContext } from "./utility/RecipesContext";
 
-// todo BE multiple files fix
+// todo BE multiple files fix, images, error handling(not just to not found page), deletemodal
 
 function App() {
   useScrollToTop();

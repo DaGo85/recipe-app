@@ -4,6 +4,7 @@ import DeleteModal from "../../components/elements/DeleteModal";
 import imgMock from "../../assets/test.jpg";
 
 import RecipeService from "../../services/recipeService";
+import { useAuthContext } from "../../utility/AuthContext";
 
 //todo: ingredients
 
@@ -13,12 +14,18 @@ function SingleRecipe() {
   const path = location.pathname.split("/recipe")[1];
   const [recipe, setRecipe] = useState(null);
   const [images, setImages] = useState([]);
+  const { userCreds } = useAuthContext();
 
   const navigate = useNavigate();
 
   //Handler for deleting singlepost from the API
   const handleDelete = async () => {
-    await RecipeService.remove(recipe.id);
+    const headers = {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${userCreds.token}`,
+    };
+
+    await RecipeService.remove(recipe.id, headers);
     navigate("/");
   };
 

@@ -21,10 +21,17 @@ function NavBarAuth() {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
+        user.getIdToken(true).then((token) => {
+          setUserCreds((prevState) => {
+            return { ...prevState, token };
+          });
+        });
+
         const uid = user.uid;
         const email = user.email;
 
         const newUser = { uid, email };
+
         setLogin(false);
         setUserData(newUser);
       }

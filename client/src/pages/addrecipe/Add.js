@@ -22,6 +22,11 @@ function Add() {
     e.preventDefault();
     const { title, description } = e.target.elements;
 
+    const headers = {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${userCreds.token}`,
+    };
+
     const newRecipe = {
       username: userCreds.name,
       title: title.value.replace("/", ","),
@@ -33,7 +38,7 @@ function Add() {
     };
 
     try {
-      await RecipeService.create(newRecipe)
+      await RecipeService.create(newRecipe, headers)
         .then((response) => {
           newRecipe.id = response.data.id;
         })
@@ -47,7 +52,7 @@ function Add() {
         data.append("name", filename);
         data.append("file", file.data);
         data.append("recipeId", newRecipe.id);
-        await RecipeService.addImages(data);
+        await RecipeService.addImages(data, headers);
       } catch {}
     });
 

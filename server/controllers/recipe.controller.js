@@ -5,6 +5,9 @@ const Recipe = db.recipes;
 
 // Create and save a new recipe
 exports.create = (req, res) => {
+  console.log("auttokenkram" + req.currentUser);
+  const auth = req.currentUser;
+  if (!auth) res.status(403).send("Not authorized!");
   // Validate request
   if (!req.body.title) {
     res.status(400).send({
@@ -88,6 +91,9 @@ exports.findOne = (req, res) => {
 
 // Update a recipe by the id in the request
 exports.update = (req, res) => {
+  const auth = req.currentUser;
+  if (!auth) res.status(403).send("Not authorized!");
+
   const title = req.params.title;
 
   Recipe.update(req.body, {
@@ -114,7 +120,11 @@ exports.update = (req, res) => {
 
 // Delete a recipe with the specified id in the request
 exports.delete = (req, res) => {
+  const auth = req.currentUser;
+  if (!auth) res.status(403).send("Not authorized!");
+
   const id = req.params.id;
+
   Recipe.destroy({
     where: { id: id },
   })

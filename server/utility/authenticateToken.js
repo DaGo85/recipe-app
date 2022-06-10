@@ -19,6 +19,7 @@ admin.initializeApp({
 });
 
 async function decodeIDToken(req, res, next) {
+  console.log("authtoken" + JSON.stringify(req.headers));
   const header = req.headers?.authorization;
   if (
     header !== "Bearer null" &&

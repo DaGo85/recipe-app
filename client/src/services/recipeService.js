@@ -12,20 +12,16 @@ const getLast = () => {
   return http.get("/recipes/last");
 };
 
-const create = (data) => {
-  return http.post("/recipes", data);
+const create = (data, headers) => {
+  return http.post("/recipes", data, { headers: headers });
 };
 
-const update = (title, data) => {
-  return http.put(`/recipes/${title}`, data);
+const update = (title, data, headers) => {
+  return http.put(`/recipes/${title}`, data, { headers: headers });
 };
 
-const remove = (id) => {
-  return http.delete(`/recipes/${id}`);
-};
-
-const removeAll = () => {
-  return http.delete(`/recipes`);
+const remove = (id, headers) => {
+  return http.delete(`/recipes/${id}`, { headers: headers });
 };
 
 const findByTitle = (title) => {
@@ -36,8 +32,8 @@ const facts = () => {
   return http.get("/recipes/facts");
 };
 
-const addImages = (data) => {
-  return http.post("/recipes/upload", data);
+const addImages = (data, headers) => {
+  return http.post("/recipes/upload", data, { headers: headers });
 };
 
 const RecipeService = {
@@ -47,7 +43,6 @@ const RecipeService = {
   create,
   update,
   remove,
-  removeAll,
   findByTitle,
   facts,
   addImages,
