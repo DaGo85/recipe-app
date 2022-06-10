@@ -63,7 +63,11 @@ function Recipes() {
     }
 
     if (filter.input.length > 0) {
-      const inputFilter = filter.input.replace(",", " ").split(" ");
+      const inputFilter = filter.input
+        .replace(",", " ")
+        .replace(/\s+/g, " ")
+        .trim()
+        .split(" ");
 
       const checkDesc = (desc) =>
         inputFilter.every((v) =>
@@ -71,20 +75,14 @@ function Recipes() {
             .toLowerCase()
             .replace(",", " ")
             .replace("\n", " ")
+            .replace(/\s+/g, " ")
+            .trim()
             .split(" ")
             .includes(v)
         );
 
-      console.log(inputFilter);
+      console.log("inputfilter " + inputFilter);
       saveFilter = saveFilter.filter((v) => {
-        console.log(
-          "first" +
-            v.description
-              .toLowerCase()
-              .replace(",", " ")
-              .replace("\n", " ")
-              .split(" ")
-        );
         return checkDesc(v.description);
       });
     }

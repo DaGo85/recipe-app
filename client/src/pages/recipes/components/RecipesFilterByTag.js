@@ -1,7 +1,6 @@
 import { tagList } from "../../../assets/data";
 
 function RecipesFilterByTag({ tag, setTag }) {
-  console.log("tags" + tag);
   return (
     <div>
       <ul className="flex flex-wrap gap-1 justify-center items-center">

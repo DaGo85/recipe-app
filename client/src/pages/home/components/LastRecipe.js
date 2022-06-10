@@ -36,8 +36,6 @@ function LastRecipe() {
     },
   };
 
-  console.log("lastrecipe:" + JSON.stringify(recipe));
-
   return (
     <>
       <h2>Newest Recipe:</h2>
