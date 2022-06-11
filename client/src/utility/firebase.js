@@ -18,6 +18,7 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -98,6 +99,8 @@ const logout = () => {
   signOut(auth);
 };
 
+const projectStorage = getStorage(app);
+
 export {
   auth,
   db,
@@ -106,4 +109,5 @@ export {
   registerWithEmailAndPassword,
   sendPasswordReset,
   logout,
+  projectStorage,
 };

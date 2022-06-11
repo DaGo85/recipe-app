@@ -27,14 +27,15 @@ function RecipesFilter({ setFilter, setCurrentPage }) {
         setInput={setInput}
         setFilter={setFilter}
       />
-      <RecipesFilterByTag tag={tag} setTag={setTag} />
-      <RecipesFilterByDif dif={dif} setDif={setDif} />
-      <span className="flex flex-col gap-2 md:flex-row md:gap-4">
+      <RecipesFilterByTag tag={tag} setTag={setTag} />{" "}
+      <span className="flex flex-col gap-2 md:flex-row md:gap-4 mb-6">
+        <RecipesFilterByDif dif={dif} setDif={setDif} />
+
         <button onClick={() => resetFilter()} className="delete-button-setup">
           Reset filter
         </button>
         <button
-          className="button-setup mb-4"
+          className="button-setup px-10"
           onClick={() => {
             setFilter({
               difficulty: dif,

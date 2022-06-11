@@ -15,7 +15,7 @@ import Footer from "./components/footer/Footer";
 import Add from "./pages/addrecipe/Add";
 import { useRecipesContext } from "./utility/RecipesContext";
 
-// todo BE multiple files fix, images, error handling(not just to not found page), placeholder
+// todo BE multiple files fix, images, placeholder
 
 function App() {
   useScrollToTop();
@@ -40,7 +40,7 @@ function App() {
         <Route path="recipes" element={<Recipes />} />
         <Route path="recipe:singlerecipeId" element={<SingleRecipe />} />
         <Route path="update:singlerecipeId" element={<SingleRecipeUpdate />} />
-        <Route path="*" element={<NotFound />} />
+        {<Route path="*" element={<NotFound />} />}
 
         {userData && <Route path="add" element={<Add />} />}
       </Routes>
