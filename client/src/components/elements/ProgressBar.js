@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import useFireStorage from "../../../utility/useFirestorage";
+import useFireStorage from "../../utility/useFireStorage";
 
 const ProgressBar = ({ selected, setSelected, setUrl, folder }) => {
   const { progress, url } = useFireStorage(selected, folder);

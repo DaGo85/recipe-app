@@ -31,6 +31,15 @@ module.exports = (sequelize, Sequelize) => {
         this.setDataValue("tags", val.join(";"));
       },
     },
+    images: {
+      type: Sequelize.STRING,
+      get() {
+        return this.getDataValue("images").split(";");
+      },
+      set(val) {
+        this.setDataValue("images", val.join(";"));
+      },
+    },
   });
 
   return Recipe;

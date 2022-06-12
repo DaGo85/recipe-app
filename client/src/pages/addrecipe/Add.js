@@ -4,15 +4,19 @@ import { useNavigate } from "react-router";
 import { useAuthContext } from "../../utility/AuthContext";
 import { tagList } from "../../assets/data";
 import { motion } from "framer-motion";
+import ProgressBar from "../../components/elements/ProgressBar";
 
 function Add() {
-  const [files, setFiles] = useState([]);
+  const [file, setFile] = useState([]);
   const { userCreds } = useAuthContext();
   const [difficulty, setDifficulty] = useState(5);
   const [difficultyText, setDifficultyText] = useState("medium");
   const [tags, setTags] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [addIng, setAddIng] = useState([]);
+  const [url, setUrl] = useState();
+  const [selected, setSelected] = useState();
+  const [images, setImages] = useState([]);
 
   const navigate = useNavigate();
 
@@ -34,42 +38,34 @@ function Add() {
       description: description.value,
       tags: tags,
       ingredients: ingredients,
-      id: "",
+
+      images: images,
     };
 
     try {
-      await RecipeService.create(newRecipe, headers)
-        .then((response) => {
-          newRecipe.id = response.data.id;
-        })
-        .catch((err) => {});
+      await RecipeService.create(newRecipe, headers).catch((err) => {});
     } catch {}
-
-    files.forEach(async (file) => {
-      try {
-        const data = new FormData();
-        const filename = Date.now() + file.name;
-        data.append("name", filename);
-        data.append("file", file.data);
-        data.append("recipeId", newRecipe.id);
-        await RecipeService.addImages(data, headers);
-      } catch {}
-    });
 
     navigate(`/recipe${newRecipe.title}`);
   };
 
-  const handleImageInput = (e) => {
-    const tempArr = [];
-    [...e.target.files].forEach((file) => {
-      tempArr.push({
-        data: file,
-        url: URL.createObjectURL(file),
-      });
-    });
-
-    setFiles((prevState) => [...prevState, ...tempArr]);
+  const handleImageUpload = async (e) => {
+    // Restriction for files: jpeg,jpg and png only, also the size has to be
+    // maximal 3000000 ( 3mb )
+    if (file === null) return;
+    if (
+      e.target.files[0].name.match(/\.(jpeg|jpg|png)$/) &&
+      e.target.files[0].size <= 3000000
+    ) {
+      setSelected(e.target.files[0]);
+    } else {
+      setFile(null);
+    }
   };
+
+  useEffect(() => {
+    setImages((prevValue) => [...prevValue, url]);
+  }, [url]);
 
   const handleAddIngredient = (e) => {
     e.preventDefault();
@@ -146,20 +142,24 @@ function Add() {
             <path d="M447.1 32h-384C28.64 32-.0091 60.65-.0091 96v320c0 35.35 28.65 64 63.1 64h384c35.35 0 64-28.65 64-64V96C511.1 60.65 483.3 32 447.1 32zM111.1 96c26.51 0 48 21.49 48 48S138.5 192 111.1 192s-48-21.49-48-48S85.48 96 111.1 96zM446.1 407.6C443.3 412.8 437.9 416 432 416H82.01c-6.021 0-11.53-3.379-14.26-8.75c-2.73-5.367-2.215-11.81 1.334-16.68l70-96C142.1 290.4 146.9 288 152 288s9.916 2.441 12.93 6.574l32.46 44.51l93.3-139.1C293.7 194.7 298.7 192 304 192s10.35 2.672 13.31 7.125l128 192C448.6 396 448.9 402.3 446.1 407.6z" />
           </svg>
         </motion.button>
-        {files.map((fileSrc) => (
-          <img
-            key={fileSrc.url}
-            src={fileSrc.url}
-            alt="not found"
-            width={"250px"}
+        {selected && (
+          <ProgressBar
+            selected={selected}
+            setSelected={setSelected}
+            setUrl={setUrl}
+            folder="stories"
           />
-        ))}
+        )}
+        {images &&
+          images.map((image) => (
+            <img key={image} src={image} alt="not found" width={"250px"} />
+          ))}
         <input
           accept="image/jpg,image/png,image/jpeg"
           className="hidden"
           type="file"
-          onChange={handleImageInput}
           multiple
+          onChange={(e) => handleImageUpload(e)}
           ref={fileRef}
         />
         <ul className="flex flex-col gap-2 px-2 w-full">
