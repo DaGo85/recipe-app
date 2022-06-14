@@ -1,7 +1,5 @@
 module.exports = (app) => {
   const recipes = require("../controllers/recipe.controller.js");
-  const uploadController = require("../controllers/upload");
-  const upload = require("../middleware/upload");
 
   let router = require("express").Router();
 
@@ -25,9 +23,6 @@ module.exports = (app) => {
 
   // Delete a recipe with id
   router.delete("/:id", recipes.delete);
-
-  // Add images to recipe by id
-  router.post("/upload", upload.single("file"), uploadController.uploadFiles);
 
   app.use("/api/recipes", router);
 };

@@ -5,9 +5,9 @@ const Recipe = db.recipes;
 
 // Create and save a new recipe
 exports.create = (req, res) => {
-  console.log("auttokenkram" + req.currentUser);
   const auth = req.currentUser;
   if (!auth) res.status(403).send("Not authorized!");
+
   // Validate request
   if (!req.body.title) {
     res.status(400).send({
@@ -24,7 +24,10 @@ exports.create = (req, res) => {
     username: req.body.username,
     ingredients: req.body.ingredients,
     tags: req.body.tags,
+    img: req.body.img,
   };
+
+  console.log("first" + recipe.img);
 
   // Save recipe in the database
   Recipe.create(recipe)
@@ -32,6 +35,7 @@ exports.create = (req, res) => {
       res.send(data);
     })
     .catch((err) => {
+      console.log("error: " + err.message);
       res.status(500).send({
         message:
           err.message || "Some error occurred while creating the recipe.",
@@ -39,7 +43,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve all recipes from the database with images
+// Retrieve all recipes from the database
 exports.findAll = (req, res) => {
   Recipe.findAll()
     .then((data) => {
@@ -52,11 +56,10 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Retrieve last recipes from the database and images
+// Retrieve last recipes from the database
 exports.findLast = (req, res) => {
   Recipe.findAll({
     limit: 1,
-    include: ["images"],
     order: [["createdAt", "DESC"]],
   })
     .then((data) => {
@@ -72,7 +75,7 @@ exports.findLast = (req, res) => {
 // Find a single recipe with an title
 exports.findOne = (req, res) => {
   const title = req.params.title;
-  Recipe.findOne({ where: { title: title }, include: ["images"] })
+  Recipe.findOne({ where: { title: title } })
     .then((data) => {
       if (data) {
         res.send(data);

@@ -38,9 +38,9 @@ function Add() {
       description: description.value,
       tags: tags,
       ingredients: ingredients,
-
-      images: images,
+      img: images,
     };
+    console.log("imagesuploadcheck" + JSON.stringify(newRecipe));
 
     try {
       await RecipeService.create(newRecipe, headers).catch((err) => {});
@@ -64,7 +64,10 @@ function Add() {
   };
 
   useEffect(() => {
-    setImages((prevValue) => [...prevValue, url]);
+    if (url) {
+      setImages((prevValue) => [...prevValue, url]);
+      setUrl(null);
+    }
   }, [url]);
 
   const handleAddIngredient = (e) => {
@@ -147,7 +150,6 @@ function Add() {
             selected={selected}
             setSelected={setSelected}
             setUrl={setUrl}
-            folder="stories"
           />
         )}
         {images &&

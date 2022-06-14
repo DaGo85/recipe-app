@@ -31,13 +31,14 @@ module.exports = (sequelize, Sequelize) => {
         this.setDataValue("tags", val.join(";"));
       },
     },
-    images: {
+    img: {
       type: Sequelize.STRING,
+      allowNull: false,
       get() {
-        return this.getDataValue("images").split(";");
+        return this.getDataValue("img").split(";");
       },
       set(val) {
-        this.setDataValue("images", val.join(";"));
+        this.setDataValue("img", val.join(";"));
       },
     },
   });
