@@ -13,7 +13,6 @@ function SingleRecipe() {
   const location = useLocation();
   const path = location.pathname.split("/recipe")[1];
   const [recipe, setRecipe] = useState(null);
-  const [images, setImages] = useState(null);
   const { userCreds } = useAuthContext();
 
   const navigate = useNavigate();
@@ -34,14 +33,6 @@ function SingleRecipe() {
     RecipeService.get(path)
       .then((response) => {
         setRecipe(response.data);
-        let base64String = String.fromCharCode(
-          ...new Uint8Array(response.data.images[0].data)
-        );
-
-        const blob = new Blob([response.data.images[0].data]);
-        const url = URL.createObjectURL(blob);
-        console.log("address" + url);
-        setImages(url);
       })
       .catch((err) => {
         //navigate("/notfound");
@@ -54,9 +45,10 @@ function SingleRecipe() {
       {recipe ? (
         <main className="background-setup">
           <h1 className="break-all text-center">{recipe.title}</h1>
-          {recipe?.images && (
-            <img className="w-72 h-72" src={`${images}`} alt="from recipe" />
-          )}
+          {recipe.img.map((i) => {
+            return <img className="w-72 h-72" src={i} alt="from recipe" />;
+          })}
+
           <div className="recipe-card pt-10 text-center">
             <h2 className="text-xl">
               created by:

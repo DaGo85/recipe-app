@@ -8,7 +8,7 @@ const useFireStorage = (file, folder) => {
 
   useEffect(() => {
     // references
-    const imageRef = ref(projectStorage, `${folder}/${Date.now() + file.name}`);
+    const imageRef = ref(projectStorage, `images/${Date.now() + file.name}`);
 
     const uploadTask = uploadBytesResumable(imageRef, file);
 

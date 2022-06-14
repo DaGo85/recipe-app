@@ -32,7 +32,7 @@ module.exports = (sequelize, Sequelize) => {
       },
     },
     img: {
-      type: Sequelize.STRING,
+      type: Sequelize.TEXT("long"),
       allowNull: false,
       get() {
         return this.getDataValue("img").split(";");

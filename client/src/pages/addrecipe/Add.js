@@ -5,6 +5,7 @@ import { useAuthContext } from "../../utility/AuthContext";
 import { tagList } from "../../assets/data";
 import { motion } from "framer-motion";
 import ProgressBar from "../../components/elements/ProgressBar";
+import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
 
 function Add() {
   const [file, setFile] = useState([]);
@@ -63,13 +64,18 @@ function Add() {
     }
   };
 
+  const handleDeleteImg = async (del) => {
+    setImages((prevValue) => prevValue.filter((v) => v !== del));
+    handleDeleteFirebaseImg(del);
+  };
+
   useEffect(() => {
     if (url) {
       setImages((prevValue) => [...prevValue, url]);
       setUrl(null);
     }
   }, [url]);
-
+  console.log("imagesCeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + images);
   const handleAddIngredient = (e) => {
     e.preventDefault();
     setIngredients((prevIngredients) => [...prevIngredients, addIng]);
@@ -154,13 +160,19 @@ function Add() {
         )}
         {images &&
           images.map((image) => (
-            <img key={image} src={image} alt="not found" width={"250px"} />
+            <img
+              className="cursor-not-allowed"
+              onClick={() => handleDeleteImg(image)}
+              key={image}
+              src={image}
+              alt="not found"
+              width={"250px"}
+            />
           ))}
         <input
           accept="image/jpg,image/png,image/jpeg"
           className="hidden"
           type="file"
-          multiple
           onChange={(e) => handleImageUpload(e)}
           ref={fileRef}
         />
