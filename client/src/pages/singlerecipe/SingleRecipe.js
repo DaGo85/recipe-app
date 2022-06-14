@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import DeleteModal from "../../components/elements/DeleteModal";
-import imgMock from "../../assets/test.jpg";
 
 import RecipeService from "../../services/recipeService";
 import { useAuthContext } from "../../utility/AuthContext";
@@ -46,7 +45,9 @@ function SingleRecipe() {
         <main className="background-setup">
           <h1 className="break-all text-center">{recipe.title}</h1>
           {recipe.img.map((i) => {
-            return <img className="w-72 h-72" src={i} alt="from recipe" />;
+            return (
+              <img className="w-72 h-72" key={i} src={i} alt="from recipe" />
+            );
           })}
 
           <div className="recipe-card pt-10 text-center">

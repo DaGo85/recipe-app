@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeService from "../../../services/recipeService";
-import imgMock from "../../../assets/test.jpg";
 import { motion } from "framer-motion";
 
 function LastRecipe() {
@@ -49,7 +48,7 @@ function LastRecipe() {
           onClick={() => handleLink()}
         >
           <h3>{recipe.title}</h3>
-          <img className="" src={imgMock} alt="from recipe" />
+          <img className="" src={recipe.img[0]} alt="from recipe" />
           <div className="flex flex-col gap-1">
             <h4>
               created by:
