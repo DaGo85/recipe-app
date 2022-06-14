@@ -4,6 +4,7 @@ import DeleteModal from "../../components/elements/DeleteModal";
 
 import RecipeService from "../../services/recipeService";
 import { useAuthContext } from "../../utility/AuthContext";
+import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
 
 //todo: ingredients
 
@@ -18,6 +19,10 @@ function SingleRecipe() {
 
   //Handler for deleting singlepost from the API
   const handleDelete = async () => {
+    recipe.img.forEach((r) => {
+      handleDeleteFirebaseImg(r);
+    });
+
     const headers = {
       "Content-Type": "application/json",
       authorization: `Bearer ${userCreds.token}`,
