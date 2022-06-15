@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import DeleteModal from "../../components/elements/DeleteModal";
+import ImageModal from "../../components/elements/ImageModal";
 
 import RecipeService from "../../services/recipeService";
 import { useAuthContext } from "../../utility/AuthContext";
@@ -13,6 +14,8 @@ function SingleRecipe() {
   const location = useLocation();
   const path = location.pathname.split("/recipe")[1];
   const [recipe, setRecipe] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [zoom, setZoom] = useState("");
   const { userCreds } = useAuthContext();
 
   const navigate = useNavigate();
@@ -51,7 +54,16 @@ function SingleRecipe() {
           <h1 className="break-all text-center">{recipe.title}</h1>
           {recipe.img.map((i) => {
             return (
-              <img className="w-72 h-72" key={i} src={i} alt="from recipe" />
+              <img
+                onClick={() => {
+                  setZoom(i);
+                  setIsOpen(true);
+                }}
+                className="w-72 h-72"
+                key={i}
+                src={i}
+                alt="from recipe"
+              />
             );
           })}
 
@@ -119,6 +131,7 @@ function SingleRecipe() {
       ) : (
         <section>placeholder</section>
       )}
+      {isOpen && <ImageModal setIsOpen={setIsOpen} image={zoom} />}
     </>
   );
 }

@@ -61,7 +61,7 @@ function NavBarAuth() {
   }, [userData, setUserCreds]);
 
   return (
-    <div className="relative z-50">
+    <div className="relative ">
       <div
         onClick={() => {
           setIsOpen(!isOpen);

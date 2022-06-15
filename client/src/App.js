@@ -15,7 +15,7 @@ import Footer from "./components/footer/Footer";
 import Add from "./pages/addrecipe/Add";
 import { useRecipesContext } from "./utility/RecipesContext";
 
-// todo, images styling, placeholder, progressbar styling,
+// todo, images styling, placeholder,
 
 function App() {
   useScrollToTop();
