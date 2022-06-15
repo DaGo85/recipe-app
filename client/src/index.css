@@ -252,4 +252,8 @@
     @apply flex items-center h-8 text-center mx-auto my-1 text-backgroundLightOn dark:text-backgroundDarkOn cursor-pointer
     md:px-4 md:py-6;
   }
+
+  .progress-bar {
+    @apply h-4 bg-primaryLight dark:bg-primaryDark mt-10 w-max;
+  }
 }

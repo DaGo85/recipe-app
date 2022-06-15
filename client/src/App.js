@@ -15,7 +15,7 @@ import Footer from "./components/footer/Footer";
 import Add from "./pages/addrecipe/Add";
 import { useRecipesContext } from "./utility/RecipesContext";
 
-// todo BE multiple files fix, images styling, placeholder, progressbar styling,
+// todo, images styling, placeholder, progressbar styling,
 
 function App() {
   useScrollToTop();
@@ -30,7 +30,7 @@ function App() {
     };
 
     fetchedRecipes();
-  }, []);
+  }, [setRecipesData]);
 
   return (
     <>
