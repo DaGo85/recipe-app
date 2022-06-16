@@ -48,9 +48,9 @@ function SingleRecipe() {
 
   console.log("imagecheck" + JSON.stringify(recipe?.images));
   return (
-    <>
+    <main>
       {recipe ? (
-        <main className="background-setup">
+        <article className="background-setup">
           <h1 className="break-all text-center">{recipe.title}</h1>
           {recipe.img.map((i) => {
             return (
@@ -127,12 +127,12 @@ function SingleRecipe() {
               setShowModal={setShowModal}
             />
           </div>
-        </main>
+        </article>
       ) : (
         <section>placeholder</section>
       )}
       {isOpen && <ImageModal setIsOpen={setIsOpen} image={zoom} />}
-    </>
+    </main>
   );
 }
 

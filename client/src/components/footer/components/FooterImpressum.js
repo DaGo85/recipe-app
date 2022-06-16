@@ -2,7 +2,7 @@ import FooterSocialIcons from "./FooterSocialIcons";
 
 function FooterImpressum() {
   return (
-    <section className="flex flex-col md:flex-row gap-6">
+    <address className="flex flex-col md:flex-row gap-6">
       <span className="flex flex-col gap-4 w-full">
         <h3>According to § 5 TMG:</h3>
         <hr className="hr-setup" />
@@ -20,7 +20,7 @@ function FooterImpressum() {
         <p>E-Mail: d.goergens@gmail.com</p>
         <FooterSocialIcons />
       </span>
-    </section>
+    </address>
   );
 }
 

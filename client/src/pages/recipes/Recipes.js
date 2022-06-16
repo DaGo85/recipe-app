@@ -4,7 +4,7 @@ import { useRecipesContext } from "../../utility/RecipesContext";
 import RecipesFilter from "./components/RecipesFilter";
 import FilteredRecipes from "./components/FilteredRecipes";
 
-const PageSize = 1;
+const PageSize = 9;
 
 function Recipes() {
   const [currentPage, setCurrentPage] = useState(1);

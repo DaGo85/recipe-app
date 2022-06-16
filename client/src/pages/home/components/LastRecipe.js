@@ -39,7 +39,7 @@ function LastRecipe() {
     <>
       <h2>Newest Recipe:</h2>
       {recipe ? (
-        <motion.section
+        <motion.article
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true }}
@@ -72,7 +72,7 @@ function LastRecipe() {
             })}
             <span className="py-4">Difficulty: {recipe.difficulty}/10</span>
           </p>
-        </motion.section>
+        </motion.article>
       ) : (
         <section>placeholder</section>
       )}
