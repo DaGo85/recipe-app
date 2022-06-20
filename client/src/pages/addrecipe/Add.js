@@ -78,6 +78,7 @@ function Add() {
   console.log("imagesCeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + images);
   const handleAddIngredient = (e) => {
     e.preventDefault();
+    if (addIng === "") return;
     setIngredients((prevIngredients) => [...prevIngredients, addIng]);
     setAddIng("");
   };
@@ -176,7 +177,10 @@ function Add() {
           onChange={(e) => handleImageUpload(e)}
           ref={fileRef}
         />
-        <ul className="flex flex-col gap-2 px-2 w-full">
+        <ul
+          className="flex flex-col gap-2 px-2 w-full"
+          data-testid="ingredient-list"
+        >
           {ingredients.map((ingredient) => {
             return (
               <li key={ingredient}>
@@ -209,11 +213,13 @@ function Add() {
             }
           }}
           placeholder="Add Ingredient"
+          data-testid="ingredient-input"
         />
         <button
           className="button-setup"
           type="button"
           onClick={(e) => handleAddIngredient(e)}
+          data-testid="ingredient-add-button"
         >
           Add Ingredient
         </button>

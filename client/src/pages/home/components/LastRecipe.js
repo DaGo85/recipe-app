@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeService from "../../../services/recipeService";
 import { motion } from "framer-motion";
-import SkeletonText from "../../../skeletons/SkeletonText";
 import SkeletonArticle from "../../../skeletons/SkeletonArticle";
 
 function LastRecipe() {

@@ -50,7 +50,6 @@ function SingleRecipe() {
   console.log("imagecheck" + JSON.stringify(recipe?.images));
   return (
     <main>
-      <SkeletonArticle />
       {recipe ? (
         <article className="background-setup">
           <h1 className="break-all text-center">{recipe.title}</h1>
@@ -68,7 +67,6 @@ function SingleRecipe() {
               />
             );
           })}
-
           <div className="recipe-card pt-10 text-center">
             <h2 className="text-xl">
               created by:
