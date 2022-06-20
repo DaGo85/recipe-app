@@ -23,6 +23,7 @@ function SubText({ text }) {
       whileInView="onscreen"
       viewport={{ once: true }}
       variants={cardVariants}
+      data-testid="subtext"
     >
       {text}
     </motion.h2>
