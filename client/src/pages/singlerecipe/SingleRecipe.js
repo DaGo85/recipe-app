@@ -4,6 +4,7 @@ import DeleteModal from "../../components/elements/DeleteModal";
 import ImageModal from "../../components/elements/ImageModal";
 
 import RecipeService from "../../services/recipeService";
+import SkeletonArticle from "../../skeletons/SkeletonArticle";
 import { useAuthContext } from "../../utility/AuthContext";
 import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
 
@@ -49,6 +50,7 @@ function SingleRecipe() {
   console.log("imagecheck" + JSON.stringify(recipe?.images));
   return (
     <main>
+      <SkeletonArticle />
       {recipe ? (
         <article className="background-setup">
           <h1 className="break-all text-center">{recipe.title}</h1>
@@ -129,7 +131,7 @@ function SingleRecipe() {
           </div>
         </article>
       ) : (
-        <section>placeholder</section>
+        <SkeletonArticle />
       )}
       {isOpen && <ImageModal setIsOpen={setIsOpen} image={zoom} />}
     </main>

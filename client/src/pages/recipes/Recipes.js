@@ -3,6 +3,7 @@ import Pagination from "../../components/pagination/Pagination";
 import { useRecipesContext } from "../../utility/RecipesContext";
 import RecipesFilter from "./components/RecipesFilter";
 import FilteredRecipes from "./components/FilteredRecipes";
+import SkeletonFact from "../../skeletons/SkeletonFact";
 
 const PageSize = 9;
 
@@ -102,7 +103,21 @@ function Recipes() {
         pageSize={PageSize}
         onPageChange={(page) => setCurrentPage(page)}
       />
-      <FilteredRecipes currentGridData={currentGridData} />
+      {recipesData ? (
+        <FilteredRecipes currentGridData={currentGridData} />
+      ) : (
+        <>
+          <SkeletonFact />
+          <SkeletonFact />
+          <SkeletonFact />
+          <SkeletonFact />
+          <SkeletonFact />
+          <SkeletonFact />
+          <SkeletonFact />
+          <SkeletonFact />
+          <SkeletonFact />
+        </>
+      )}
       <Pagination
         currentPage={currentPage}
         totalCount={filteredRecipes.length}

@@ -8,9 +8,14 @@ module.exports = {
           "0%": { backgroundColor: "#111f0f" },
           "100%": { backgroundColor: "#008010" },
         },
+        skeletonLoadingDark: {
+          "0%": { backgroundColor: "#d6e8ce" },
+          "100%": { backgroundColor: "#a4b39d" },
+        },
       },
       animation: {
         skeletonLightBg: "skeletonLoadingLight 1s linear infinite alternate",
+        skeletonDarkBg: "skeletonLoadingDark 1s linear infinite alternate",
       },
       colors: {
         primaryLight: "#006e0e",
