@@ -3,6 +3,15 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      keyframes: {
+        skeletonLoadingLight: {
+          "0%": { backgroundColor: "#111f0f" },
+          "100%": { backgroundColor: "#008010" },
+        },
+      },
+      animation: {
+        skeletonLightBg: "skeletonLoadingLight 1s linear infinite alternate",
+      },
       colors: {
         primaryLight: "#006e0e",
         primaryLightOn: "#ffffff",

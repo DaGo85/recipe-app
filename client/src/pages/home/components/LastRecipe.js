@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RecipeService from "../../../services/recipeService";
 import { motion } from "framer-motion";
+import SkeletonText from "../../../skeletons/SkeletonText";
+import SkeletonArticle from "../../../skeletons/SkeletonArticle";
 
 function LastRecipe() {
   const [recipe, setRecipe] = useState(null);
@@ -37,7 +39,7 @@ function LastRecipe() {
 
   return (
     <>
-      <h2>Newest Recipe:</h2>
+      <h2>Newest Recipe: </h2>
       {recipe ? (
         <motion.article
           initial="offscreen"
@@ -74,7 +76,7 @@ function LastRecipe() {
           </p>
         </motion.article>
       ) : (
-        <section>placeholder</section>
+        <SkeletonArticle />
       )}
     </>
   );
