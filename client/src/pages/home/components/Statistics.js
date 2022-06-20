@@ -4,6 +4,7 @@ import RecipeService from "../../../services/recipeService";
 import { useRecipesContext } from "../../../utility/RecipesContext";
 import StatisticsFact from "./StatisticsFact";
 import { motion } from "framer-motion";
+import SkeletonFact from "../../../skeletons/SkeletonFact";
 
 function Statistics() {
   const [facts, setFacts] = useState();
@@ -35,7 +36,7 @@ function Statistics() {
 
   return (
     <section className="flex flex-wrap justify-center items-center mt-[-16px]">
-      {facts &&
+      {facts ? (
         facts.map((f, i) => {
           return (
             <motion.div
@@ -48,7 +49,14 @@ function Statistics() {
               <StatisticsFact fact={f} icon={statisticsSvg[i]} />
             </motion.div>
           );
-        })}
+        })
+      ) : (
+        <>
+          <SkeletonFact />
+          <SkeletonFact />
+          <SkeletonFact />
+        </>
+      )}
     </section>
   );
 }
