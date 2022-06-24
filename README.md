@@ -1,6 +1,6 @@
 # Recipe-App
 
-> A fullstack CRUD Recipe App using MySQL, Express, React, Node.js, Firebase for authentification and Tailwind(including Darkmode)
+> A fullstack CRUD Recipe App using MySQL(Sequelize), Express, React, Node.js, Tailwind(including Darkmode) and Firebase for authentification and image storage
 
 ## Table of Contents
 
@@ -16,7 +16,7 @@
 
 ## General Information
 
-This project was created with the purpose of learning MySQL, Express, React, Node.js, Firebase auth and Tailwind.
+This project was created with the purpose of learning MySQL, Express, React, Node.js, Jest, Firebase auth and Tailwind.
 
 The intention was to create an App where a community can create and find recipes for people with intolerances.
 
@@ -31,6 +31,8 @@ The intention was to create an App where a community can create and find recipes
 - Firebase-admin - version 10.1.0
 - Tailwind - version 3.0.24
 - React-Router-Dom - version 6.3.0
+- jest - version 28.1.1
+- testing-library/react - version 13.3.0
 
 For more informations check package.JSON in ./client for frontend dependencies and in ./ for backend.
 
@@ -39,9 +41,9 @@ For more informations check package.JSON in ./client for frontend dependencies a
 - Backend for creating, reading, updating and deleting recipes
 - User authentification system with verification in backend (Firebase)
 - Navigation-bar with user authentification handling, darkmode and links
-- Home-landing page with welcome, random recipe and statistics
-- Recipes page with several filters and paginated table
-- Singlerecipe page with several features like voting, edit and more
+- Home-landing page with welcome, random recipe, last recipe and random facts about the app
+- Recipes page with filter by difficulty, tag and text input displayed in a paginated grid
+- Singlerecipe page with several features like editing, deleting and more
 
 ## Setup
 
@@ -57,11 +59,12 @@ Open http://localhost:3000 with your browser to see the result.
 For a full list of dependencies take a look at package.json.
 
 You have to setup an own Firebase project and create an .env with your Firebase config.
+You also have to create an own MySQL DB for this. You can find needed Informations in the server/models/index.js file.
 
 ## Usage
 
 You can visit the page without register/login urself.
-You can add/edit/remove/vote after you registered and logged in.
+You can add/edit/remove after you registered and logged in.
 
 ## Project Status
 
@@ -74,7 +77,7 @@ This is the in progress version of my fullstack Recipe-App.
 - Add comment-section
 - Add vote-section
 - Pagination in backend
-- Better search algorithmen
+- Better search algorithmus
 - Better ingredients options with weight etc
 - Favourite lists
 

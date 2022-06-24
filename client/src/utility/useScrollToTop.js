@@ -1,5 +1,4 @@
 // Utility function scrolling to top on initial pageload
-// todo: rework to custom hook
 
 import { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";

@@ -1,12 +1,15 @@
+//single detailed recipe page
+
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import DeleteModal from "../../components/elements/DeleteModal";
-import ImageModal from "../../components/elements/ImageModal";
 
 import RecipeService from "../../services/recipeService";
-import SkeletonArticle from "../../skeletons/SkeletonArticle";
 import { useAuthContext } from "../../utility/AuthContext";
 import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
+
+import DeleteModal from "../../components/elements/DeleteModal";
+import ImageModal from "../../components/elements/ImageModal";
+import SkeletonArticle from "../../skeletons/SkeletonArticle";
 
 //todo: ingredients
 
@@ -17,11 +20,12 @@ function SingleRecipe() {
   const [recipe, setRecipe] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [zoom, setZoom] = useState("");
+
   const { userCreds } = useAuthContext();
 
   const navigate = useNavigate();
 
-  //Handler for deleting singlepost from the API
+  //Handler for deleting singlerecipe from the API
   const handleDelete = async () => {
     recipe.img.forEach((r) => {
       handleDeleteFirebaseImg(r);
@@ -36,14 +40,14 @@ function SingleRecipe() {
     navigate("/");
   };
 
-  //Handler for getting singlepost from the API
+  //Handler for getting singlerecipe from the API
   useEffect(() => {
     RecipeService.get(path)
       .then((response) => {
         setRecipe(response.data);
       })
       .catch((err) => {
-        //navigate("/notfound");
+        navigate("/notfound");
       });
   }, [path]);
 

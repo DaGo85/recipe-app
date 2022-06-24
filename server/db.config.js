@@ -1,3 +1,5 @@
+//Sequelize db config
+
 module.exports = {
   pool: {
     max: 5,

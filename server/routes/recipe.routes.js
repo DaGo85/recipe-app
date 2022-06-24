@@ -1,3 +1,5 @@
+//Router for all controller functionalities
+
 module.exports = (app) => {
   const recipes = require("../controllers/recipe.controller.js");
 

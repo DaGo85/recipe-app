@@ -1,3 +1,5 @@
+//Recipes model for sequelize(MySQL)
+
 module.exports = (sequelize, Sequelize) => {
   const Recipe = sequelize.define("recipes", {
     username: {

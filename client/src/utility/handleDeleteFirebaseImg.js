@@ -1,4 +1,4 @@
-// function for deleting images from Firebase storage
+//Function for deleting images from Firebase storage
 
 import { deleteObject, ref } from "firebase/storage";
 import { firebaseBaseUrl } from "../assets/data";

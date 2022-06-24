@@ -1,3 +1,5 @@
+//Mock structure for firebase auth
+
 import firebase from "firebase/app";
 
 const AuthFirebase = {

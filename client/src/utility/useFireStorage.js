@@ -1,3 +1,5 @@
+//Custom hook for accessing fire storage
+
 import { useState, useEffect } from "react";
 import { projectStorage } from "./firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";

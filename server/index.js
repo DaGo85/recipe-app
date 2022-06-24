@@ -1,3 +1,5 @@
+//index file for handling node.js app
+
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();

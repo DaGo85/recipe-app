@@ -1,4 +1,5 @@
-// authenticateToken.js
+//AuthenticateToken.js middleware for handling auth status with firebase
+
 const admin = require("firebase-admin");
 
 const firebaseConfig = {

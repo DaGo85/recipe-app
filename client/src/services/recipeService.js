@@ -1,39 +1,40 @@
+//service for handling api requests
+
 import http from "../http-common";
 
+//get all recipes
 const getAll = () => {
   return http.get("/recipes");
 };
 
+//get recipe by title
 const get = (title) => {
   return http.get(`/recipes/${title}`);
 };
 
+//get last recipe
 const getLast = () => {
   return http.get("/recipes/last");
 };
 
+//create recipe
 const create = (data, headers) => {
   return http.post("/recipes", data, { headers: headers });
 };
 
+//update/edit recipe
 const update = (title, data, headers) => {
   return http.put(`/recipes/${title}`, data, { headers: headers });
 };
 
+//delete recipe by id
 const remove = (id, headers) => {
   return http.delete(`/recipes/${id}`, { headers: headers });
 };
 
-const findByTitle = (title) => {
-  return http.get(`/recipes?title=${title}`);
-};
-
+//get random facts about all recipes
 const facts = () => {
   return http.get("/recipes/facts");
-};
-
-const addImages = (data, headers) => {
-  return http.post("/recipes/upload", data, { headers: headers });
 };
 
 const RecipeService = {
@@ -43,9 +44,7 @@ const RecipeService = {
   create,
   update,
   remove,
-  findByTitle,
   facts,
-  addImages,
 };
 
 export default RecipeService;

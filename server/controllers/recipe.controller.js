@@ -1,3 +1,5 @@
+//recipes controller for handling all funcionality
+
 const db = require("../models");
 const getFacts = require("../utility/getFacts");
 

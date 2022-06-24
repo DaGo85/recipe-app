@@ -1,7 +1,10 @@
+//Model index for handling all models
+
 const dbConfig = require("../db.config.js");
 const Sequelize = require("sequelize");
 require("dotenv").config();
 
+//needed informations to create a db: user, password, host, dialect and db name
 const sequelize = new Sequelize(
   process.env.DB,
   process.env.USER,

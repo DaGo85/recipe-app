@@ -1,3 +1,5 @@
+//Loading skeleton for an article
+
 import SkeletonImage from "./SkeletonImage";
 import SkeletonText from "./SkeletonText";
 

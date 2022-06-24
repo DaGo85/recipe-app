@@ -1,3 +1,5 @@
+//Function for getting 3 out of 8 random facts as array
+
 const tagList = [
   "Glutenfree",
   "Sorbitfree",

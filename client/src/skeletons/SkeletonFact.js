@@ -1,3 +1,5 @@
+//Loading skeleton for a fact card
+
 import SkeletonIcon from "./SkeletonIcon";
 import SkeletonText from "./SkeletonText";
 

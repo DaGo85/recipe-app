@@ -1,15 +1,18 @@
+//page for editing recipe
+
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
-import { tagList } from "../../assets/data";
-import ProgressBar from "../../components/elements/ProgressBar";
-import { motion } from "framer-motion";
 
+import { tagList } from "../../assets/data";
+import { motion } from "framer-motion";
 import RecipeService from "../../services/recipeService";
 import { useAuthContext } from "../../utility/AuthContext";
 import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
+
+import ProgressBar from "../../components/elements/ProgressBar";
+
 function SingleRecipe() {
   const [recipe, setRecipe] = useState("");
-
   const [difficultyText, setDifficultyText] = useState("medium");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -18,20 +21,20 @@ function SingleRecipe() {
   const [images, setImages] = useState([]);
   const [url, setUrl] = useState();
   const [file, setFile] = useState();
-  const [selected, setSelected] = useState();
-  const { userCreds } = useAuthContext();
-
   const [addIng, setAddIng] = useState([]);
-
   const [tags, setTags] = useState([]);
+  const [selected, setSelected] = useState();
+
   const location = useLocation();
   const path = location.pathname.split("/update")[1];
+
+  const { userCreds } = useAuthContext();
 
   const navigate = useNavigate();
 
   const fileUpdateRef = useRef();
 
-  // Fetching singlepost from the API
+  // Fetching singlerecipe from the API
   useEffect(() => {
     const fetchedrecipe = async () => {
       const res = await RecipeService.get(path);
