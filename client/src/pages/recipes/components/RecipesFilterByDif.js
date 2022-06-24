@@ -1,3 +1,5 @@
+//Filter component to filter by difficulty
+
 function RecipesFilterByDif({ dif, setDif }) {
   const difArray = ["all", "very easy", "easy", "medium", "hard", "very hard"];
 

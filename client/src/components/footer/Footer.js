@@ -1,3 +1,5 @@
+//Footer component
+
 import FooterImpressum from "./components/FooterImpressum";
 
 function Footer() {

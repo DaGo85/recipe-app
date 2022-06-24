@@ -1,3 +1,5 @@
+//Recipes filter by tags component
+
 import { tagList } from "../../../assets/data";
 
 function RecipesFilterByTag({ tag, setTag }) {

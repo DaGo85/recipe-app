@@ -1,3 +1,5 @@
+//Footer impressum
+
 import FooterSocialIcons from "./FooterSocialIcons";
 
 function FooterImpressum() {

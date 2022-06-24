@@ -1,18 +1,23 @@
+//Landing Page
+
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import AddRecipeButton from "../../components/elements/AddRecipeButton";
-import HRIcon from "../../components/elements/HRIcon";
+
 import RecipeService from "../../services/recipeService";
 import { useRecipesContext } from "../../utility/RecipesContext";
+
+import AddRecipeButton from "../../components/elements/AddRecipeButton";
+import HRIcon from "../../components/elements/HRIcon";
 import LastRecipe from "./components/LastRecipe";
 import RandomRecipe from "./components/RandomRecipe";
 import Statistics from "./components/Statistics";
 import SubText from "./components/SubText";
 
 function Home() {
-  const { setRecipesData } = useRecipesContext();
   const location = useLocation();
   const path = location.pathname;
+
+  const { setRecipesData } = useRecipesContext();
 
   useEffect(() => {
     const fetchedRecipes = async () => {

@@ -1,5 +1,4 @@
 // DeleteModal for conformation to delete a recipe
-// todo rework
 
 function DeleteModal({ handleDelete, showModal, setShowModal }) {
   return (

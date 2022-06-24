@@ -1,4 +1,7 @@
+//Filtered recipes grid
+
 import { Link } from "react-router-dom";
+
 import { AnimatePresence, motion } from "framer-motion";
 
 function FilteredRecipes({ currentGridData }) {

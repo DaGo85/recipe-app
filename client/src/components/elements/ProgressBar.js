@@ -1,3 +1,5 @@
+//ProgressBar component
+
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import useFireStorage from "../../utility/useFireStorage";

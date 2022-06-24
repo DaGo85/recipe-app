@@ -1,3 +1,5 @@
+//Footer Social Icons
+
 import { socialIconsList } from "../../../assets/data";
 
 function FooterSocialIcons() {

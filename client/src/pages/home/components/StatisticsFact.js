@@ -1,3 +1,5 @@
+//Single fact Card component
+
 function StatisticsFact({ fact, icon }) {
   return (
     <div className="statistics-fact">

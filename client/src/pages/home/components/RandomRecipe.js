@@ -1,16 +1,21 @@
+//Button for getting random recipe
+
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 import { useRecipesContext } from "../../../utility/RecipesContext";
 import { motion } from "framer-motion";
 
 function RandomRecipe() {
   const [randomRecipe, setRandomRecipe] = useState(null);
+
   const { recipesData } = useRecipesContext();
 
   useEffect(() => {
     const rndRecipe = [
       recipesData[Math.floor(Math.random() * recipesData.length)],
     ];
+
     setRandomRecipe(rndRecipe[0]);
   }, [recipesData]);
 

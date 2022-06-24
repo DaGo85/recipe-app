@@ -1,3 +1,5 @@
+//animated HR element
+
 import { AnimatePresence, motion } from "framer-motion";
 
 function HRIcon({ view, path }) {

@@ -1,3 +1,5 @@
+//Filter component for setting up and handling filters
+
 import { useState } from "react";
 import RecipesFilterByDif from "./RecipesFilterByDif";
 import RecipesFilterByInput from "./RecipesFilterByInput";

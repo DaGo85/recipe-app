@@ -1,3 +1,5 @@
+//Image modal
+
 import { motion, AnimatePresence } from "framer-motion";
 
 function ImageModal({ setIsOpen, image }) {

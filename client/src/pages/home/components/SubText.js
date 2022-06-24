@@ -1,3 +1,5 @@
+//Animated subtext component
+
 import { motion } from "framer-motion";
 
 function SubText({ text }) {

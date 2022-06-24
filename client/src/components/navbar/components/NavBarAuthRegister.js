@@ -1,5 +1,6 @@
+//NavBar register component
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   registerWithEmailAndPassword,
   signInWithGoogle,
@@ -10,7 +11,6 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const navigate = useNavigate();
 
   const registerHandler = () => {
     if (!name) alert("Please enter name");
@@ -27,7 +27,7 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
         className="auth-input-setup"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder="Full Name"
+        placeholder="Username"
       />
       <input
         type="text"
@@ -48,7 +48,7 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
           Register
         </button>
       </div>
-      <p className="flex flex-row dark:text-gray-300">
+      <p className="flex flex-row">
         Register with
         <span
           onClick={() => {
@@ -62,7 +62,7 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
         </span>
         .
       </p>
-      <div className="dark:text-gray-300">
+      <div>
         Already have an account?{" "}
         <button
           onClick={() => {

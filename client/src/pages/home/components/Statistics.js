@@ -1,13 +1,18 @@
+//Statistic component, gets 3 random facts about the app from the BE
+
 import { useEffect, useState } from "react";
+
 import { statisticsSvg } from "../../../assets/data";
 import RecipeService from "../../../services/recipeService";
 import { useRecipesContext } from "../../../utility/RecipesContext";
-import StatisticsFact from "./StatisticsFact";
 import { motion } from "framer-motion";
+
+import StatisticsFact from "./StatisticsFact";
 import SkeletonFact from "../../../skeletons/SkeletonFact";
 
 function Statistics() {
   const [facts, setFacts] = useState();
+
   const { recipesData } = useRecipesContext();
 
   useEffect(() => {

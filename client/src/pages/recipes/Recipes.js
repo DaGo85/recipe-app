@@ -1,9 +1,13 @@
+//Recipes page for filtering recipes
+
 import { useEffect, useMemo, useState } from "react";
-import Pagination from "../../components/pagination/Pagination";
+
 import { useRecipesContext } from "../../utility/RecipesContext";
+
 import RecipesFilter from "./components/RecipesFilter";
 import FilteredRecipes from "./components/FilteredRecipes";
 import SkeletonFact from "../../skeletons/SkeletonFact";
+import Pagination from "../../components/pagination/Pagination";
 
 const PageSize = 9;
 
@@ -15,6 +19,7 @@ function Recipes() {
     input: "",
   });
   const [filteredRecipes, setFilteredRecipes] = useState([]);
+
   const { recipesData } = useRecipesContext();
 
   const currentGridData = useMemo(() => {
@@ -47,6 +52,7 @@ function Recipes() {
         default:
           difRange = ["5", "6"];
       }
+
       saveFilter = saveFilter.filter((sFilter) => {
         return (
           (sFilter.difficulty === difRange[0]) |
@@ -82,7 +88,6 @@ function Recipes() {
             .includes(v)
         );
 
-      console.log("inputfilter " + inputFilter);
       saveFilter = saveFilter.filter((v) => {
         return checkDesc(v.description);
       });
@@ -90,8 +95,6 @@ function Recipes() {
 
     setFilteredRecipes(saveFilter);
   }, [filter, recipesData]);
-
-  console.log("filteredRecipes:" + JSON.stringify(filteredRecipes));
 
   return (
     <main className="background-setup">

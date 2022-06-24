@@ -41,7 +41,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
           Login
         </button>
       </div>
-      <p className="flex flex-row dark:text-gray-300">
+      <p className="flex flex-row">
         Login with
         <span
           onClick={() => {
@@ -55,7 +55,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
         </span>
         .
       </p>
-      <p className="flex flex-row dark:text-gray-300">
+      <p className="flex flex-col">
         Forgot Password? Click
         <span>
           <button
@@ -71,7 +71,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
           .
         </span>
       </p>
-      <div className="dark:text-gray-300">
+      <div>
         Don't have an account?{" "}
         <button
           onClick={() => {

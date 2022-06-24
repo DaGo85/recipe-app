@@ -1,4 +1,4 @@
-// Pagination element for Home, Gallery, Stories and SingleStory
+// Pagination component
 
 import { usePagination, DOTS } from "../../utility/usePagination";
 

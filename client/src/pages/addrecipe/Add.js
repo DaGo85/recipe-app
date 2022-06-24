@@ -1,15 +1,18 @@
+//Page for adding a recipe
+
 import { useEffect, useRef, useState } from "react";
-import RecipeService from "../../services/recipeService";
 import { useNavigate } from "react-router";
+
+import RecipeService from "../../services/recipeService";
 import { useAuthContext } from "../../utility/AuthContext";
 import { tagList } from "../../assets/data";
 import { motion } from "framer-motion";
-import ProgressBar from "../../components/elements/ProgressBar";
 import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
+
+import ProgressBar from "../../components/elements/ProgressBar";
 
 function Add() {
   const [file, setFile] = useState([]);
-  const { userCreds } = useAuthContext();
   const [difficulty, setDifficulty] = useState(5);
   const [difficultyText, setDifficultyText] = useState("medium");
   const [tags, setTags] = useState([]);
@@ -18,6 +21,8 @@ function Add() {
   const [url, setUrl] = useState();
   const [selected, setSelected] = useState();
   const [images, setImages] = useState([]);
+
+  const { userCreds } = useAuthContext();
 
   const navigate = useNavigate();
 
@@ -41,7 +46,6 @@ function Add() {
       ingredients: ingredients,
       img: images,
     };
-    console.log("imagesuploadcheck" + JSON.stringify(newRecipe));
 
     try {
       await RecipeService.create(newRecipe, headers).catch((err) => {});
@@ -71,6 +75,7 @@ function Add() {
 
   useEffect(() => {
     if (url) {
+      setImages((prevValue) => [...prevValue, url]);
       setUrl(null);
     }
   }, [url]);
@@ -158,17 +163,15 @@ function Add() {
             setUrl={setUrl}
           />
         )}
-        {images &&
-          images.map((image) => (
-            <img
-              className="cursor-not-allowed"
-              onClick={() => handleDeleteImg(image)}
-              key={image}
-              src={image}
-              alt="not found"
-              width={"250px"}
-            />
-          ))}
+        {images.map((i) => (
+          <img
+            className="cursor-not-allowed"
+            onClick={() => handleDeleteImg(i)}
+            key={i}
+            src={i}
+            alt="uploading for recipe"
+          />
+        ))}
         <input
           accept="image/jpg,image/png,image/jpeg"
           className="hidden"
@@ -279,7 +282,11 @@ function Add() {
           placeholder="Description"
           required
         />
-        <button className="button-setup" type="submit">
+        <button
+          disabled={selected}
+          className="button-setup disabled:bg-slate-400"
+          type="submit"
+        >
           submit
         </button>
       </form>

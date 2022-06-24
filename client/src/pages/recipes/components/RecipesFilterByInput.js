@@ -1,3 +1,5 @@
+//Recipes Filter by text  in description component
+
 function RecipesFilterByInput({ input, setInput }) {
   return (
     <input

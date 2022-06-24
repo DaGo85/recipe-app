@@ -1,3 +1,5 @@
+//NavBar password reset component
+
 import { useState } from "react";
 import { sendPasswordReset } from "../../../utility/firebase";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
@@ -9,7 +11,7 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
     <div className="auth-card-setup">
       <NavBarAuthHeadline headline="Password-Reset" />
       <div className="flex flex-col space-y-10 items-center">
-        <p className="dark:text-gray-300">
+        <p>
           Forgot your account’s password or having trouble logging into your
           Team? Enter your email address and we’ll send you a recovery link.
         </p>
@@ -31,7 +33,7 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
           Send recovery email
         </button>
       </div>
-      <div className="dark:text-gray-300">
+      <div>
         Don't have an account?{" "}
         <button
           onClick={() => {
