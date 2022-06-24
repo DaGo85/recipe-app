@@ -1,20 +1,24 @@
-import { onAuthStateChanged } from "firebase/auth";
+//NavBar Auth navigation
+
 import { useEffect, useState } from "react";
+
+import { onAuthStateChanged } from "firebase/auth";
 import { useAuthContext } from "../../../utility/AuthContext";
 import { auth, db } from "../../../utility/firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
+
 import NavBarAuthLogin from "./NavBarAuthLogin";
 import NavBarAuthRegister from "./NavBarAuthRegister";
 import NavBarAuthReset from "./NavBarAuthReset";
 import NavBarProfile from "./NavBarProfile";
-
-import { query, collection, getDocs, where } from "firebase/firestore";
 
 function NavBarAuth() {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(true);
   const [register, setRegister] = useState(false);
   const [reset, setReset] = useState(false);
-  const { userData, setUserData, setUserCreds } = useAuthContext();
+
+  const { userData, setUserData, setUserCreds, userCreds } = useAuthContext();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -36,7 +40,7 @@ function NavBarAuth() {
         setUserData(newUser);
       }
     });
-  }, [setUserData]);
+  }, [setUserData, setUserCreds]);
 
   useEffect(() => {
     const fetchUserName = async () => {
@@ -81,7 +85,7 @@ function NavBarAuth() {
           isOpen ? "scale-100" : "scale-0"
         } transition-all origin-top-right duration-300 ease-out transform`}
       >
-        {isOpen && userData ? (
+        {isOpen && userCreds ? (
           <NavBarProfile setIsOpen={setIsOpen} setLogin={setLogin} />
         ) : (
           <>

@@ -1,15 +1,17 @@
+//NavBar Login component
+
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import {
   logInWithEmailAndPassword,
   signInWithGoogle,
 } from "../../../utility/firebase";
+
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 
-function NavBarAuthLogin({ setLogin, setRegister, setReset, isOpen }) {
+function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate();
 
   return (
     <div className="auth-card-setup">

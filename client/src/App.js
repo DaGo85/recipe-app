@@ -1,10 +1,16 @@
+// Router component
+
+// Import for React and dependencies
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 
+// Import for utilities and context
 import { useAuthContext } from "./utility/AuthContext";
 import useScrollToTop from "./utility/useScrollToTop";
 import RecipeService from "./services/recipeService";
+import { useRecipesContext } from "./utility/RecipesContext";
 
+// Import for pages and components
 import NavBar from "./components/navbar/NavBar";
 import Home from "./pages/home/Home";
 import Recipes from "./pages/recipes/Recipes";
@@ -13,7 +19,6 @@ import SingleRecipeUpdate from "./pages/singlerecipeupdate/SingleRecipeUpdate";
 import NotFound from "./pages/notfound/NotFound";
 import Footer from "./components/footer/Footer";
 import Add from "./pages/addrecipe/Add";
-import { useRecipesContext } from "./utility/RecipesContext";
 
 // todo, images styling, image modal
 
