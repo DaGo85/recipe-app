@@ -71,11 +71,10 @@ function Add() {
 
   useEffect(() => {
     if (url) {
-      setImages((prevValue) => [...prevValue, url]);
       setUrl(null);
     }
   }, [url]);
-  console.log("imagesCeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" + images);
+
   const handleAddIngredient = (e) => {
     e.preventDefault();
     if (addIng === "") return;

@@ -31,19 +31,19 @@ function FilteredRecipes({ currentGridData }) {
                 variants={cardVariants}
                 transition={{ ease: "easeIn", duration: 0.5, delay: 0.1 * i }}
               >
-                <h3 className="font-bold">{d.title}</h3>
+                <h2 className="font-bold">{d.title}</h2>
                 <div className="flex flex-col gap-1">
-                  <h5>
+                  <h3>
                     created by:
                     <br />
                     <span className="highlight-gradient">{d.username}</span>
-                  </h5>
-                  <h5>
+                  </h3>
+                  <h3>
                     created at: <br />
                     <span className="highlight-gradient">
                       {new Date(d.createdAt).toDateString()}
                     </span>
-                  </h5>
+                  </h3>
                 </div>
                 <p className="text-[1.17em] flex flex-wrap gap-1 items-center justify-center">
                   {d.tags.map((t) => {

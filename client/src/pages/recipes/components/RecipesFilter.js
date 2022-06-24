@@ -32,7 +32,7 @@ function RecipesFilter({ setFilter, setCurrentPage }) {
         <RecipesFilterByDif dif={dif} setDif={setDif} />
 
         <button onClick={() => resetFilter()} className="delete-button-setup">
-          Reset filter
+          Reset Filter
         </button>
         <button
           className="button-setup px-10"

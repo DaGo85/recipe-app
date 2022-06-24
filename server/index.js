@@ -3,8 +3,6 @@ const cors = require("cors");
 require("dotenv").config();
 const decodeIDToken = require("./utility/authenticateToken");
 
-global.__basedir = __dirname;
-
 const app = express();
 
 const corsOptions = {

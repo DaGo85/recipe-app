@@ -27,8 +27,6 @@ exports.create = (req, res) => {
     img: req.body.img,
   };
 
-  console.log("first" + recipe.img);
-
   // Save recipe in the database
   Recipe.create(recipe)
     .then((data) => {

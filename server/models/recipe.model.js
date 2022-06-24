@@ -19,7 +19,7 @@ module.exports = (sequelize, Sequelize) => {
     },
     difficulty: { type: Sequelize.STRING },
     description: {
-      type: Sequelize.TEXT,
+      type: Sequelize.TEXT("long"),
     },
     tags: {
       type: Sequelize.STRING,

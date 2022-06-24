@@ -18,7 +18,7 @@ module.exports = (app) => {
   // Retrieve a single recipe per title
   router.get("/:title", recipes.findOne);
 
-  // Update a recipe with id
+  // Update a recipe with title
   router.put("/:title", recipes.update);
 
   // Delete a recipe with id
