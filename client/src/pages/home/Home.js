@@ -12,6 +12,7 @@ import LastRecipe from "./components/LastRecipe";
 import RandomRecipe from "./components/RandomRecipe";
 import Statistics from "./components/Statistics";
 import SubText from "./components/SubText";
+import Background from "../../components/background/BackGround";
 
 function Home() {
   const location = useLocation();
@@ -29,7 +30,7 @@ function Home() {
   }, [path, setRecipesData]);
 
   return (
-    <main className="background-setup text-center">
+    <Background>
       <h1>Welcome to Reciper!</h1>
       <HRIcon
         path={
@@ -49,7 +50,7 @@ function Home() {
       <Statistics />
       <RandomRecipe />
       <AddRecipeButton />
-    </main>
+    </Background>
   );
 }
 

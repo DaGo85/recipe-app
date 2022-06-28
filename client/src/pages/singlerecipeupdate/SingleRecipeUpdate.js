@@ -10,6 +10,7 @@ import { useAuthContext } from "../../utility/AuthContext";
 import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
 
 import ProgressBar from "../../components/elements/ProgressBar";
+import Background from "../../components/background/BackGround";
 
 function SingleRecipe() {
   const [recipe, setRecipe] = useState("");
@@ -139,7 +140,7 @@ function SingleRecipe() {
   }, [difficulty]);
 
   return (
-    <main className="background-setup">
+    <Background>
       <input
         className="px-1 py-1 border-2 shadow-lg w-11/12 border-lightOutline dark:border-darkOutline
           text-primaryLightContainerOn dark:text-primaryDarkContainerOn
@@ -300,7 +301,7 @@ function SingleRecipe() {
       <button className="button-setup" onClick={() => handleRecipeUpdate()}>
         update!
       </button>
-    </main>
+    </Background>
   );
 }
 

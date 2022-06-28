@@ -49,6 +49,7 @@
   }
   /* CSS reset end*/
 
+  /*font sizes for headings*/
   h1 {
     font-size: 2em;
   }
@@ -67,20 +68,26 @@
   h6 {
     font-size: 0.67em;
   }
+  /*font sizes for headings end*/
 }
 
 @layer components {
-  .background-setup {
-    @apply flex flex-col py-12 gap-6 justify-center items-center
-     w-full bg-backgroundLight dark:bg-backgroundDark text-backgroundLightOn
-      dark:text-backgroundDarkOn transition-all;
-  }
+  /*NavBar style*/
 
   .auth-card-setup {
-    @apply p-4 bg-secondaryLightContainer dark:bg-secondaryDarkContainer
+    display: flex;
+    padding: 1rem;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    align-items: flex-start;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    width: 18rem;
+    border-width: 4px;
+    border-style: double;
+    @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer
      text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn
-      rounded-xl shadow-lg flex flex-col items-start space-y-10 
-    text-lg w-72 border-4 border-double border-lightOutline dark:border-darkOutline;
+     border-lightOutline dark:border-darkOutline shadow-lg space-y-10;
   }
 
   .auth-input-setup {
@@ -95,6 +102,42 @@
      dark:hover:bg-primaryDark/60 text-primaryLightOn dark:text-primaryDarkOn dark:border-darkOutline
       text-lg border-lightOutline rounded-lg;
   }
+
+  .auth-link-setup {
+    @apply cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn underline;
+  }
+
+  /*NavBar style end*/
+
+  /*background for cards etc styles*/
+
+  .recipe-card {
+    border-radius: 93% 7% 95% 5% / 4% 92% 8% 96%;
+    @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+    flex flex-col justify-center items-center gap-6 m-2;
+  }
+
+  .footer-hover:hover .svg-setup {
+    @apply fill-primaryDarkOn dark:fill-primaryLightOn;
+  }
+
+  .footer-hover {
+    @apply rounded-3xl border-2 w-12 h-12 cursor-pointer absolute 
+    bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60 
+    border-primaryLightOn dark:border-primaryDarkOn hover:border-primaryDarkOn 
+    dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out bottom-4 right-4 flex items-center
+      justify-center;
+  }
+
+  .statistics-fact {
+    border-radius: 93% 7% 95% 5% / 4% 92% 8% 96%;
+    @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+    flex flex-col justify-center items-center gap-6 m-2 max-w-[310px] md:max-w-md h-72;
+  }
+
+  /*background for cards etc styles end*/
+
+  /* Style for buttons*/
 
   .button-setup {
     @apply border px-4 py-2 rounded-2xl bg-primaryLight dark:bg-primaryDark
@@ -121,10 +164,6 @@
     -webkit-appearance: none;
   }
 
-  .auth-link-setup {
-    @apply cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn underline;
-  }
-
   .svg-container {
     @apply cursor-pointer rounded-3xl border-2 p-2 flex items-center justify-center
      bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60
@@ -140,20 +179,19 @@
     @apply fill-primaryDarkOn dark:fill-primaryLightOn;
   }
 
-  .footer-hover:hover .svg-setup {
-    @apply fill-primaryDarkOn dark:fill-primaryLightOn;
+  .add-button {
+    @apply border-8 px-6 py-6 rounded-2xl
+          bg-primaryLight/60 dark:bg-primaryDark hover:bg-primaryLight
+     dark:hover:bg-primaryDark hover:border-primaryLightOn dark:hover:border-primaryDarkOn
+     border-primaryDarkOn dark:border-primaryLightOn transition-all duration-300 ease-in-out;
   }
 
-  .footer-hover {
-    @apply rounded-3xl border-2 w-12 h-12 cursor-pointer absolute 
-    bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60 
-    border-primaryLightOn dark:border-primaryDarkOn hover:border-primaryDarkOn 
-    dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out bottom-4 right-4 flex items-center
-      justify-center;
+  .add-svg {
+    @apply fill-primaryDarkOn dark:fill-primaryLightOn transition-all duration-300 ease-in-out;
   }
 
-  .hr-setup {
-    @apply border border-lightVariantSurfaceOn dark:border-darkVariantSurfaceOn;
+  .add-button:hover .add-svg {
+    @apply fill-primaryLightOn dark:fill-primaryDarkOn;
   }
 
   .random-svg {
@@ -168,6 +206,39 @@
 
   .random-container:hover .random-svg {
     @apply fill-primaryLightOn dark:fill-primaryDarkOn;
+  }
+
+  /* Style for buttons end*/
+
+  /* Style for pagination */
+
+  .pagination-item {
+    @apply flex items-center box-border h-8 text-center mx-auto my-1 
+    tracking-wide rounded-2xl leading-normal text-lg 
+    cursor-pointer px-3
+    md:text-2xl md:px-4 md:py-6 md:rounded-3xl;
+  }
+
+  .pagination-dots {
+    @apply flex items-center box-border h-8 text-center mx-auto my-1  
+    tracking-wide rounded-2xl leading-normal text-lg text-backgroundLightOn dark:text-backgroundDarkOn px-1;
+  }
+
+  .pagination-arrow {
+    @apply flex items-center h-8 text-center mx-auto my-1 text-backgroundLightOn dark:text-backgroundDarkOn cursor-pointer
+    md:px-4 md:py-6;
+  }
+
+  /* Style for pagination end */
+
+  /* Overall styles */
+
+  .font-reset {
+    font-family: "Poppins", sans-serif;
+  }
+
+  .hr-setup {
+    @apply border border-lightVariantSurfaceOn dark:border-darkVariantSurfaceOn;
   }
 
   .hr-setup {
@@ -189,6 +260,13 @@
     @apply border-backgroundLightOn dark:border-backgroundDarkOn;
   }
 
+  .highlight-gradient {
+    border-radius: 12px;
+    padding: 0 14px 0 6px;
+    @apply bg-gradient-to-r from-primaryLightContainer/75 to-[#bdeeb5]
+    dark:from-primaryDarkContainer/75 dark:to-[#264d26];
+  }
+
   .subtext-container {
     overflow: hidden;
     display: flex;
@@ -198,62 +276,5 @@
     padding-top: 20px;
   }
 
-  .statistics-fact {
-    border-radius: 93% 7% 95% 5% / 4% 92% 8% 96%;
-    @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center gap-6 m-2 max-w-[310px] md:max-w-md h-72;
-  }
-
-  .highlight-gradient {
-    border-radius: 12px;
-    padding: 0 14px 0 6px;
-    @apply bg-gradient-to-r from-primaryLightContainer/75 to-[#bdeeb5]
-    dark:from-primaryDarkContainer/75 dark:to-[#264d26];
-  }
-
-  .add-button {
-    @apply border-8 px-6 py-6 rounded-2xl
-          bg-primaryLight/60 dark:bg-primaryDark hover:bg-primaryLight
-     dark:hover:bg-primaryDark hover:border-primaryLightOn dark:hover:border-primaryDarkOn
-     border-primaryDarkOn dark:border-primaryLightOn transition-all duration-300 ease-in-out;
-  }
-
-  .add-svg {
-    @apply fill-primaryDarkOn dark:fill-primaryLightOn transition-all duration-300 ease-in-out;
-  }
-
-  .add-button:hover .add-svg {
-    @apply fill-primaryLightOn dark:fill-primaryDarkOn;
-  }
-
-  .recipe-card {
-    border-radius: 93% 7% 95% 5% / 4% 92% 8% 96%;
-    @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center gap-6 m-2;
-  }
-
-  .font-reset {
-    font-family: "Poppins", sans-serif;
-  }
-
-  .pagination-item {
-    @apply flex items-center box-border h-8 text-center mx-auto my-1 
-    tracking-wide rounded-2xl leading-normal text-lg 
-    cursor-pointer px-3
-    md:text-2xl md:px-4 md:py-6 md:rounded-3xl;
-  }
-
-  .pagination-dots {
-    @apply flex items-center box-border h-8 text-center mx-auto my-1  
-    tracking-wide rounded-2xl leading-normal text-lg text-backgroundLightOn dark:text-backgroundDarkOn px-1;
-  }
-
-  .pagination-arrow {
-    @apply flex items-center h-8 text-center mx-auto my-1 text-backgroundLightOn dark:text-backgroundDarkOn cursor-pointer
-    md:px-4 md:py-6;
-  }
-
-  .progress-bar {
-    @apply h-4 bg-primaryLight dark:bg-primaryDark mt-10 w-max;
-  }
+  /* Overall styles end */
 }

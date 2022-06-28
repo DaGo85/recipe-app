@@ -8,6 +8,7 @@ import RecipesFilter from "./components/RecipesFilter";
 import FilteredRecipes from "./components/FilteredRecipes";
 import SkeletonFact from "../../skeletons/SkeletonFact";
 import Pagination from "../../components/pagination/Pagination";
+import Background from "../../components/background/BackGround";
 
 const PageSize = 9;
 
@@ -97,7 +98,7 @@ function Recipes() {
   }, [filter, recipesData]);
 
   return (
-    <main className="background-setup">
+    <Background>
       <h1 className="text-3xl">Recipe Search</h1>
       <RecipesFilter setFilter={setFilter} setCurrentPage={setCurrentPage} />
       <Pagination
@@ -127,7 +128,7 @@ function Recipes() {
         pageSize={PageSize}
         onPageChange={(page) => setCurrentPage(page)}
       />
-    </main>
+    </Background>
   );
 }
 

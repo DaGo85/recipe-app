@@ -20,7 +20,7 @@ import NotFound from "./pages/notfound/NotFound";
 import Footer from "./components/footer/Footer";
 import Add from "./pages/addrecipe/Add";
 
-// todo, images styling, image modal, css comments
+// todo, images styling, image modal
 
 function App() {
   useScrollToTop();

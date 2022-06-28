@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
 
 import ProgressBar from "../../components/elements/ProgressBar";
+import Background from "../../components/background/BackGround";
 
 function Add() {
   const [file, setFile] = useState([]);
@@ -119,7 +120,7 @@ function Add() {
   }, [difficulty]);
 
   return (
-    <main className="background-setup">
+    <Background>
       <form
         className="flex flex-col justify-center items-center gap-2"
         onSubmit={handleSubmit}
@@ -290,7 +291,7 @@ function Add() {
           submit
         </button>
       </form>
-    </main>
+    </Background>
   );
 }
 
