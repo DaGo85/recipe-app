@@ -5,7 +5,10 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../../../utility/firebase";
+import NavBarAuthCard from "./NavBarAuthCard";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
+import NavBarButton from "./NavBarButton";
+import NavBarInput from "./NavBarInput";
 
 function NavBarAuthRegister({ setLogin, setRegister }) {
   const [email, setEmail] = useState("");
@@ -20,33 +23,28 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
   };
 
   return (
-    <div className="auth-card-setup">
+    <NavBarAuthCard>
       <NavBarAuthHeadline headline="Register" />
-      <input
+      <NavBarInput
         type="text"
-        className="auth-input-setup"
         value={name}
-        onChange={(e) => setName(e.target.value)}
+        set={setName}
         placeholder="Username"
       />
-      <input
-        type="text"
-        className="auth-input-setup"
+      <NavBarInput
+        type="email"
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        set={setEmail}
         placeholder="E-mail Address"
       />
       <div className="flex flex-col space-y-10 items-center">
-        <input
+        <NavBarInput
           type="password"
-          className="auth-input-setup"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          set={setPassword}
           placeholder="Password"
         />
-        <button className="auth-button-setup" onClick={registerHandler}>
-          Register
-        </button>
+        <NavBarButton handler={registerHandler} text="Register" />
       </div>
       <p className="flex flex-row">
         Register with
@@ -76,7 +74,7 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
         </button>{" "}
         now.
       </div>
-    </div>
+    </NavBarAuthCard>
   );
 }
 

@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from "../../../utility/AuthContext";
 import { logout } from "../../../utility/firebase";
 import { useRecipesContext } from "../../../utility/RecipesContext";
+import NavBarAuthCard from "./NavBarAuthCard";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
+import NavBarButton from "./NavBarButton";
 
 function NavBarProfile({ setIsOpen, setLogin }) {
   const { userCreds, setUserData } = useAuthContext();
@@ -17,8 +19,15 @@ function NavBarProfile({ setIsOpen, setLogin }) {
     return recipesData.filter((v) => v.username === userCreds.name)[0];
   }, [recipesData, userCreds.name]);
 
+  const handleLogout = () => {
+    logout();
+    setUserData(null);
+    setIsOpen(false);
+    setLogin(true);
+  };
+
   return (
-    <div className="auth-card-setup">
+    <NavBarAuthCard>
       <NavBarAuthHeadline headline="Profile" />
       {recipesData && userCreds && (
         <>
@@ -32,20 +41,10 @@ function NavBarProfile({ setIsOpen, setLogin }) {
             <br />
             Created at: {lastRecipe?.createdAt}
           </p>
-          <button
-            className="auth-button-setup"
-            onClick={() => {
-              logout();
-              setUserData(null);
-              setIsOpen(false);
-              setLogin(true);
-            }}
-          >
-            Logout
-          </button>
+          <NavBarButton handler={handleLogout} text="Logout" />
         </>
       )}
-    </div>
+    </NavBarAuthCard>
   );
 }
 

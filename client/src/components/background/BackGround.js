@@ -1,4 +1,4 @@
-const Background = ({ children }) => {
+const BackGround = ({ children }) => {
   return (
     <main
       className="flex flex-col py-12 gap-6 justify-center items-center
@@ -10,4 +10,4 @@ const Background = ({ children }) => {
   );
 };
 
-export default Background;
+export default BackGround;

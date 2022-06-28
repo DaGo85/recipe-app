@@ -2,36 +2,35 @@
 
 import { useState } from "react";
 import { sendPasswordReset } from "../../../utility/firebase";
+import NavBarAuthCard from "./NavBarAuthCard";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
+import NavBarButton from "./NavBarButton";
+import NavBarInput from "./NavBarInput";
 
 function NavBarAuthReset({ setLogin, setRegister, setReset }) {
   const [email, setEmail] = useState("");
 
+  const handleReset = () => {
+    sendPasswordReset(email);
+    setReset(false);
+    setLogin(true);
+  };
+
   return (
-    <div className="auth-card-setup">
+    <NavBarAuthCard>
       <NavBarAuthHeadline headline="Password-Reset" />
       <div className="flex flex-col space-y-10 items-center">
         <p>
           Forgot your account’s password or having trouble logging into your
           Team? Enter your email address and we’ll send you a recovery link.
         </p>
-        <input
-          type="text"
-          className="auth-input-setup"
+        <NavBarInput
+          type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          set={setEmail}
           placeholder="E-mail Address"
         />
-        <button
-          className="auth-button-setup"
-          onClick={() => {
-            sendPasswordReset(email);
-            setReset(false);
-            setLogin(true);
-          }}
-        >
-          Send recovery email
-        </button>
+        <NavBarButton handler={handleReset} text="Send recovery email" />
       </div>
       <div>
         Don't have an account?{" "}
@@ -47,7 +46,7 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
         </button>{" "}
         now.
       </div>
-    </div>
+    </NavBarAuthCard>
   );
 }
 
