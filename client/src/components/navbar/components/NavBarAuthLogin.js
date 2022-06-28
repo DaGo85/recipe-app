@@ -11,6 +11,7 @@ import NavBarAuthCard from "./NavBarAuthCard";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 import NavBarButton from "./NavBarButton";
 import NavBarInput from "./NavBarInput";
+import NavBarLink from "./NavBarLink";
 
 function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
   const [email, setEmail] = useState("");
@@ -19,6 +20,21 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
   const handleLogin = () => {
     logInWithEmailAndPassword(email, password);
     setLogin(false);
+  };
+
+  const handleGoogle = () => {
+    signInWithGoogle();
+    setLogin(false);
+  };
+
+  const handleReset = () => {
+    setLogin(false);
+    setReset(true);
+  };
+
+  const handleRegister = () => {
+    setLogin(false);
+    setRegister(true);
   };
 
   return (
@@ -40,47 +56,32 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
         <NavBarButton handler={handleLogin} text="Login" />
       </div>
       <p className="flex flex-row">
-        Login with
-        <span
-          onClick={() => {
-            signInWithGoogle();
-            setLogin(false);
-          }}
-          className="auth-link-setup ml-1"
-          aria-label="login with Google"
-        >
-          Google
-        </span>
+        <span className="mr-1">Login with </span>
+        <NavBarLink
+          text="Google"
+          handler={handleGoogle}
+          label="login with Google"
+        />
         .
       </p>
-      <p className="flex flex-col">
+      <p className="flex flex-col gap-1">
         Forgot Password? Click
         <span>
-          <button
-            onClick={() => {
-              setLogin(false);
-              setReset(true);
-            }}
-            className="auth-link-setup ml-1"
-            aria-label="click for reseting password"
-          >
-            here
-          </button>
+          <NavBarLink
+            text="here"
+            label="click for reseting password"
+            handler={handleReset}
+          />
           .
         </span>
       </p>
       <div>
         Don't have an account?{" "}
-        <button
-          onClick={() => {
-            setLogin(false);
-            setRegister(true);
-          }}
-          className="auth-link-setup"
-          aria-label="Register with email"
-        >
-          Register
-        </button>{" "}
+        <NavBarLink
+          text="Register"
+          labe="Register with email"
+          handler={handleRegister}
+        />{" "}
         now.
       </div>
     </NavBarAuthCard>

@@ -34,7 +34,8 @@ const Pagination = ({
     <ul className="flex md:gap-3">
       {/* Left navigation arrow */}
       <li
-        className="pagination-arrow pr-1"
+        className="flex items-center h-8 text-center mx-auto my-1 text-backgroundLightOn dark:text-backgroundDarkOn cursor-pointer
+    md:px-4 md:py-6 pr-1"
         onClick={() => {
           if (currentPage === 1) {
             return;
@@ -58,7 +59,11 @@ const Pagination = ({
         // If the pageItem is a DOT, render the DOTS unicode character
         if (pageNumber === DOTS) {
           return (
-            <li key={index} className="pagination-dots">
+            <li
+              key={index}
+              className="flex items-center box-border h-8 text-center mx-auto my-1  
+                tracking-wide rounded-2xl leading-normal text-lg text-backgroundLightOn dark:text-backgroundDarkOn px-1"
+            >
               ...
             </li>
           );
@@ -68,11 +73,14 @@ const Pagination = ({
         return (
           <li
             key={index}
-            className={`pagination-item text-primaryLightOn dark:text-primaryLightOn transition-all duration-500 ease-in-out ${
-              pageNumber === currentPage
-                ? "bg-secondaryLight/70"
-                : "bg-primaryLight hover:bg-primaryLight/60 dark:bg-primaryDark dark:hover:bg-primaryDark/60"
-            }`}
+            className={`flex items-center box-border h-8 text-center mx-auto my-1 
+                  tracking-wide rounded-2xl leading-normal text-lg cursor-pointer px-3
+                  md:text-2xl md:px-4 md:py-6 md:rounded-3xl text-primaryLightOn dark:text-primaryLightOn
+                   transition-all duration-500 ease-in-out ${
+                     pageNumber === currentPage
+                       ? "bg-secondaryLight/70"
+                       : "bg-primaryLight hover:bg-primaryLight/60 dark:bg-primaryDark dark:hover:bg-primaryDark/60"
+                   }`}
             onClick={() => {
               onPageChange(pageNumber);
             }}
@@ -83,7 +91,8 @@ const Pagination = ({
       })}
       {/*  Right Navigation arrow */}
       <li
-        className="pagination-arrow pl-1"
+        className="flex items-center h-8 text-center mx-auto my-1 text-backgroundLightOn dark:text-backgroundDarkOn cursor-pointer
+    md:px-4 md:py-6 pl-1"
         onClick={() => {
           if (currentPage === lastPage) {
             return;

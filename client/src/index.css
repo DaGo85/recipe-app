@@ -72,14 +72,6 @@
 }
 
 @layer components {
-  /*NavBar style*/
-
-  .auth-link-setup {
-    @apply cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn underline;
-  }
-
-  /*NavBar style end*/
-
   /*background for cards etc styles*/
 
   .recipe-card {
@@ -98,12 +90,6 @@
     border-primaryLightOn dark:border-primaryDarkOn hover:border-primaryDarkOn 
     dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out bottom-4 right-4 flex items-center
       justify-center;
-  }
-
-  .statistics-fact {
-    border-radius: 93% 7% 95% 5% / 4% 92% 8% 96%;
-    @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center gap-6 m-2 max-w-[310px] md:max-w-md h-72;
   }
 
   /*background for cards etc styles end*/
@@ -181,27 +167,6 @@
 
   /* Style for buttons end*/
 
-  /* Style for pagination */
-
-  .pagination-item {
-    @apply flex items-center box-border h-8 text-center mx-auto my-1 
-    tracking-wide rounded-2xl leading-normal text-lg 
-    cursor-pointer px-3
-    md:text-2xl md:px-4 md:py-6 md:rounded-3xl;
-  }
-
-  .pagination-dots {
-    @apply flex items-center box-border h-8 text-center mx-auto my-1  
-    tracking-wide rounded-2xl leading-normal text-lg text-backgroundLightOn dark:text-backgroundDarkOn px-1;
-  }
-
-  .pagination-arrow {
-    @apply flex items-center h-8 text-center mx-auto my-1 text-backgroundLightOn dark:text-backgroundDarkOn cursor-pointer
-    md:px-4 md:py-6;
-  }
-
-  /* Style for pagination end */
-
   /* Overall styles */
 
   .font-reset {
@@ -229,13 +194,6 @@
     border-width: 0 0 1px 0;
     border-radius: 20px;
     @apply border-backgroundLightOn dark:border-backgroundDarkOn;
-  }
-
-  .highlight-gradient {
-    border-radius: 12px;
-    padding: 0 14px 0 6px;
-    @apply bg-gradient-to-r from-primaryLightContainer/75 to-[#bdeeb5]
-    dark:from-primaryDarkContainer/75 dark:to-[#264d26];
   }
 
   .subtext-container {

@@ -8,7 +8,7 @@ function NavBarLinks() {
         return (
           <Link
             aria-label={item.label}
-            className="auth-link-setup"
+            className="cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn underline"
             key={item.name}
             to={item.link}
           >

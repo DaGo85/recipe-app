@@ -11,6 +11,7 @@ import DeleteModal from "../../components/elements/DeleteModal";
 import ImageModal from "../../components/elements/ImageModal";
 import SkeletonArticle from "../../skeletons/SkeletonArticle";
 import BackGround from "../../components/background/BackGround";
+import HighlightText from "../../components/elements/HighlightText";
 
 //todo: ingredients
 
@@ -76,15 +77,14 @@ function SingleRecipe() {
             <h2 className="text-xl">
               created by:
               <br />
-              <span className="highlight-gradient text-2xl">
-                {recipe.username}
-              </span>
+              <HighlightText text={recipe.username} added="text-2xl" />
             </h2>
             <h2 className="text-xl">
               created at: <br />
-              <span className="highlight-gradient text-2xl">
-                {new Date(recipe.createdAt).toDateString()}
-              </span>
+              <HighlightText
+                text={new Date(recipe.createdAt).toDateString()}
+                added="text-2xl"
+              />
             </h2>
             <ul className="w-11/12 flex gap-1 flex-wrap items-center justify-center">
               {recipe.tags.map((t) => {

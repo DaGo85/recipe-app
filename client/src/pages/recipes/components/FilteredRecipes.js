@@ -3,6 +3,7 @@
 import { Link } from "react-router-dom";
 
 import { AnimatePresence, motion } from "framer-motion";
+import HighlightText from "../../../components/elements/HighlightText";
 
 function FilteredRecipes({ currentGridData }) {
   const cardVariants = {
@@ -39,24 +40,23 @@ function FilteredRecipes({ currentGridData }) {
                   <h3>
                     created by:
                     <br />
-                    <span className="highlight-gradient">{d.username}</span>
+                    <HighlightText text={d.username} />
                   </h3>
                   <h3>
                     created at: <br />
-                    <span className="highlight-gradient">
-                      {new Date(d.createdAt).toDateString()}
-                    </span>
+                    <HighlightText
+                      text={new Date(d.createdAt).toDateString()}
+                    />
                   </h3>
                 </div>
                 <p className="text-[1.17em] flex flex-wrap gap-1 items-center justify-center">
                   {d.tags.map((t) => {
                     return (
-                      <span
+                      <HighlightText
                         key={t}
-                        className="text-lg font-bold highlight-gradient"
-                      >
-                        {t}
-                      </span>
+                        text={t}
+                        added="text-lg font-bold"
+                      />
                     );
                   })}
                   <span className="py-4 font-bold">

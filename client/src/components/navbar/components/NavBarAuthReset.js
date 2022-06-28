@@ -6,6 +6,7 @@ import NavBarAuthCard from "./NavBarAuthCard";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 import NavBarButton from "./NavBarButton";
 import NavBarInput from "./NavBarInput";
+import NavBarLink from "./NavBarLink";
 
 function NavBarAuthReset({ setLogin, setRegister, setReset }) {
   const [email, setEmail] = useState("");
@@ -14,6 +15,11 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
     sendPasswordReset(email);
     setReset(false);
     setLogin(true);
+  };
+
+  const handleRegister = () => {
+    setRegister(true);
+    setReset(false);
   };
 
   return (
@@ -34,16 +40,11 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
       </div>
       <div>
         Don't have an account?{" "}
-        <button
-          onClick={() => {
-            setRegister(true);
-            setReset(false);
-          }}
-          className="auth-link-setup"
-          aria-label="switch to register screen"
-        >
-          Register
-        </button>{" "}
+        <NavBarLink
+          text="Register"
+          label="switch to register screen"
+          handler={handleRegister}
+        />{" "}
         now.
       </div>
     </NavBarAuthCard>

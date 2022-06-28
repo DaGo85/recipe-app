@@ -7,6 +7,7 @@ import RecipeService from "../../../services/recipeService";
 import { motion } from "framer-motion";
 
 import SkeletonArticle from "../../../skeletons/SkeletonArticle";
+import HighlightText from "../../../components/elements/HighlightText";
 
 function LastRecipe() {
   const [recipe, setRecipe] = useState(null);
@@ -58,21 +59,17 @@ function LastRecipe() {
             <h4>
               created by:
               <br />
-              <span className="highlight-gradient">{recipe.username}</span>
+              <HighlightText text={recipe.username} />
             </h4>
             <h4>
               created at: <br />
-              <span className="highlight-gradient">
-                {new Date(recipe.createdAt).toDateString()}
-              </span>
+              <HighlightText text={new Date(recipe.createdAt).toDateString()} />
             </h4>
           </div>
           <p className="text-[1.17em] flex flex-wrap gap-1 items-center justify-center">
             {recipe.tags.map((t) => {
               return (
-                <span key={t} className="text-lg font-bold highlight-gradient">
-                  {t}
-                </span>
+                <HighlightText key={t} text={t} added="text-lg font-bold" />
               );
             })}
             <span className="py-4">Difficulty: {recipe.difficulty}/10</span>

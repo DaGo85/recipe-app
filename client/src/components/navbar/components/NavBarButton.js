@@ -1,5 +1,3 @@
-import React from "react";
-
 function NavBarButton({ handler, text }) {
   return (
     <button

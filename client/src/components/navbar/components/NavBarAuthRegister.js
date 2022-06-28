@@ -9,6 +9,7 @@ import NavBarAuthCard from "./NavBarAuthCard";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 import NavBarButton from "./NavBarButton";
 import NavBarInput from "./NavBarInput";
+import NavBarLink from "./NavBarLink";
 
 function NavBarAuthRegister({ setLogin, setRegister }) {
   const [email, setEmail] = useState("");
@@ -18,6 +19,16 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
   const registerHandler = () => {
     if (!name) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password);
+    setRegister(false);
+    setLogin(true);
+  };
+
+  const handleGoogle = () => {
+    signInWithGoogle();
+    setRegister(false);
+  };
+
+  const handleLogin = () => {
     setRegister(false);
     setLogin(true);
   };
@@ -47,31 +58,21 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
         <NavBarButton handler={registerHandler} text="Register" />
       </div>
       <p className="flex flex-row">
-        Register with
-        <span
-          onClick={() => {
-            signInWithGoogle();
-            setRegister(false);
-          }}
-          className="auth-link-setup ml-1"
-          aria-label="Register with google"
-        >
-          Google
-        </span>
+        <span className="mr-1">Register with</span>
+        <NavBarLink
+          text="Google"
+          labe="Register with google"
+          handler={handleGoogle}
+        />
         .
       </p>
       <div>
         Already have an account?{" "}
-        <button
-          onClick={() => {
-            setRegister(false);
-            setLogin(true);
-          }}
-          className="auth-link-setup"
-          aria-label="switch to login screen"
-        >
-          Login
-        </button>{" "}
+        <NavBarLink
+          text="Login"
+          labe="switch to login screen"
+          handler={handleLogin}
+        />{" "}
         now.
       </div>
     </NavBarAuthCard>
