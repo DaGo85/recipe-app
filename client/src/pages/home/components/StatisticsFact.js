@@ -5,7 +5,7 @@ import HighlightText from "../../../components/elements/HighlightText";
 function StatisticsFact({ fact, icon }) {
   return (
     <div
-      className="rounded-statistics bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+      className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
     flex flex-col justify-center items-center gap-6 m-2 max-w-[310px] md:max-w-md h-72"
     >
       <svg

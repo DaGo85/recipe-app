@@ -53,7 +53,7 @@ function SingleRecipe() {
       .catch((err) => {
         navigate("/notfound");
       });
-  }, [path]);
+  }, [path, navigate]);
 
   const handleEdit = () => {
     navigate(`/update${path}`);
@@ -83,7 +83,10 @@ function SingleRecipe() {
               />
             );
           })}
-          <div className="recipe-card pt-10 text-center">
+          <div
+            className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+    flex flex-col justify-center items-center gap-6 m-2 pt-10 text-center"
+          >
             <h2 className="text-xl">
               created by:
               <br />

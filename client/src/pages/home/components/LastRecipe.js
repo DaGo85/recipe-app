@@ -50,7 +50,8 @@ function LastRecipe() {
           whileInView="onscreen"
           viewport={{ once: true }}
           variants={cardVariants}
-          className="cursor-pointer recipe-card"
+          className="cursor-pointer rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+    flex flex-col justify-center items-center gap-6 m-2"
           onClick={() => handleLink()}
         >
           <h3>{recipe.title}</h3>

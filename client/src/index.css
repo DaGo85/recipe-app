@@ -72,16 +72,6 @@
 }
 
 @layer components {
-  /*background for cards etc styles*/
-
-  .recipe-card {
-    border-radius: 93% 7% 95% 5% / 4% 92% 8% 96%;
-    @apply bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center gap-6 m-2;
-  }
-
-  /*background for cards etc styles end*/
-
   /* Style for buttons*/
 
   .slider-button {
@@ -96,22 +86,6 @@
      border-lightOutline dark:border-darkOutline cursor-pointer shadow-lg;
     -webkit-appearance: none;
   }
-
-  .svg-container {
-    @apply cursor-pointer rounded-3xl border-2 p-2 flex items-center justify-center
-     bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60
-     dark:hover:bg-primaryDark/60 border-primaryLightOn dark:border-primaryDarkOn
-     hover:border-primaryDarkOn dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out;
-  }
-
-  .svg-setup {
-    @apply fill-primaryLightOn dark:fill-primaryDarkOn transition-all duration-300 ease-in-out;
-  }
-
-  .svg-container:hover .svg-setup {
-    @apply fill-primaryDarkOn dark:fill-primaryLightOn;
-  }
-
   /* Style for buttons end*/
 
   /* Overall styles */

@@ -70,10 +70,13 @@ function NavBarAuth() {
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        className="svg-container"
+        className="group cursor-pointer rounded-3xl border-2 p-2 flex items-center justify-center
+     bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60
+     dark:hover:bg-primaryDark/60 border-primaryLightOn dark:border-primaryDarkOn
+     hover:border-primaryDarkOn dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out"
       >
         <svg
-          className="w-6 svg-setup "
+          className="group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn w-6 fill-primaryLightOn dark:fill-primaryDarkOn transition-all duration-300 ease-in-out"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
         >

@@ -25,7 +25,7 @@ function AddRecipeButton() {
             }}
           >
             <svg
-              className="group-hover:fill-primaryLightOn group-hover:dark:fill-primaryDarkOn fill-primaryDarkOn dark:fill-primaryLightOn transition-all duration-300 ease-in-out w-16"
+              className="group-hover:fill-primaryLightOn dark:group-hover:fill-primaryDarkOn fill-primaryDarkOn dark:fill-primaryLightOn transition-all duration-300 ease-in-out w-16"
               version="1.1"
               id="Layer_1"
               xmlns="http://www.w3.org/2000/svg"

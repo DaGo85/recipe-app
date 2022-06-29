@@ -26,7 +26,7 @@ function Footer() {
       justify-center group"
       >
         <svg
-          className="h-8 svg-setup group-hover:fill-primaryDarkOn group-hover:dark:fill-primaryLightOn"
+          className="h-8 fill-primaryLightOn dark:fill-primaryDarkOn transition-all duration-300 ease-in-out group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 320 512"
         >

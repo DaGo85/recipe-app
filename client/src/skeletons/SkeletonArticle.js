@@ -5,7 +5,10 @@ import SkeletonText from "./SkeletonText";
 
 function SkeletonArticle() {
   return (
-    <div className="recipe-card w-11/12 gap-10">
+    <div
+      className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+    flex flex-col justify-center items-center m-2 w-11/12 gap-10"
+    >
       <div className="flex w-5/6 flex-col md:flex-row items-center">
         <SkeletonImage />
         <div className="hidden w-full md:flex flex-col gap-10 pl-6">

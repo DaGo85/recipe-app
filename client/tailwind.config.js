@@ -17,7 +17,7 @@ module.exports = {
         skeletonLightBg: "skeletonLoadingLight 1s linear infinite alternate",
         skeletonDarkBg: "skeletonLoadingDark 1s linear infinite alternate",
       },
-      borderRadius: { statistics: "93% 7% 95% 5% / 4% 92% 8% 96%" },
+      borderRadius: { card: "93% 7% 95% 5% / 4% 92% 8% 96%" },
       colors: {
         primaryLight: "#006e0e",
         primaryLightOn: "#ffffff",

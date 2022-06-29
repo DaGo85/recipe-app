@@ -27,8 +27,9 @@ function FilteredRecipes({ currentGridData }) {
         {currentGridData.map((d, i) => {
           return (
             <Link to={`/recipe${d.title}`} key={d.title}>
-              <motion.div
-                className="recipe-card cursor-pointer"
+              <motion.article
+                className="cursor-pointer rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+    flex flex-col justify-center items-center gap-6 m-2"
                 key={d.title}
                 whileInView="onscreen"
                 viewport={{ once: true }}
@@ -63,7 +64,7 @@ function FilteredRecipes({ currentGridData }) {
                     Difficulty: {d.difficulty}/10
                   </span>
                 </p>
-              </motion.div>
+              </motion.article>
             </Link>
           );
         })}
