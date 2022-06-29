@@ -1,3 +1,5 @@
+//Not found page
+
 import BackGround from "../../components/background/BackGround";
 
 function NotFound() {

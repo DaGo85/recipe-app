@@ -1,4 +1,4 @@
-//animated HR element
+//Animated HR element
 
 import { AnimatePresence, motion } from "framer-motion";
 

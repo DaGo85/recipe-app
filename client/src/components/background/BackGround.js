@@ -1,3 +1,5 @@
+//Background for all pages
+
 const BackGround = ({ children }) => {
   return (
     <main

@@ -1,3 +1,5 @@
+//NavBar auth card
+
 const NavBarAuthCard = ({ children }) => {
   return (
     <div

@@ -1,4 +1,4 @@
-import React from "react";
+//Highlighted text element
 
 function HighlightText({ text, added }) {
   return (

@@ -1,3 +1,5 @@
+//Animated Wiggling button
+
 import { motion } from "framer-motion";
 
 function WiggleButton({ handler, viewBox, svg, label }) {

@@ -1,8 +1,12 @@
+//NavBar profile component
+
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+
 import { useAuthContext } from "../../../utility/AuthContext";
 import { logout } from "../../../utility/firebase";
 import { useRecipesContext } from "../../../utility/RecipesContext";
+
 import NavBarAuthCard from "./NavBarAuthCard";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 import NavBarButton from "./NavBarButton";

@@ -1,4 +1,4 @@
-//setting default api address for axios service
+//Setting default api address for axios service
 
 import axios from "axios";
 

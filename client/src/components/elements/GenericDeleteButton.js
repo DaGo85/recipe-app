@@ -1,4 +1,4 @@
-import React from "react";
+//Delete button used on several pages
 
 function GenericDeleteButton({ handler, text }) {
   return (

@@ -1,4 +1,4 @@
-//single detailed recipe page
+//Single detailed recipe page
 
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";

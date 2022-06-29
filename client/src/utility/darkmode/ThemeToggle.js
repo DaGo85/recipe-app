@@ -1,4 +1,4 @@
-// Toggle Button for darkmode
+//Toggle Button for darkmode
 
 import { useThemeContext } from "./ThemeContext";
 

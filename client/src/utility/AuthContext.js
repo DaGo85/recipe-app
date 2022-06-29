@@ -1,4 +1,4 @@
-// Context for authentification
+//Context for authentification
 
 import { useState, useContext, createContext } from "react";
 

@@ -1,3 +1,5 @@
+//Generic NavBar button
+
 function NavBarButton({ handler, text }) {
   return (
     <button

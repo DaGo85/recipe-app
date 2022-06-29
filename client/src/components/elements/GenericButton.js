@@ -1,4 +1,4 @@
-import React from "react";
+//Button used on several pages
 
 function GenericButton({ text, handler, added, type, disabled }) {
   return (

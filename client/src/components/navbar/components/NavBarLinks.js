@@ -1,3 +1,5 @@
+//NavBar Links
+
 import { Link } from "react-router-dom";
 import { NavBarLinkItems } from "../../../assets/data";
 

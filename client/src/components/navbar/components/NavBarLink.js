@@ -1,4 +1,4 @@
-import React from "react";
+//Generic NavBar Link Button
 
 function NavBarLink({ text, handler, label }) {
   return (

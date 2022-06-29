@@ -1,4 +1,4 @@
-import React from "react";
+//Generic NavBar input
 
 function NavBarInput({ type, value, set, placeholder }) {
   return (

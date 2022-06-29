@@ -1,4 +1,4 @@
-// Context for darkmode
+//Context for darkmode
 
 import { useContext, useEffect, useState, createContext } from "react";
 

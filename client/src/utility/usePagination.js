@@ -1,4 +1,4 @@
-// Custom hook for pagination controll
+//Custom hook for pagination controll
 
 import { useMemo } from "react";
 

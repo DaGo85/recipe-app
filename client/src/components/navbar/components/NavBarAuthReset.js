@@ -1,7 +1,9 @@
 //NavBar password reset component
 
 import { useState } from "react";
+
 import { sendPasswordReset } from "../../../utility/firebase";
+
 import NavBarAuthCard from "./NavBarAuthCard";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 import NavBarButton from "./NavBarButton";

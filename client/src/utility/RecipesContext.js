@@ -1,4 +1,4 @@
-// Context for recipes
+//Context for recipes
 
 import { useState, useContext, createContext } from "react";
 

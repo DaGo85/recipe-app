@@ -1,4 +1,4 @@
-//page for editing recipe
+//Page for editing a recipe
 
 import { useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router";

@@ -1,4 +1,4 @@
-//service for handling api requests
+//Service for handling api requests
 
 import http from "../http-common";
 

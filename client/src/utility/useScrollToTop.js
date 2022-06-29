@@ -1,4 +1,4 @@
-// Utility function scrolling to top on initial pageload
+//Utility function scrolling to top on initial pageload
 
 import { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";

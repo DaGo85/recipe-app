@@ -1,4 +1,4 @@
-// Firebase settings and functions
+//Firebase settings and functions
 
 import { initializeApp } from "firebase/app";
 import {
