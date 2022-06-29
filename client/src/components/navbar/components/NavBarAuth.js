@@ -6,6 +6,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useAuthContext } from "../../../utility/AuthContext";
 import { auth, db } from "../../../utility/firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
+import { useRegContext } from "../../../utility/RegisterContext";
 
 import NavBarAuthLogin from "./NavBarAuthLogin";
 import NavBarAuthRegister from "./NavBarAuthRegister";
@@ -13,10 +14,16 @@ import NavBarAuthReset from "./NavBarAuthReset";
 import NavBarProfile from "./NavBarProfile";
 
 function NavBarAuth() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [login, setLogin] = useState(true);
-  const [register, setRegister] = useState(false);
-  const [reset, setReset] = useState(false);
+  const {
+    register,
+    setRegister,
+    isOpen,
+    setIsOpen,
+    login,
+    setLogin,
+    reset,
+    setReset,
+  } = useRegContext();
 
   const { userData, setUserData, setUserCreds, userCreds } = useAuthContext();
 
@@ -40,7 +47,7 @@ function NavBarAuth() {
         setUserData(newUser);
       }
     });
-  }, [setUserData, setUserCreds]);
+  }, [setUserData, setUserCreds, setLogin]);
 
   useEffect(() => {
     const fetchUserName = async () => {

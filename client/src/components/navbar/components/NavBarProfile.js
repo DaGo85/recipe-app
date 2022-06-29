@@ -1,7 +1,7 @@
 //NavBar profile component
 
 import { useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useAuthContext } from "../../../utility/AuthContext";
 import { logout } from "../../../utility/firebase";
@@ -12,8 +12,10 @@ import NavBarAuthHeadline from "./NavBarAuthHeadline";
 import NavBarButton from "./NavBarButton";
 
 function NavBarProfile({ setIsOpen, setLogin }) {
-  const { userCreds, setUserData } = useAuthContext();
+  const { userCreds, setUserData, setUserCreds } = useAuthContext();
   const { recipesData } = useRecipesContext();
+
+  const navigate = useNavigate();
 
   const recipesCount = useMemo(() => {
     return recipesData.filter((v) => v.username === userCreds.name).length;
@@ -28,6 +30,11 @@ function NavBarProfile({ setIsOpen, setLogin }) {
     setUserData(null);
     setIsOpen(false);
     setLogin(true);
+    setUserCreds(null);
+  };
+
+  const handleAdd = () => {
+    navigate("/add");
   };
 
   return (
@@ -45,7 +52,10 @@ function NavBarProfile({ setIsOpen, setLogin }) {
             <br />
             Created at: {lastRecipe?.createdAt}
           </p>
-          <NavBarButton handler={handleLogout} text="Logout" />
+          <div>
+            <NavBarButton handler={handleLogout} text="Logout" added="mr-2" />
+            <NavBarButton handler={handleAdd} text="Add recipe" />
+          </div>
         </>
       )}
     </NavBarAuthCard>

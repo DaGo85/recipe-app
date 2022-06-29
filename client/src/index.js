@@ -11,6 +11,7 @@ import { ThemeProvider } from "./utility/darkmode/ThemeContext";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./utility/AuthContext";
 import { RecipesProvider } from "./utility/RecipesContext";
+import { RegProvider } from "./utility/RegisterContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,9 +19,11 @@ root.render(
     <ThemeProvider>
       <AuthProvider>
         <RecipesProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <RegProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </RegProvider>
         </RecipesProvider>
       </AuthProvider>
     </ThemeProvider>

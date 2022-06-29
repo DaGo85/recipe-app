@@ -1,11 +1,26 @@
 //Add recipe button element
 
 import { Link } from "react-router-dom";
+
 import { useAuthContext } from "../../utility/AuthContext";
 import { motion } from "framer-motion";
+import { useRegContext } from "../../utility/RegisterContext";
 
 function AddRecipeButton() {
   const { userData } = useAuthContext();
+  const { setRegister, setIsOpen, setLogin } = useRegContext();
+
+  const handleReg = () => {
+    setIsOpen(true);
+    setRegister(true);
+    setLogin(false);
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <>
       {userData ? (
@@ -130,7 +145,17 @@ function AddRecipeButton() {
           <h3>Press for adding Recipe!</h3>
         </Link>
       ) : (
-        <button>Do you want to add a recipe? Please register here.</button>
+        <p>
+          Do you want to add a recipe? Please register{" "}
+          <button
+            aria-label="button to get to the register menu"
+            className="underline hover:text-secondaryLightContainer dark:hover:text-secondaryDarkContainer"
+            onClick={handleReg}
+          >
+            here
+          </button>
+          .
+        </p>
       )}
     </>
   );

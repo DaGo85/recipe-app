@@ -19,11 +19,12 @@ import GenericDeleteButton from "../../components/elements/GenericDeleteButton";
 
 function SingleRecipe() {
   const [showModal, setShowModal] = useState(false);
-  const location = useLocation();
-  const path = location.pathname.split("/recipe")[1];
   const [recipe, setRecipe] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [zoom, setZoom] = useState("");
+
+  const location = useLocation();
+  const path = location.pathname.split("/recipe")[1];
 
   const { userCreds } = useAuthContext();
 
@@ -128,18 +129,26 @@ function SingleRecipe() {
                 {recipe.description}
               </p>
             </pre>
-            <GenericDeleteButton handler={handleDeleteButton} text="Delete" />
-            <GenericButton
-              text="Edit"
-              added="mb-6"
-              type="button"
-              handler={handleEdit}
-            />
-            <DeleteModal
-              handleDelete={handleDelete}
-              showModal={showModal}
-              setShowModal={setShowModal}
-            />
+
+            {userCreds.name === recipe.username && (
+              <>
+                <GenericDeleteButton
+                  handler={handleDeleteButton}
+                  text="Delete"
+                />
+                <GenericButton
+                  text="Edit"
+                  added="mb-6"
+                  type="button"
+                  handler={handleEdit}
+                />
+                <DeleteModal
+                  handleDelete={handleDelete}
+                  showModal={showModal}
+                  setShowModal={setShowModal}
+                />
+              </>
+            )}
           </div>
         </article>
       ) : (

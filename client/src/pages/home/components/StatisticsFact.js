@@ -6,10 +6,10 @@ function StatisticsFact({ fact, icon }) {
   return (
     <div
       className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center gap-6 m-2 max-w-[310px] md:max-w-md h-72"
+    flex flex-col py-6 items-center gap-6 m-2 max-w-[310px] md:max-w-md h-72"
     >
       <svg
-        className="w-12 fill-secondaryLightContainerOn dark:fill-secondaryDarkContainerOn"
+        className={`flex fill-secondaryLightContainerOn dark:fill-secondaryDarkContainerOn ${icon.width}`}
         xmlns="http://www.w3.org/2000/svg"
         viewBox={icon.viewBox}
       >
