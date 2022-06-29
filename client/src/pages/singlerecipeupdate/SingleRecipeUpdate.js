@@ -161,17 +161,18 @@ function SingleRecipe() {
           setTitle(e.target.value);
         }}
       />
-      {images.map((i) => {
-        return (
-          <img
-            className="cursor-not-allowed"
-            onClick={() => handleDeleteImg(i)}
-            key={i}
-            src={i}
-            alt="from recipe"
-          />
-        );
-      })}
+      {images[0] &&
+        images.map((i) => {
+          return (
+            <img
+              className="cursor-not-allowed"
+              onClick={() => handleDeleteImg(i)}
+              key={i}
+              src={i}
+              alt="from recipe"
+            />
+          );
+        })}
       <input
         accept="image/jpg,image/png,image/jpeg"
         className="hidden"

@@ -26,7 +26,11 @@ function FilteredRecipes({ currentGridData }) {
       <section className="flex flex-wrap justify-center items-center">
         {currentGridData.map((d, i) => {
           return (
-            <Link to={`/recipe${d.title}`} key={d.title}>
+            <Link
+              to={`/recipe${d.title}`}
+              key={d.title}
+              className="hover:scale-110 transition-all"
+            >
               <motion.article
                 className="cursor-pointer rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
     flex flex-col justify-center items-center gap-6 m-2"

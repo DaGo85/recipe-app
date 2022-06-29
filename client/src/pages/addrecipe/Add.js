@@ -76,6 +76,8 @@ function Add() {
   };
 
   useEffect(() => {
+    console.log("URL" + url);
+    console.log("IMAGESTEST" + images.length);
     if (url) {
       setImages((prevValue) => [...prevValue, url]);
       setUrl(null);

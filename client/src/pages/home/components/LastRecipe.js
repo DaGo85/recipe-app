@@ -46,6 +46,9 @@ function LastRecipe() {
       <h2>Newest Recipe: </h2>
       {recipe ? (
         <motion.article
+          whileHover={{
+            scale: 1.2,
+          }}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true }}
@@ -55,7 +58,9 @@ function LastRecipe() {
           onClick={() => handleLink()}
         >
           <h3>{recipe.title}</h3>
-          <img className="" src={recipe.img[0]} alt="from recipe" />
+          {recipe.img[0] && (
+            <img className="" src={recipe.img[0]} alt="from recipe" />
+          )}
           <div className="flex flex-col gap-1">
             <h4>
               created by:

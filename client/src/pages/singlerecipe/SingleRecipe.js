@@ -69,20 +69,21 @@ function SingleRecipe() {
       {recipe ? (
         <article>
           <h1 className="break-all text-center">{recipe.title}</h1>
-          {recipe.img.map((i) => {
-            return (
-              <img
-                onClick={() => {
-                  setZoom(i);
-                  setIsOpen(true);
-                }}
-                className="w-72 h-72"
-                key={i}
-                src={i}
-                alt="from recipe"
-              />
-            );
-          })}
+          {recipe.img[0] &&
+            recipe.img.map((i) => {
+              return (
+                <img
+                  onClick={() => {
+                    setZoom(i);
+                    setIsOpen(true);
+                  }}
+                  className="w-72 h-72"
+                  key={i}
+                  src={i}
+                  alt="from recipe"
+                />
+              );
+            })}
           <div
             className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
     flex flex-col justify-center items-center gap-6 m-2 pt-10 text-center"
