@@ -11,6 +11,7 @@ import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
 
 import ProgressBar from "../../components/elements/ProgressBar";
 import BackGround from "../../components/background/BackGround";
+import GenericButton from "../../components/elements/GenericButton";
 
 function Add() {
   const [file, setFile] = useState([]);
@@ -218,14 +219,11 @@ function Add() {
           placeholder="Add Ingredient"
           data-testid="ingredient-input"
         />
-        <button
-          className="button-setup"
+        <GenericButton
+          text="Add Ingredient"
           type="button"
-          onClick={(e) => handleAddIngredient(e)}
-          data-testid="ingredient-add-button"
-        >
-          Add Ingredient
-        </button>
+          handler={handleAddIngredient}
+        />
         <div className="flex flex-col text-center">
           <h2>Choose your tags</h2>
           <ul className="flex flex-wrap justify-center items-center gap-1">
@@ -283,13 +281,12 @@ function Add() {
           placeholder="Description"
           required
         />
-        <button
-          disabled={selected}
-          className="button-setup disabled:bg-slate-400"
+        <GenericButton
+          text="Submit"
+          added="disabled:bg-slate-400"
           type="submit"
-        >
-          submit
-        </button>
+          disabled={selected}
+        />
       </form>
     </BackGround>
   );

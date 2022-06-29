@@ -12,6 +12,7 @@ import ImageModal from "../../components/elements/ImageModal";
 import SkeletonArticle from "../../skeletons/SkeletonArticle";
 import BackGround from "../../components/background/BackGround";
 import HighlightText from "../../components/elements/HighlightText";
+import GenericButton from "../../components/elements/GenericButton";
 
 //todo: ingredients
 
@@ -52,6 +53,10 @@ function SingleRecipe() {
         navigate("/notfound");
       });
   }, [path]);
+
+  const handleEdit = () => {
+    navigate(`/update${path}`);
+  };
 
   console.log("imagecheck" + JSON.stringify(recipe?.images));
   return (
@@ -120,12 +125,12 @@ function SingleRecipe() {
             >
               delete
             </button>
-            <button
-              className="button-setup mb-6"
-              onClick={() => navigate(`/update${path}`)}
-            >
-              edit
-            </button>
+            <GenericButton
+              text="Edit"
+              added="mb-6"
+              type="button"
+              handler={handleEdit}
+            />
             <DeleteModal
               handleDelete={handleDelete}
               showModal={showModal}

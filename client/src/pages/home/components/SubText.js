@@ -20,7 +20,7 @@ function SubText({ text }) {
 
   return (
     <motion.h2
-      className="subtext-container"
+      className="flex items-center justify-center relative overflow-hidden pt-5"
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true }}

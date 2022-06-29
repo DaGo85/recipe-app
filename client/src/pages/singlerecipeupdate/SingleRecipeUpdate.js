@@ -11,6 +11,7 @@ import handleDeleteFirebaseImg from "../../utility/handleDeleteFirebaseImg";
 
 import ProgressBar from "../../components/elements/ProgressBar";
 import BackGround from "../../components/background/BackGround";
+import GenericButton from "../../components/elements/GenericButton";
 
 function SingleRecipe() {
   const [recipe, setRecipe] = useState("");
@@ -268,13 +269,11 @@ function SingleRecipe() {
         }}
         placeholder="Add Ingredient"
       />
-      <button
-        className="button-setup"
+      <GenericButton
+        text="Add Ingredient"
         type="button"
-        onClick={(e) => handleAddIngredient(e)}
-      >
-        Add Ingredient
-      </button>
+        handler={handleAddIngredient}
+      />
       <div>
         <h4>
           Difficulty: {difficulty}/10 {difficultyText}
@@ -298,9 +297,7 @@ function SingleRecipe() {
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />
-      <button className="button-setup" onClick={() => handleRecipeUpdate()}>
-        update!
-      </button>
+      <GenericButton text="Update" type="button" handler={handleRecipeUpdate} />
     </BackGround>
   );
 }

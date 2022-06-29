@@ -19,10 +19,14 @@ function Footer() {
       <button
         aria-label="scroll smoothly to top of the page"
         onClick={() => scrollToTop()}
-        className="footer-hover"
+        className="rounded-3xl border-2 w-12 h-12 cursor-pointer absolute 
+    bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60 
+    border-primaryLightOn dark:border-primaryDarkOn hover:border-primaryDarkOn 
+    dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out bottom-4 right-4 flex items-center
+      justify-center group"
       >
         <svg
-          className="h-8 svg-setup"
+          className="h-8 svg-setup group-hover:fill-primaryDarkOn group-hover:dark:fill-primaryLightOn"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 320 512"
         >
