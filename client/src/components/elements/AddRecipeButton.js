@@ -11,7 +11,11 @@ function AddRecipeButton() {
       {userData ? (
         <Link to="/add" className="flex flex-col items-center gap-2 mb-4">
           <motion.div
-            className="add-button"
+            aria-label="press for getting to add recipe page"
+            className="group border-8 px-6 py-6 rounded-2xl
+          bg-primaryLight/60 dark:bg-primaryDark hover:bg-primaryLight
+     dark:hover:bg-primaryDark hover:border-primaryLightOn dark:hover:border-primaryDarkOn
+     border-primaryDarkOn dark:border-primaryLightOn transition-all duration-300 ease-in-out"
             whileHover={{
               rotate: [0, 0, -50, 0],
               transition: {
@@ -21,7 +25,7 @@ function AddRecipeButton() {
             }}
           >
             <svg
-              className="add-svg w-16"
+              className="group-hover:fill-primaryLightOn group-hover:dark:fill-primaryDarkOn fill-primaryDarkOn dark:fill-primaryLightOn transition-all duration-300 ease-in-out w-16"
               version="1.1"
               id="Layer_1"
               xmlns="http://www.w3.org/2000/svg"

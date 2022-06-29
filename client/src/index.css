@@ -84,18 +84,6 @@
 
   /* Style for buttons*/
 
-  .button-setup {
-    @apply border px-4 py-2 rounded-2xl bg-primaryLight dark:bg-primaryDark
-     text-primaryLightOn dark:text-primaryDarkOn 
-     hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60;
-  }
-
-  .delete-button-setup {
-    @apply border px-4 py-2 rounded-2xl bg-errorLight dark:bg-errorDarkContainer
-     text-errorLightOn dark:text-errorDarkContainerOn 
-     hover:bg-errorLight/70 dark:hover:bg-errorDarkContainer/60;
-  }
-
   .slider-button {
     @apply w-72 h-8 border-2 rounded-xl overflow-hidden bg-gradient-to-r
      from-primaryLight dark:from-primaryDark via-yellow-300 dark:via-yellow-300 to-errorLight dark:to-errorDarkContainer cursor-pointer
@@ -122,35 +110,6 @@
 
   .svg-container:hover .svg-setup {
     @apply fill-primaryDarkOn dark:fill-primaryLightOn;
-  }
-
-  .add-button {
-    @apply border-8 px-6 py-6 rounded-2xl
-          bg-primaryLight/60 dark:bg-primaryDark hover:bg-primaryLight
-     dark:hover:bg-primaryDark hover:border-primaryLightOn dark:hover:border-primaryDarkOn
-     border-primaryDarkOn dark:border-primaryLightOn transition-all duration-300 ease-in-out;
-  }
-
-  .add-svg {
-    @apply fill-primaryDarkOn dark:fill-primaryLightOn transition-all duration-300 ease-in-out;
-  }
-
-  .add-button:hover .add-svg {
-    @apply fill-primaryLightOn dark:fill-primaryDarkOn;
-  }
-
-  .random-svg {
-    @apply fill-primaryDarkOn dark:fill-primaryLightOn transition-all duration-300 ease-in-out;
-  }
-
-  .random-container {
-    @apply border-8 px-6 py-2 rounded-2xl bg-primaryLight/60 dark:bg-primaryDark hover:bg-primaryLight
-     dark:hover:bg-primaryDark hover:border-primaryLightOn dark:hover:border-primaryDarkOn
-     border-primaryDarkOn dark:border-primaryLightOn transition-all duration-300 ease-in-out max-w-fit;
-  }
-
-  .random-container:hover .random-svg {
-    @apply fill-primaryLightOn dark:fill-primaryDarkOn;
   }
 
   /* Style for buttons end*/

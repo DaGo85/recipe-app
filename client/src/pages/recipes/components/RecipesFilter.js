@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import GenericButton from "../../../components/elements/GenericButton";
+import GenericDeleteButton from "../../../components/elements/GenericDeleteButton";
 import RecipesFilterByDif from "./RecipesFilterByDif";
 import RecipesFilterByInput from "./RecipesFilterByInput";
 import RecipesFilterByTag from "./RecipesFilterByTag";
@@ -42,9 +43,7 @@ function RecipesFilter({ setFilter, setCurrentPage }) {
       <RecipesFilterByTag tag={tag} setTag={setTag} />{" "}
       <span className="flex flex-col gap-2 md:flex-row md:gap-4 mb-6">
         <RecipesFilterByDif dif={dif} setDif={setDif} />
-        <button onClick={() => resetFilter()} className="delete-button-setup">
-          Reset Filter
-        </button>
+        <GenericDeleteButton handler={resetFilter} text="Reset Filter" />
         <GenericButton
           text="Filter"
           added="px-10"
