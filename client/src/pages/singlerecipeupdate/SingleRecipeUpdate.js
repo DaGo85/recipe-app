@@ -161,18 +161,25 @@ function SingleRecipe() {
           setTitle(e.target.value);
         }}
       />
-      {images[0] &&
-        images.map((i) => {
-          return (
-            <img
-              className="cursor-not-allowed"
-              onClick={() => handleDeleteImg(i)}
-              key={i}
-              src={i}
-              alt="from recipe"
-            />
-          );
-        })}
+      <div className="flex-wrap flex">
+        {images[0] &&
+          images.map((i) => {
+            return (
+              <div
+                className="bg-secondaryLightContainer dark:bg-secondaryDarkContainer flex 
+                  justify-center items-center p-2 w-fit rounded-xl m-1"
+              >
+                <img
+                  className="cursor-not-allowed object-cover w-72 h-72"
+                  onClick={() => handleDeleteImg(i)}
+                  key={i}
+                  src={i}
+                  alt="from recipe"
+                />
+              </div>
+            );
+          })}
+      </div>
       <input
         accept="image/jpg,image/png,image/jpeg"
         className="hidden"

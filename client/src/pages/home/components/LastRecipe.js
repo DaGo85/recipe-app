@@ -47,7 +47,7 @@ function LastRecipe() {
       {recipe ? (
         <motion.article
           whileHover={{
-            scale: 1.2,
+            scale: 1.05,
           }}
           initial="offscreen"
           whileInView="onscreen"
@@ -59,7 +59,16 @@ function LastRecipe() {
         >
           <h3>{recipe.title}</h3>
           {recipe.img[0] && (
-            <img className="" src={recipe.img[0]} alt="from recipe" />
+            <div
+              className="flex 
+                  justify-center items-center p-2 w-fit rounded-xl m-1"
+            >
+              <img
+                className="w-72 h-72 object-cover"
+                src={recipe.img[0]}
+                alt="from recipe"
+              />
+            </div>
           )}
           <div className="flex flex-col gap-1">
             <h4>
