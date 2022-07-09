@@ -23,8 +23,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
   };
 
   const handleGoogle = () => {
-    signInWithGoogle();
-    setLogin(false);
+    signInWithGoogle(setLogin);
   };
 
   const handleReset = () => {

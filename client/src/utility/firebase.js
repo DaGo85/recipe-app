@@ -40,7 +40,7 @@ const db = getFirestore(app);
 
 const googleProvider = new GoogleAuthProvider();
 
-const signInWithGoogle = async () => {
+const signInWithGoogle = async (setLogin) => {
   try {
     const res = await signInWithPopup(auth, googleProvider);
     const user = res.user;
@@ -54,6 +54,7 @@ const signInWithGoogle = async () => {
         email: user.email,
       });
     }
+    setLogin(false);
   } catch (err) {
     console.error(err);
     alert(err.message);

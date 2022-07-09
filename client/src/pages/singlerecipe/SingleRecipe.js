@@ -68,26 +68,34 @@ function SingleRecipe() {
   return (
     <BackGround>
       {recipe ? (
-        <article>
+        <article className="flex justify-center items-center flex-col">
           <h1 className="break-all text-center">{recipe.title}</h1>
-          {recipe.img[0] &&
-            recipe.img.map((i) => {
-              return (
-                <img
-                  onClick={() => {
-                    setZoom(i);
-                    setIsOpen(true);
-                  }}
-                  className="w-72 h-72"
-                  key={i}
-                  src={i}
-                  alt="from recipe"
-                />
-              );
-            })}
+          <div className="flex-wrap flex">
+            {recipe.img[0] &&
+              recipe.img.map((i) => {
+                return (
+                  <div
+                    className="bg-secondaryLightContainer dark:bg-secondaryDarkContainer flex 
+                  justify-center items-center p-2 w-fit rounded-xl m-1"
+                  >
+                    <img
+                      onClick={() => {
+                        setZoom(i);
+                        setIsOpen(true);
+                      }}
+                      className="w-72 h-72 object-cover"
+                      key={i}
+                      src={i}
+                      alt="from recipe"
+                    />
+                  </div>
+                );
+              })}
+          </div>
           <div
-            className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center gap-6 m-2 pt-10 text-center"
+            className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer
+             text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+              flex flex-col justify-center items-center gap-6 m-2 pt-10 text-center w-9/10"
           >
             <h2 className="text-xl">
               created by:
@@ -118,8 +126,8 @@ function SingleRecipe() {
             <ul className="text-left">
               {recipe &&
                 recipe.ingredients.map((ingr) => (
-                  <li key={ingr} className="">
-                    {ingr}
+                  <li key={ingr}>
+                    <HighlightText text={ingr} />
                   </li>
                 ))}
             </ul>

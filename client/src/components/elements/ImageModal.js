@@ -6,7 +6,7 @@ function ImageModal({ setIsOpen, image }) {
   return (
     <div
       onClick={() => setIsOpen(false)}
-      className="z-50 absolute cursor-not-allowed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] h-full
+      className="z-50 fixed cursor-not-allowed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] h-full
        w-full p-4 items-center justify-center flex bg-lightVariantSurface/80 dark:bg-darkVariantSurface"
     >
       <AnimatePresence>
