@@ -23,24 +23,25 @@ function FilteredRecipes({ currentGridData }) {
 
   return (
     <AnimatePresence>
-      <section className="flex flex-wrap justify-center items-center">
+      <section className="flex flex-wrap justify-center items-center w-full">
         {currentGridData.map((d, i) => {
           return (
             <Link
               to={`/recipe${d.title}`}
               key={d.title}
-              className="hover:scale-110 transition-all"
+              className="hover:scale-105 transition-all"
             >
               <motion.article
-                className="cursor-pointer rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center gap-6 m-2"
+                className="cursor-pointer rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer
+                 text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
+                  flex flex-col justify-center items-center gap-6 m-2 max-w-full md:max-w-md"
                 key={d.title}
                 whileInView="onscreen"
                 viewport={{ once: true }}
                 variants={cardVariants}
                 transition={{ ease: "easeIn", duration: 0.5, delay: 0.1 * i }}
               >
-                <h2 className="font-bold">{d.title}</h2>
+                <h2 className="font-bold break-all">{d.title}</h2>
                 <div className="flex flex-col gap-1">
                   <h3>
                     created by:
