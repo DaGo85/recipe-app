@@ -12,6 +12,7 @@ import ProgressBar from "../../components/elements/ProgressBar";
 import BackGround from "../../components/background/BackGround";
 import GenericButton from "../../components/elements/GenericButton";
 import WiggleButton from "../../components/elements/WiggleButton";
+import DeleteImage from "../../components/elements/DeleteImage";
 
 function Add() {
   const [file, setFile] = useState([]);
@@ -155,15 +156,23 @@ function Add() {
             setUrl={setUrl}
           />
         )}
-        {images.map((i) => (
-          <img
-            className="cursor-not-allowed"
-            onClick={() => handleDeleteImg(i)}
-            key={i}
-            src={i}
-            alt="uploading for recipe"
-          />
-        ))}
+        <div className="flex-wrap flex">
+          {images.map((i) => (
+            <div
+              className="group bg-secondaryLightContainer dark:bg-secondaryDarkContainer flex 
+                  justify-center items-center p-2 w-fit rounded-xl m-1 relative transition-all duration-300"
+            >
+              <DeleteImage handleDeleteImg={handleDeleteImg} i={i} />
+              <img
+                className="w-72 h-72 object-cover cursor-pointer"
+                onClick={() => handleDeleteImg(i)}
+                key={i}
+                src={i}
+                alt="uploading for recipe"
+              />
+            </div>
+          ))}
+        </div>
         <input
           accept="image/jpg,image/png,image/jpeg"
           className="hidden"

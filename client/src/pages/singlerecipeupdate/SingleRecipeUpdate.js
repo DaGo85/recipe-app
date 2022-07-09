@@ -12,6 +12,7 @@ import ProgressBar from "../../components/elements/ProgressBar";
 import BackGround from "../../components/background/BackGround";
 import GenericButton from "../../components/elements/GenericButton";
 import WiggleButton from "../../components/elements/WiggleButton";
+import DeleteImage from "../../components/elements/DeleteImage";
 
 function SingleRecipe() {
   const [recipe, setRecipe] = useState("");
@@ -166,12 +167,12 @@ function SingleRecipe() {
           images.map((i) => {
             return (
               <div
-                className="bg-secondaryLightContainer dark:bg-secondaryDarkContainer flex 
+                className="group relative bg-secondaryLightContainer dark:bg-secondaryDarkContainer flex 
                   justify-center items-center p-2 w-fit rounded-xl m-1"
               >
+                <DeleteImage handleDeleteImg={handleDeleteImg} i={i} />
                 <img
-                  className="cursor-not-allowed object-cover w-72 h-72"
-                  onClick={() => handleDeleteImg(i)}
+                  className="object-cover w-72 h-72"
                   key={i}
                   src={i}
                   alt="from recipe"

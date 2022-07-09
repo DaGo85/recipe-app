@@ -83,7 +83,7 @@ function SingleRecipe() {
                         setZoom(i);
                         setIsOpen(true);
                       }}
-                      className="w-72 h-72 object-cover"
+                      className="w-72 h-72 object-cover cursor-pointer"
                       key={i}
                       src={i}
                       alt="from recipe"
