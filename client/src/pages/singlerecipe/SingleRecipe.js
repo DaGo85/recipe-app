@@ -130,7 +130,7 @@ function SingleRecipe() {
               </p>
             </pre>
 
-            {userCreds.name === recipe.username && (
+            {userCreds?.name === recipe.username && (
               <>
                 <GenericDeleteButton
                   handler={handleDeleteButton}
