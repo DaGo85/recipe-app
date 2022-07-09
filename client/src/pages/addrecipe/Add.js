@@ -13,6 +13,7 @@ import BackGround from "../../components/background/BackGround";
 import GenericButton from "../../components/elements/GenericButton";
 import WiggleButton from "../../components/elements/WiggleButton";
 import DeleteImage from "../../components/elements/DeleteImage";
+import RemoveTag from "../../components/elements/RemoveTag";
 
 function Add() {
   const [file, setFile] = useState([]);
@@ -231,20 +232,21 @@ function Add() {
                 <li key={tagM}>
                   {tags.includes(tagM) ? (
                     <div
-                      className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                      className="group relative border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
                      from-primaryLightContainer/75 to-[#bdeeb5] dark:from-primaryDarkContainer dark:to-[#264d26]
-                     cursor-not-allowed"
+                     cursor-pointer"
                       onClick={() =>
                         setTags((prevTag) => prevTag.filter((f) => f !== tagM))
                       }
                     >
+                      <RemoveTag />
                       {tagM}
                     </div>
                   ) : (
                     <div
                       className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
                       dark:from-secondaryDarkContainer/40 dark:to-secondaryDarkContainer
-                     cursor-crosshair"
+                     cursor-pointer"
                       onClick={() => setTags((prevTags) => [...prevTags, tagM])}
                     >
                       {tagM}

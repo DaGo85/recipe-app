@@ -1,6 +1,7 @@
 //Recipes filter by tags component
 
 import { tagList } from "../../../assets/data";
+import RemoveTag from "../../../components/elements/RemoveTag";
 
 function RecipesFilterByTag({ tag, setTag }) {
   return (
@@ -10,15 +11,15 @@ function RecipesFilterByTag({ tag, setTag }) {
           <li key={tagM}>
             {tag.includes(tagM) ? (
               <div
-                className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
-                from-primaryLightContainer/75 to-[#bdeeb5]
-                      dark:from-primaryDarkContainer dark:to-[#264d26]
-                     cursor-not-allowed"
+                className="group relative border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
+                from-primaryLightContainer/75 to-[#bdeeb5] cursor-pointer
+                      dark:from-primaryDarkContainer dark:to-[#264d26]"
                 key={tagM}
                 onClick={() =>
                   setTag((prevTag) => prevTag.filter((f) => f !== tagM))
                 }
               >
+                <RemoveTag />
                 {tagM}
               </div>
             ) : (
@@ -26,7 +27,7 @@ function RecipesFilterByTag({ tag, setTag }) {
                 key={tagM}
                 className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
                       dark:from-secondaryDarkContainer/40 dark:to-secondaryDarkContainer
-                     cursor-crosshair"
+                     cursor-pointer"
                 onClick={() => setTag((prevTag) => [...prevTag, tagM])}
               >
                 {tagM}
@@ -38,7 +39,7 @@ function RecipesFilterByTag({ tag, setTag }) {
           <li
             className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
                      from-errorLight/75 to-errorLight text-errorLightOn dark:from-errorDarkContainer/75 dark:to-errorDarkContainer dark:text-errorDarkContainerOn
-                      cursor-crosshair"
+                      cursor-pointer hover:from-errorLight/50 hover:to-errorLight/70 dark:hover:from-errorDarkContainer/50 dark:hover:to-errorDarkContainer/70"
             onClick={() => setTag([])}
           >
             remove all
@@ -47,8 +48,7 @@ function RecipesFilterByTag({ tag, setTag }) {
           <li
             className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
                     from-slate-300 to-slate-300
-                      text-backgroundLightOn
-                      cursor-not-allowed"
+                      text-backgroundLightOn"
           >
             remove all
           </li>
