@@ -9,6 +9,21 @@ import { motion } from "framer-motion";
 import SkeletonArticle from "../../../skeletons/SkeletonArticle";
 import HighlightText from "../../../components/elements/HighlightText";
 
+const cardVariants = {
+  offscreen: {
+    y: 300,
+  },
+  onscreen: {
+    y: -30,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
+
 function LastRecipe() {
   const [recipe, setRecipe] = useState(null);
   const navigate = useNavigate();
@@ -24,21 +39,6 @@ function LastRecipe() {
 
   const handleLink = () => {
     navigate(`/recipe${recipe.title}`);
-  };
-
-  const cardVariants = {
-    offscreen: {
-      y: 300,
-    },
-    onscreen: {
-      y: -30,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
   };
 
   return (

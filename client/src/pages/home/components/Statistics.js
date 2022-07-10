@@ -10,6 +10,21 @@ import { motion } from "framer-motion";
 import StatisticsFact from "./StatisticsFact";
 import SkeletonFact from "../../../skeletons/SkeletonFact";
 
+const cardVariants = {
+  offscreen: {
+    y: 300,
+  },
+  onscreen: {
+    y: -30,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
+    },
+  },
+};
+
 function Statistics() {
   const [facts, setFacts] = useState();
 
@@ -23,21 +38,6 @@ function Statistics() {
 
     fetchFacts();
   }, [recipesData]);
-
-  const cardVariants = {
-    offscreen: {
-      y: 300,
-    },
-    onscreen: {
-      y: -30,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
-  };
 
   return (
     <section className="flex flex-wrap justify-center items-center mt-[-16px]">

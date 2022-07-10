@@ -2,14 +2,14 @@
 
 import FooterImpressum from "./components/FooterImpressum";
 
-function Footer() {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
+function Footer() {
   return (
     <footer
       className="py-10 px-2 w-full flex flex-col  items-center justify-center relative pb-16 gap-4

@@ -2,22 +2,22 @@
 
 import { motion } from "framer-motion";
 
-function SubText({ text }) {
-  const cardVariants = {
-    offscreen: {
-      y: 300,
+const cardVariants = {
+  offscreen: {
+    y: 300,
+  },
+  onscreen: {
+    y: -30,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
     },
-    onscreen: {
-      y: -30,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
-  };
+  },
+};
 
+function SubText({ text }) {
   return (
     <motion.h2
       className="flex items-center justify-center relative overflow-hidden pt-5"

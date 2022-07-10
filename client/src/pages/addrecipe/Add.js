@@ -127,6 +127,7 @@ function Add() {
   const handleImageClick = () => {
     fileRef.current.click();
   };
+
   return (
     <BackGround>
       <form

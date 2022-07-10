@@ -5,25 +5,25 @@ import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import HighlightText from "../../../components/elements/HighlightText";
 
-function FilteredRecipes({ currentGridData }) {
-  const cardVariants = {
-    offscreen: {
-      y: 300,
+const cardVariants = {
+  offscreen: {
+    y: 300,
+  },
+  onscreen: {
+    y: -30,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 0.8,
     },
-    onscreen: {
-      y: -30,
-      rotate: 0,
-      transition: {
-        type: "spring",
-        bounce: 0.4,
-        duration: 0.8,
-      },
-    },
-  };
+  },
+};
 
+function FilteredRecipes({ currentGridData }) {
   return (
     <AnimatePresence>
-      <section className="flex flex-wrap justify-center items-center w-full">
+      <section className="flex flex-wrap justify-center items-center w-full mt-2">
         {currentGridData.map((d, i) => {
           return (
             <Link
