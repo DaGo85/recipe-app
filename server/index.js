@@ -8,7 +8,7 @@ const decodeIDToken = require("./utility/authenticateToken");
 const app = express();
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://main--venerable-sprite-a2de07.netlify.app/",
 };
 
 app.use(cors(corsOptions));
