@@ -25,8 +25,7 @@ import Add from "./pages/addrecipe/Add";
 function App() {
   useScrollToTop();
   const { userData } = useAuthContext();
-  const { recipesData, setRecipesData } = useRecipesContext();
-  console.log("recipesdata check" + JSON.stringify(recipesData));
+  const { setRecipesData } = useRecipesContext();
 
   useEffect(() => {
     const fetchedRecipes = async () => {

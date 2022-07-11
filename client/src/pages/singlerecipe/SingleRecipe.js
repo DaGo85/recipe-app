@@ -64,7 +64,6 @@ function SingleRecipe() {
     setShowModal(true);
   };
 
-  console.log("imagecheck" + JSON.stringify(recipe?.images));
   return (
     <BackGround>
       {recipe ? (
