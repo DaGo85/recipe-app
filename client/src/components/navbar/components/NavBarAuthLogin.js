@@ -18,8 +18,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    logInWithEmailAndPassword(email, password);
-    setLogin(false);
+    logInWithEmailAndPassword(email, password, setLogin);
   };
 
   const handleGoogle = () => {

@@ -7,7 +7,7 @@ function SkeletonArticle() {
   return (
     <div
       className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center m-2 w-11/12 gap-10"
+    flex flex-col justify-center items-center m-2 w-6/12 gap-10"
     >
       <div className="flex w-5/6 flex-col md:flex-row items-center">
         <SkeletonImage />

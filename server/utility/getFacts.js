@@ -125,7 +125,7 @@ const getFacts = (data) => {
   });
 
   saveFact.push({
-    keyword: "Less used tag is: ",
+    keyword: "Least used tag is: ",
     fact: getTagOccurence(data).rare,
     text: "The less used tag has an occurence of: ",
     fact2: getTagOccurence(data).rare2,
