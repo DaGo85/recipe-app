@@ -3,7 +3,7 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://recipe-app-mern.herokuapp.com/api",
+  baseURL: process.env.REACT_APP_BE_URL,
   headers: {
     "Content-type": "application/json",
   },
