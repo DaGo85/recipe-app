@@ -47,7 +47,7 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
   Recipe.findAll()
     .then((data) => {
-      res.send(data);
+      res.send(data.reverse());
     })
     .catch((err) => {
       res.status(500).send({

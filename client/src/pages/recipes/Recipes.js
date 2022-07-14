@@ -77,6 +77,18 @@ function Recipes() {
         .trim()
         .split(" ");
 
+      const checkTitle = (title) =>
+        inputFilter.every((v) =>
+          title
+            .toLowerCase()
+            .replace(",", " ")
+            .replace("\n", " ")
+            .replace(/\s+/g, " ")
+            .trim()
+            .split(" ")
+            .includes(v)
+        );
+
       const checkDesc = (desc) =>
         inputFilter.every((v) =>
           desc
@@ -90,7 +102,7 @@ function Recipes() {
         );
 
       saveFilter = saveFilter.filter((v) => {
-        return checkDesc(v.description);
+        return checkTitle(v.title) | checkDesc(v.description);
       });
     }
 
