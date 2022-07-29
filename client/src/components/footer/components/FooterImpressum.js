@@ -1,5 +1,6 @@
 //Footer impressum
 
+import { impressumData } from "../../../assets/data";
 import FooterSocialIcons from "./FooterSocialIcons";
 
 function FooterImpressum() {
@@ -9,17 +10,17 @@ function FooterImpressum() {
         <h3>According to § 5 TMG:</h3>
         <hr className="hr-setup" />
         <address>
-          D. Goergens
+          {impressumData.address.name}
           <br />
-          Dorstener Strasse 534
+          {impressumData.address.street}
           <br />
-          46119 Oberhausen
+          {impressumData.address.city}
         </address>
       </span>
       <span className="flex flex-col gap-4 w-full">
         <h3>Contact:</h3>
         <hr className="hr-setup" />
-        <address>E-Mail: d.goergens@gmail.com</address>
+        <address>E-Mail: {impressumData.contact.email}</address>
         <FooterSocialIcons />
       </span>
     </section>

@@ -88,3 +88,4 @@ There are a lot of more options for improvements.
 ## License
 
 Feel free to use this code for your own projects!
+You can change your personal data in src/assets/data.js

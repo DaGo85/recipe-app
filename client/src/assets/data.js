@@ -66,3 +66,12 @@ export const statisticsSvg = [
 
 export const firebaseBaseUrl =
   "https://firebasestorage.googleapis.com/v0/b/recipe-app-auth-ba48b.appspot.com/o/";
+
+export const impressumData = {
+  address: {
+    name: "D. Goergens",
+    street: "Dorstener Strasse 534",
+    city: "46119 Oberhausen",
+  },
+  contact: { email: "d.goergens@gmail.com" },
+};
