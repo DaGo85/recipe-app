@@ -71,7 +71,7 @@ function SingleRecipe() {
     };
 
     await RecipeService.update(recipe.title, updatedRecipe, headers).catch(
-      (err) => {
+      () => {
         navigate("/notfound");
       }
     );
@@ -149,10 +149,7 @@ function SingleRecipe() {
   return (
     <BackGround>
       <input
-        className="px-1 py-1 border-2 shadow-lg w-11/12 border-lightOutline dark:border-darkOutline
-          text-primaryLightContainerOn dark:text-primaryDarkContainerOn
-          placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 
-          bg-lightVariantSurface dark:bg-darkSurface focus:border-darkOutline"
+        className="w-11/12 px-1 py-1 border-2 shadow-lg border-lightOutline dark:border-darkOutline text-primaryLightContainerOn dark:text-primaryDarkContainerOn placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 bg-lightVariantSurface dark:bg-darkSurface focus:border-darkOutline"
         value={title}
         onKeyDown={(e) => {
           if (e.key === "/") {
@@ -163,18 +160,17 @@ function SingleRecipe() {
           setTitle(e.target.value);
         }}
       />
-      <div className="flex-wrap flex">
+      <div className="flex flex-wrap">
         {images[0] &&
           images.map((i) => {
             return (
               <div
-                className="group relative bg-secondaryLightContainer dark:bg-secondaryDarkContainer flex 
-                  justify-center items-center p-2 w-fit rounded-xl m-1"
+                key={i}
+                className="relative flex items-center justify-center p-2 m-1 group bg-secondaryLightContainer dark:bg-secondaryDarkContainer w-fit rounded-xl"
               >
                 <DeleteImage handleDeleteImg={handleDeleteImg} i={i} />
                 <img
                   className="object-cover w-72 h-72"
-                  key={i}
                   src={i}
                   alt="from recipe"
                 />
@@ -204,7 +200,7 @@ function SingleRecipe() {
       )}
       <div className="flex flex-col text-center">
         <h2>Choose your tags</h2>
-        <ul className="flex flex-wrap justify-center items-center gap-1">
+        <ul className="flex flex-wrap items-center justify-center gap-1">
           {tagList.map((tagM) => {
             return (
               <li key={tagM}>
@@ -222,9 +218,7 @@ function SingleRecipe() {
                   </div>
                 ) : (
                   <div
-                    className="border-4 p-2 border-lightOutline dark:border-darkOutline border-double bg-gradient-to-r
-                       dark:from-secondaryDarkContainer/40 dark:to-secondaryDarkContainer
-                     cursor-pointer"
+                    className="p-2 border-4 border-double cursor-pointer border-lightOutline dark:border-darkOutline bg-gradient-to-r dark:from-secondaryDarkContainer/40 dark:to-secondaryDarkContainer"
                     onClick={() => setTags((prevTags) => [...prevTags, tagM])}
                   >
                     {tagM}
@@ -235,15 +229,14 @@ function SingleRecipe() {
           })}
         </ul>
       </div>
-      <ul className="flex flex-col gap-2 px-2 w-full">
+      <ul className="flex flex-col w-full gap-2 px-2">
         {ingredients.map((ingredient) => {
           return (
             <li key={ingredient}>
-              <div className="flex justify-between items-center z-50 pb-2">
+              <div className="z-50 flex items-center justify-between pb-2">
                 {ingredient}
                 <button
-                  className="border rounded-3xl px-2 bg-errorLight dark:bg-errorDarkContainer border-errorLight dark:border-errorDarkContainer
-                   text-errorLightOn dark:text-errorDarkContainerOn hover:bg-errorLight/60 dark:hover:bg-errorDarkContainer/60"
+                  className="px-2 border rounded-3xl bg-errorLight dark:bg-errorDarkContainer border-errorLight dark:border-errorDarkContainer text-errorLightOn dark:text-errorDarkContainerOn hover:bg-errorLight/60 dark:hover:bg-errorDarkContainer/60"
                   type="button"
                   onClick={() => handleRemoveIngredient(ingredient)}
                 >
@@ -256,10 +249,7 @@ function SingleRecipe() {
         })}
       </ul>
       <input
-        className="px-1 py-1 border-2 shadow-lg w-11/12 border-lightOutline dark:border-darkOutline
-          text-primaryLightContainerOn dark:text-primaryDarkContainerOn
-          placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 
-          bg-lightVariantSurface dark:bg-darkSurface"
+        className="w-11/12 px-1 py-1 border-2 shadow-lg border-lightOutline dark:border-darkOutline text-primaryLightContainerOn dark:text-primaryDarkContainerOn placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 bg-lightVariantSurface dark:bg-darkSurface"
         value={addIng}
         onChange={(e) => setAddIng(e.target.value)}
         onKeyDown={(e) => {
@@ -290,10 +280,7 @@ function SingleRecipe() {
         />
       </div>
       <textarea
-        className="px-1 py-1 border-2 shadow-lg w-11/12 h-96 border-lightOutline dark:border-darkOutline
-    text-primaryLightContainerOn dark:text-primaryDarkContainerOn
-     placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 
-     bg-lightVariantSurface dark:bg-darkSurface"
+        className="w-11/12 px-1 py-1 border-2 shadow-lg h-96 border-lightOutline dark:border-darkOutline text-primaryLightContainerOn dark:text-primaryDarkContainerOn placeholder-primaryLightContainerOn/40 dark:placeholder-primaryDarkContainerOn/40 bg-lightVariantSurface dark:bg-darkSurface"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
       />

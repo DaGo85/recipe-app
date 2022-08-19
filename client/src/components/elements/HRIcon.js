@@ -4,9 +4,9 @@ import { AnimatePresence, motion } from "framer-motion";
 
 function HRIcon({ view, path }) {
   return (
-    <div className="w-4/5  ">
+    <div className="w-4/5 ">
       <hr className="hr-setup mb-[-26px] border-backgroundLightOn dark:border-backgroundDarkOn" />
-      <div className="flex flex-row justify-center items-center">
+      <div className="flex flex-row items-center justify-center">
         <AnimatePresence>
           <motion.div
             key="left"
@@ -29,7 +29,7 @@ function HRIcon({ view, path }) {
             transition={{ ease: "easeIn", duration: 0.5 }}
           >
             <svg
-              className="w-14 mx-4 mb-1 fill-backgroundLightOn dark:fill-backgroundDarkOn"
+              className="mx-4 mb-1 w-14 fill-backgroundLightOn dark:fill-backgroundDarkOn"
               xmlns="http://www.w3.org/2000/svg"
               viewBox={view}
             >

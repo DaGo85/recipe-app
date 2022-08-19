@@ -53,18 +53,16 @@ function LastRecipe() {
           whileInView="onscreen"
           viewport={{ once: true }}
           variants={cardVariants}
-          className="cursor-pointer rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center gap-6 m-2"
+          className="flex flex-col items-center justify-center gap-6 p-4 m-2 cursor-pointer rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn"
           onClick={() => handleLink()}
         >
           <h3>{recipe.title}</h3>
           {recipe.img[0] && (
             <div
-              className="flex 
-                  justify-center items-center p-2 w-fit rounded-xl m-1"
+              className="flex items-center justify-center p-2 m-1 w-fit rounded-xl"
             >
               <img
-                className="w-72 h-72 object-cover"
+                className="object-cover w-72 h-72"
                 src={recipe.img[0]}
                 alt="from recipe"
               />

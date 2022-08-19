@@ -48,7 +48,7 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
         set={setEmail}
         placeholder="E-mail Address"
       />
-      <div className="flex flex-col space-y-10 items-center">
+      <div className="flex flex-col items-center space-y-10">
         <NavBarInput
           type="password"
           value={password}

@@ -12,21 +12,16 @@ const scrollToTop = () => {
 function Footer() {
   return (
     <footer
-      className="py-10 px-2 w-full flex flex-col  items-center justify-center relative pb-16 gap-4
-     bg-lightVariantSurface dark:bg-darkVariantSurface text-lightVariantSurfaceOn dark:text-darkVariantSurfaceOn"
+      className="relative flex flex-col items-center justify-center w-full gap-4 px-2 py-10 pb-16 bg-lightVariantSurface dark:bg-darkVariantSurface text-lightVariantSurfaceOn dark:text-darkVariantSurfaceOn"
     >
       <FooterImpressum />
       <button
         aria-label="scroll smoothly to top of the page"
         onClick={() => scrollToTop()}
-        className="rounded-3xl border-2 w-12 h-12 cursor-pointer absolute 
-    bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60 
-    border-primaryLightOn dark:border-primaryDarkOn hover:border-primaryDarkOn 
-    dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out bottom-4 right-4 flex items-center
-      justify-center group"
+        className="absolute flex items-center justify-center w-12 h-12 transition-all duration-300 ease-in-out border-2 cursor-pointer rounded-3xl bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60 border-primaryLightOn dark:border-primaryDarkOn hover:border-primaryDarkOn dark:hover:border-primaryLightOn bottom-4 right-4 group"
       >
         <svg
-          className="h-8 fill-primaryLightOn dark:fill-primaryDarkOn transition-all duration-300 ease-in-out group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn"
+          className="h-8 transition-all duration-300 ease-in-out fill-primaryLightOn dark:fill-primaryDarkOn group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 320 512"
         >

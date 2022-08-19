@@ -1,17 +1,12 @@
-import React from "react";
-
 function DeleteImage({ handleDeleteImg, i }) {
   return (
-    <div
-      className="w-full flex opacity-0 h-full absolute top-0 left-0 items-center justify-center 
-              group-hover:opacity-100 bg-slate-900/70 transition-all duration-300"
-    >
+    <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full transition-all duration-300 opacity-0 group-hover:opacity-100 bg-slate-900/70">
       <svg
         aria-label="delete image"
         onClick={() => {
           handleDeleteImg(i);
         }}
-        className="cursor-pointer h-1/3 opacity-70 fill-slate-100 hover:opacity-100 hover:fill-red-400 transition-color duration-300"
+        className="duration-300 cursor-pointer h-1/3 opacity-70 fill-slate-100 hover:opacity-100 hover:fill-red-400 transition-color"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 448 512"
       >

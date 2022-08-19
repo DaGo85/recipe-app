@@ -6,18 +6,17 @@ import SkeletonText from "./SkeletonText";
 function SkeletonArticle() {
   return (
     <div
-      className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-    flex flex-col justify-center items-center m-2 w-6/12 gap-10"
+      className="flex flex-col items-center justify-center w-6/12 gap-10 p-4 m-2 rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn"
     >
-      <div className="flex w-5/6 flex-col md:flex-row items-center">
+      <div className="flex flex-col items-center w-5/6 md:flex-row">
         <SkeletonImage />
-        <div className="hidden w-full md:flex flex-col gap-10 pl-6">
+        <div className="flex-col hidden w-full gap-10 pl-6 md:flex">
           <SkeletonText />
           <SkeletonText />
           <SkeletonText />
         </div>
       </div>
-      <div className="flex flex-col w-5/6 gap-10 items-center">
+      <div className="flex flex-col items-center w-5/6 gap-10">
         <SkeletonText />
         <SkeletonText />
         <SkeletonText />

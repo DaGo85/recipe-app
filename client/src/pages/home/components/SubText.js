@@ -20,7 +20,7 @@ const cardVariants = {
 function SubText({ text }) {
   return (
     <motion.h2
-      className="flex items-center justify-center relative overflow-hidden pt-5"
+      className="relative flex items-center justify-center pt-5 overflow-hidden"
       initial="offscreen"
       whileInView="onscreen"
       viewport={{ once: true }}

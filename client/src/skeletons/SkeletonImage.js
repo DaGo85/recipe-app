@@ -2,7 +2,7 @@
 
 function SkeletonImage() {
   return (
-    <div className="w-full h-72 my-6 rounded animate-skeletonLightBg dark:animate-skeletonDarkBg opacity-70 last:mb-0"></div>
+    <div className="w-full my-6 rounded h-72 animate-skeletonLightBg dark:animate-skeletonDarkBg opacity-70 last:mb-0"></div>
   );
 }
 

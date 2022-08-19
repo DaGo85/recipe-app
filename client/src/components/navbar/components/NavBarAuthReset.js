@@ -27,7 +27,7 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
   return (
     <NavBarAuthCard>
       <NavBarAuthHeadline headline="Password-Reset" />
-      <div className="flex flex-col space-y-10 items-center">
+      <div className="flex flex-col items-center space-y-10">
         <p>
           Forgot your account’s password or having trouble logging into your
           Team? Enter your email address and we’ll send you a recovery link.
@@ -41,7 +41,7 @@ function NavBarAuthReset({ setLogin, setRegister, setReset }) {
         <NavBarButton handler={handleReset} text="Send recovery email" />
       </div>
       <div>
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <NavBarLink
           text="Register"
           label="switch to register screen"

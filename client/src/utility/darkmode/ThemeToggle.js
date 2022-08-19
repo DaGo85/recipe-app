@@ -6,16 +6,13 @@ const ThemeToggle = () => {
   const { theme, setTheme } = useThemeContext();
 
   return (
-    <div
-      className="group cursor-pointer rounded-3xl border-2 p-2 flex items-center justify-center
-     bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60
-     dark:hover:bg-primaryDark/60 border-primaryLightOn dark:border-primaryDarkOn
-     hover:border-primaryDarkOn dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out"
+    <button
+      className="flex items-center justify-center p-2 transition-all duration-300 ease-in-out border-2 cursor-pointer group rounded-3xl bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60 border-primaryLightOn dark:border-primaryDarkOn hover:border-primaryDarkOn dark:hover:border-primaryLightOn"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
       {theme === "dark" ? (
         <svg
-          className="group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn w-6 fill-primaryLightOn dark:fill-primaryDarkOn transition-all duration-300 ease-in-out"
+          className="w-6 transition-all duration-300 ease-in-out group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn fill-primaryLightOn dark:fill-primaryDarkOn"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
         >
@@ -23,14 +20,14 @@ const ThemeToggle = () => {
         </svg>
       ) : (
         <svg
-          className="group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn w-6 fill-primaryLightOn dark:fill-primaryDarkOn transition-all duration-300 ease-in-out"
+          className="w-6 transition-all duration-300 ease-in-out group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn fill-primaryLightOn dark:fill-primaryDarkOn"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
         >
           <path d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z" />
         </svg>
       )}
-    </div>
+    </button>
   );
 };
 

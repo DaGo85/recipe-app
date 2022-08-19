@@ -44,7 +44,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
         set={setEmail}
         placeholder="E-mail Address"
       />
-      <div className="flex flex-col space-y-10 items-center">
+      <div className="flex flex-col items-center space-y-10">
         <NavBarInput
           type="password"
           value={password}
@@ -74,7 +74,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
         </span>
       </p>
       <div>
-        Don't have an account?{" "}
+        Don&apos;t have an account?{" "}
         <NavBarLink
           text="Register"
           labe="Register with email"

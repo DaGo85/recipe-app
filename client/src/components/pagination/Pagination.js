@@ -34,8 +34,17 @@ const Pagination = ({
     <ul className="flex md:gap-3">
       {/* Left navigation arrow */}
       <li
-        className="flex items-center h-8 text-center mx-auto my-1 text-backgroundLightOn dark:text-backgroundDarkOn cursor-pointer
-    md:px-4 md:py-6 pr-1"
+        role="menuitem"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 37) {
+            if (currentPage === 1) {
+              return;
+            }
+            onPrevious();
+          }
+        }}
+        className="flex items-center h-8 pr-1 mx-auto my-1 text-center cursor-pointer text-backgroundLightOn dark:text-backgroundDarkOn md:px-4 md:py-6"
         onClick={() => {
           if (currentPage === 1) {
             return;
@@ -61,8 +70,7 @@ const Pagination = ({
           return (
             <li
               key={index}
-              className="flex items-center box-border h-8 text-center mx-auto my-1  
-                tracking-wide rounded-2xl leading-normal text-lg text-backgroundLightOn dark:text-backgroundDarkOn px-1"
+              className="box-border flex items-center h-8 px-1 mx-auto my-1 text-lg leading-normal tracking-wide text-center rounded-2xl text-backgroundLightOn dark:text-backgroundDarkOn"
             >
               ...
             </li>
@@ -72,6 +80,8 @@ const Pagination = ({
         // Render our Page Pills
         return (
           <li
+            role="menuitem"
+            tabIndex={0}
             key={index}
             className={`flex items-center box-border h-8 text-center mx-auto my-1 
                   tracking-wide rounded-2xl leading-normal text-lg cursor-pointer px-3
@@ -91,8 +101,17 @@ const Pagination = ({
       })}
       {/*  Right Navigation arrow */}
       <li
-        className="flex items-center h-8 text-center mx-auto my-1 text-backgroundLightOn dark:text-backgroundDarkOn cursor-pointer
-    md:px-4 md:py-6 pl-1"
+        role="menuitem"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 37) {
+            if (currentPage === lastPage) {
+              return;
+            }
+            onNext();
+          }
+        }}
+        className="flex items-center h-8 pl-1 mx-auto my-1 text-center cursor-pointer text-backgroundLightOn dark:text-backgroundDarkOn md:px-4 md:py-6"
         onClick={() => {
           if (currentPage === lastPage) {
             return;

@@ -17,7 +17,7 @@ const ProgressBar = ({ selected, setSelected, setUrl, folder }) => {
   return (
     <div className="h-20 w-72 ">
       <motion.div
-        className="h-4 bg-primaryLight dark:bg-primaryDark mt-10 w-max"
+        className="h-4 mt-10 bg-primaryLight dark:bg-primaryDark w-max"
         initial={{ width: 0 }}
         animate={{ width: progress + "%" }}
       ></motion.div>

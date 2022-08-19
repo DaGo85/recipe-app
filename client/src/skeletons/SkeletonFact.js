@@ -12,7 +12,7 @@ function SkeletonFact() {
       <div className="pt-4">
         <SkeletonIcon />
       </div>
-      <div className="w-full flex flex-col gap-2">
+      <div className="flex flex-col w-full gap-2">
         <SkeletonText />
         <SkeletonText />
         <SkeletonText />

@@ -10,7 +10,7 @@ function NavBarLinks() {
         return (
           <Link
             aria-label={item.label}
-            className="cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn underline"
+            className="underline cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn"
             key={item.name}
             to={item.link}
           >

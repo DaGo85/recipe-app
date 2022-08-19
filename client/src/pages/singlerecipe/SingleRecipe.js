@@ -51,7 +51,7 @@ function SingleRecipe() {
       .then((response) => {
         setRecipe(response.data);
       })
-      .catch((err) => {
+      .catch(() => {
         navigate("/notfound");
       });
   }, [path, navigate]);
@@ -67,23 +67,22 @@ function SingleRecipe() {
   return (
     <BackGround>
       {recipe ? (
-        <article className="flex justify-center items-center flex-col">
-          <h1 className="break-all text-center">{recipe.title}</h1>
-          <div className="flex-wrap flex">
+        <article className="flex flex-col items-center justify-center">
+          <h1 className="text-center break-all">{recipe.title}</h1>
+          <div className="flex flex-wrap">
             {recipe.img[0] &&
               recipe.img.map((i) => {
                 return (
                   <div
-                    className="bg-secondaryLightContainer dark:bg-secondaryDarkContainer flex 
-                  justify-center items-center p-2 w-fit rounded-xl m-1"
+                    key={i}
+                    className="flex items-center justify-center p-2 m-1 bg-secondaryLightContainer dark:bg-secondaryDarkContainer w-fit rounded-xl"
                   >
                     <img
                       onClick={() => {
                         setZoom(i);
                         setIsOpen(true);
                       }}
-                      className="w-72 h-72 object-cover cursor-pointer"
-                      key={i}
+                      className="object-cover cursor-pointer w-72 h-72"
                       src={i}
                       alt="from recipe"
                     />
@@ -91,11 +90,7 @@ function SingleRecipe() {
                 );
               })}
           </div>
-          <div
-            className="rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer
-             text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-              flex flex-col justify-center items-center gap-6 m-2 pt-10 text-center w-9/10"
-          >
+          <div className="flex flex-col items-center justify-center gap-6 p-4 pt-10 m-2 text-center rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn w-9/10">
             <h2 className="text-xl">
               created by:
               <br />
@@ -108,7 +103,7 @@ function SingleRecipe() {
                 added="text-2xl"
               />
             </h2>
-            <ul className="w-11/12 flex gap-1 flex-wrap items-center justify-center">
+            <ul className="flex flex-wrap items-center justify-center w-11/12 gap-1">
               {recipe.tags.map((t) => {
                 return (
                   <li

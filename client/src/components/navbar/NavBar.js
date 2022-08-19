@@ -7,8 +7,7 @@ import NavBarLinks from "./components/NavBarLinks";
 function NavBar() {
   return (
     <nav
-      className="p-3 w-full flex flex-row items-center justify-between
-     bg-lightVariantSurface dark:bg-darkVariantSurface text-lightVariantSurfaceOn dark:text-darkVariantSurfaceOn"
+      className="flex flex-row items-center justify-between w-full p-3 bg-lightVariantSurface dark:bg-darkVariantSurface text-lightVariantSurfaceOn dark:text-darkVariantSurfaceOn"
     >
       <NavBarLinks />
       <div className="flex flex-row items-center gap-2">

@@ -5,7 +5,7 @@ function NavBarLink({ text, handler, label }) {
     <button
       aria-label={label}
       onClick={() => handler()}
-      className="cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn underline"
+      className="underline cursor-pointer hover:text-primaryLightOn dark:hover:text-primaryDarkOn"
     >
       {text}
     </button>

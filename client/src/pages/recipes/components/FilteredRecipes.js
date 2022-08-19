@@ -23,18 +23,16 @@ const cardVariants = {
 function FilteredRecipes({ currentGridData }) {
   return (
     <AnimatePresence>
-      <section className="flex flex-wrap justify-center items-center w-full mt-2">
+      <section className="flex flex-wrap items-center justify-center w-full mt-2">
         {currentGridData.map((d, i) => {
           return (
             <Link
               to={`/recipe${d.title}`}
               key={d.title}
-              className="hover:scale-105 transition-all"
+              className="transition-all hover:scale-105"
             >
               <motion.article
-                className="cursor-pointer rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer
-                 text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn p-4
-                  flex flex-col justify-center items-center gap-6 m-2 max-w-full md:max-w-md"
+                className="flex flex-col items-center justify-center max-w-full gap-6 p-4 m-2 cursor-pointer rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn md:max-w-md"
                 key={d.title}
                 whileInView="onscreen"
                 viewport={{ once: true }}

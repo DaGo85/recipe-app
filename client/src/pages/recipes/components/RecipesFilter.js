@@ -41,7 +41,7 @@ function RecipesFilter({ setFilter, setCurrentPage }) {
         setFilter={setFilter}
       />
       <RecipesFilterByTag tag={tag} setTag={setTag} />{" "}
-      <span className="flex flex-col gap-2 md:flex-row md:gap-4 mb-6">
+      <span className="flex flex-col gap-2 mb-6 md:flex-row md:gap-4">
         <RecipesFilterByDif dif={dif} setDif={setDif} />
         <GenericDeleteButton handler={resetFilter} text="Reset Filter" />
         <GenericButton

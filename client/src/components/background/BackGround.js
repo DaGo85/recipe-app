@@ -3,9 +3,7 @@
 const BackGround = ({ children }) => {
   return (
     <main
-      className="flex flex-col py-12 gap-6 justify-center items-center
-     w-full bg-backgroundLight dark:bg-backgroundDark text-backgroundLightOn
-      dark:text-backgroundDarkOn transition-all text-center"
+      className="flex flex-col items-center justify-center w-full gap-6 py-12 text-center transition-all bg-backgroundLight dark:bg-backgroundDark text-backgroundLightOn dark:text-backgroundDarkOn"
     >
       {children}
     </main>

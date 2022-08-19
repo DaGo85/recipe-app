@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { projectStorage } from "./firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-const useFireStorage = (file, folder) => {
+const useFireStorage = (file) => {
   const [progress, setProgress] = useState(0);
   const [url, setUrl] = useState(null);
 
@@ -21,7 +21,7 @@ const useFireStorage = (file, folder) => {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         setProgress(percentage);
       },
-      (error) => {},
+      () => {},
       () => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...

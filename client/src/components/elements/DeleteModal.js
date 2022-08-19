@@ -7,8 +7,8 @@ function DeleteModal({ handleDelete, showModal, setShowModal }) {
         showModal ? "block" : "hidden"
       } overflow-y-auto overflow-x-hidden fixed bottom-50 right-50 left-50 top-[20rem] z-50 md:inset-50 h-modal md:h-full `}
     >
-      <div className="relative p-4 w-full max-w-md h-full md:h-auto bg-errorLightContainer dark:bg-errorDarkContainer">
-        <div className="relative bg-a rounded-lg shadow">
+      <div className="relative w-full h-full max-w-md p-4 md:h-auto bg-errorLightContainer dark:bg-errorDarkContainer">
+        <div className="relative rounded-lg shadow bg-a">
           <div className="flex justify-end p-2">
             <button
               onClick={() => {

@@ -1,6 +1,6 @@
 //NavBar Auth navigation
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { useAuthContext } from "../../../utility/AuthContext";
@@ -74,16 +74,20 @@ function NavBarAuth() {
   return (
     <div className="relative z-50">
       <div
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 27) {
+            setIsOpen(!isOpen);
+          }
+        }}
         onClick={() => {
           setIsOpen(!isOpen);
         }}
-        className="group cursor-pointer rounded-3xl border-2 p-2 flex items-center justify-center
-     bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60
-     dark:hover:bg-primaryDark/60 border-primaryLightOn dark:border-primaryDarkOn
-     hover:border-primaryDarkOn dark:hover:border-primaryLightOn transition-all duration-300 ease-in-out"
+        className="flex items-center justify-center p-2 transition-all duration-300 ease-in-out border-2 cursor-pointer group rounded-3xl bg-primaryLight dark:bg-primaryDark hover:bg-primaryLight/60 dark:hover:bg-primaryDark/60 border-primaryLightOn dark:border-primaryDarkOn hover:border-primaryDarkOn dark:hover:border-primaryLightOn"
       >
         <svg
-          className="group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn w-6 fill-primaryLightOn dark:fill-primaryDarkOn transition-all duration-300 ease-in-out"
+          className="w-6 transition-all duration-300 ease-in-out group-hover:fill-primaryDarkOn dark:group-hover:fill-primaryLightOn fill-primaryLightOn dark:fill-primaryDarkOn"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 448 512"
         >

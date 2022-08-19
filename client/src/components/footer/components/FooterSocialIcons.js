@@ -16,9 +16,7 @@ function FooterSocialIcons() {
             alt={icon.alt}
           >
             <svg
-              className="w-8 h-8 hover:cursor-pointer transition-all duration-300
-              fill-lightVariantSurfaceOn dark:fill-darkVariantSurfaceOn
-              hover:fill-primaryLightOn dark:hover:fill-primaryDarkOn"
+              className="w-8 h-8 transition-all duration-300 hover:cursor-pointer fill-lightVariantSurfaceOn dark:fill-darkVariantSurfaceOn hover:fill-primaryLightOn dark:hover:fill-primaryDarkOn"
               xmlns="http://www.w3.org/2000/svg"
               viewBox={icon.viewBox}
             >
