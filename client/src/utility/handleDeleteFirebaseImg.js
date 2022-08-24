@@ -21,7 +21,7 @@ const handleDeleteFirebaseImg = async (url, setIsError) => {
       if (!setIsError) return;
       setIsError(false);
     })
-    .catch((error) => {
+    .catch(() => {
       if (!setIsError) return;
       setIsError("Could not delete this image. Please try again later!");
     });

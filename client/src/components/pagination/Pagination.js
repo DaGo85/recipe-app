@@ -80,8 +80,7 @@ const Pagination = ({
         // Render our Page Pills
         return (
           <li
-            role="menuitem"
-            tabIndex={0}
+            role="presentation"
             key={index}
             className={`flex items-center box-border h-8 text-center mx-auto my-1 
                   tracking-wide rounded-2xl leading-normal text-lg cursor-pointer px-3

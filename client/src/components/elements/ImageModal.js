@@ -8,7 +8,7 @@ function ImageModal({ setIsOpen, image }) {
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
-        if (e.key === 27) {
+        if (e.key === "Escape") {
           setIsOpen(false);
         }
       }}

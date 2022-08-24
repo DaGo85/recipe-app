@@ -35,6 +35,10 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
     setRegister(true);
   };
 
+  const handleDemo = () => {
+    logInWithEmailAndPassword("devgoergens@gmail.com", "123456", setLogin);
+  };
+
   return (
     <NavBarAuthCard>
       <NavBarAuthHeadline headline="Login" />
@@ -52,6 +56,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
           placeholder="Password"
         />
         <NavBarButton handler={handleLogin} text="Login" />
+        <NavBarButton handler={handleDemo} text="just want to test the app?" />
       </div>
       <p className="flex flex-row">
         <span className="mr-1">Login with </span>
