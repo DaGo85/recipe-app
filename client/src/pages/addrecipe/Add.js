@@ -63,6 +63,7 @@ function Add() {
   };
 
   const handleImageUpload = async (e) => {
+    e.preventDefault();
     // Restriction for files: jpeg,jpg and png only, also the size has to be
     // maximal 3000000 ( 3mb )
     if (file === null) return;
