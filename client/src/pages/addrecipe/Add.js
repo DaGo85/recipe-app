@@ -261,6 +261,7 @@ function Add() {
             min="1"
             max="10"
             value={difficulty}
+            onTouchStart={(e) => setDifficulty(e.target.value)}
             onChange={(e) => setDifficulty(e.target.value)}
             className="slider-button"
             required

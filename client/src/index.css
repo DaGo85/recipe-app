@@ -75,14 +75,19 @@
   /* Style for buttons*/
 
   .slider-button {
+    -webkit-appearance: none;
     @apply w-72 h-8 border-2 rounded-xl overflow-hidden bg-gradient-to-r
      from-primaryLight dark:from-primaryDark via-yellow-300 dark:via-yellow-300 to-errorLight dark:to-errorDarkContainer cursor-pointer
      border-lightOutline dark:border-darkOutline shadow-lg;
   }
 
   .slider-button::-webkit-slider-thumb {
-    @apply w-72 h-8 border-2 rounded-xl bg-primaryLight dark:bg-primaryDark
+    -webkit-appearance: none;
+    @apply h-6 w-6 rounded-xl bg-white
      border-lightOutline dark:border-darkOutline cursor-pointer shadow-lg;
+  }
+
+  .slider-button::-moz-range-thumb {
   }
   /* Style for buttons end*/
 
