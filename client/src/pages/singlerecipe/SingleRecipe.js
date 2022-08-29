@@ -90,7 +90,7 @@ function SingleRecipe() {
                 );
               })}
           </div>
-          <div className="flex flex-col items-center justify-center gap-6 p-4 pt-10 m-2 text-center rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn w-9/10">
+          <div className="flex flex-col items-center justify-center gap-6 px-6 pt-20 pb-40 m-2 text-center rounded-card bg-secondaryLightContainer dark:bg-secondaryDarkContainer text-secondaryLightContainerOn dark:text-secondaryDarkContainerOn w-9/10">
             <h2 className="text-xl">
               created by:
               <br />

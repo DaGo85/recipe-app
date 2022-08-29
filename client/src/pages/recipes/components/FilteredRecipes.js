@@ -40,6 +40,11 @@ function FilteredRecipes({ currentGridData }) {
                 transition={{ ease: "easeIn", duration: 0.5, delay: 0.1 * i }}
               >
                 <h2 className="font-bold break-all">{d.title}</h2>
+                <img
+                  className="object-cover w-72 h-72"
+                  src={d.img[0]}
+                  alt="first image of recipe"
+                />
                 <div className="flex flex-col gap-1">
                   <h3>
                     created by:

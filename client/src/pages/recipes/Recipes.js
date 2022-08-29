@@ -10,7 +10,7 @@ import SkeletonFact from "../../skeletons/SkeletonFact";
 import Pagination from "../../components/pagination/Pagination";
 import BackGround from "../../components/background/BackGround";
 
-const PageSize = 9;
+const PageSize = 6;
 
 function Recipes() {
   const [currentPage, setCurrentPage] = useState(1);

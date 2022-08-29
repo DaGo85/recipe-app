@@ -87,8 +87,6 @@
      border-lightOutline dark:border-darkOutline cursor-pointer shadow-lg;
   }
 
-  .slider-button::-moz-range-thumb {
-  }
   /* Style for buttons end*/
 
   /* Overall styles */
