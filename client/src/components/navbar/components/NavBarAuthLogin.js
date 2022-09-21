@@ -2,10 +2,7 @@
 
 import { useState } from "react";
 
-import {
-  logInWithEmailAndPassword,
-  signInWithGoogle,
-} from "../../../utility/firebase";
+import { logInWithEmailAndPassword } from "../../../utility/firebase";
 import NavBarAuthCard from "./NavBarAuthCard";
 
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
@@ -20,10 +17,10 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
   const handleLogin = () => {
     logInWithEmailAndPassword(email, password, setLogin);
   };
-
+  /*
   const handleGoogle = () => {
     signInWithGoogle(setLogin);
-  };
+  }; */
 
   const handleReset = () => {
     setLogin(false);
@@ -58,7 +55,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
         <NavBarButton handler={handleLogin} text="Login" />
         <NavBarButton handler={handleDemo} text="just want to test the app?" />
       </div>
-      <p className="flex flex-row">
+      {/*<p className="flex flex-row">
         <span className="mr-1">Login with </span>
         <NavBarLink
           text="Google"
@@ -66,7 +63,7 @@ function NavBarAuthLogin({ setLogin, setRegister, setReset }) {
           label="login with Google"
         />
         .
-      </p>
+  </p>*/}
       <p className="flex flex-col gap-1">
         Forgot Password? Click
         <span>

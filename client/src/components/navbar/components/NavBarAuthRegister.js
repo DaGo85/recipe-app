@@ -1,10 +1,7 @@
 //NavBar register component
 
 import { useState } from "react";
-import {
-  registerWithEmailAndPassword,
-  signInWithGoogle,
-} from "../../../utility/firebase";
+import { registerWithEmailAndPassword } from "../../../utility/firebase";
 import NavBarAuthCard from "./NavBarAuthCard";
 import NavBarAuthHeadline from "./NavBarAuthHeadline";
 import NavBarButton from "./NavBarButton";
@@ -22,11 +19,11 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
     setRegister(false);
     setLogin(true);
   };
-
+  /*
   const handleGoogle = () => {
     signInWithGoogle();
     setRegister(false);
-  };
+  };*/
 
   const handleLogin = () => {
     setRegister(false);
@@ -57,7 +54,7 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
         />
         <NavBarButton handler={registerHandler} text="Register" />
       </div>
-      <p className="flex flex-row">
+      {/*<p className="flex flex-row">
         <span className="mr-1">Register with</span>
         <NavBarLink
           text="Google"
@@ -65,7 +62,7 @@ function NavBarAuthRegister({ setLogin, setRegister }) {
           handler={handleGoogle}
         />
         .
-      </p>
+  </p>*/}
       <div>
         Already have an account?{" "}
         <NavBarLink
