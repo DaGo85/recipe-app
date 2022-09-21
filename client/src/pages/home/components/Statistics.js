@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 import { statisticsSvg } from "../../../assets/data";
 import RecipeService from "../../../services/recipeService";
-import { useRecipesContext } from "../../../utility/RecipesContext";
 import { motion } from "framer-motion";
 
 import StatisticsFact from "./StatisticsFact";
@@ -28,8 +27,6 @@ const cardVariants = {
 function Statistics() {
   const [facts, setFacts] = useState();
 
-  const { recipesData } = useRecipesContext();
-
   useEffect(() => {
     const fetchFacts = async () => {
       const res = await RecipeService.facts();
@@ -37,7 +34,7 @@ function Statistics() {
     };
 
     fetchFacts();
-  }, [recipesData]);
+  }, []);
 
   return (
     <section className="flex flex-wrap justify-center items-center mt-[-16px]">
