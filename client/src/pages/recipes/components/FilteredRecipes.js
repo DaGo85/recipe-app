@@ -39,7 +39,7 @@ function FilteredRecipes({ currentGridData }) {
                 variants={cardVariants}
                 transition={{ ease: "easeIn", duration: 0.5, delay: 0.1 * i }}
               >
-                <h2 className="font-bold break-words">{d.title}</h2>
+                <h2 className="font-bold">{d.title}</h2>
                 <img
                   className="object-cover w-72 h-72"
                   src={d.img[0]}

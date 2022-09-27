@@ -68,7 +68,7 @@ function SingleRecipe() {
     <BackGround>
       {recipe ? (
         <article className="flex flex-col items-center justify-center">
-          <h1 className="text-center break-all">{recipe.title}</h1>
+          <h1 className="text-center">{recipe.title}</h1>
           <div className="flex flex-wrap">
             {recipe.img[0] &&
               recipe.img.map((i) => {
