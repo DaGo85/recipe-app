@@ -12,13 +12,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.HOST,
     dialect: process.env.DIALECT,
-    operatorsAliases: false,
-    pool: {
-      max: dbConfig.pool.max,
-      min: dbConfig.pool.min,
-      acquire: dbConfig.pool.acquire,
-      idle: dbConfig.pool.idle,
-    },
+    operatorsAliases: 0,
   }
 );
 
