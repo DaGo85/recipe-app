@@ -69,7 +69,7 @@ function SingleRecipe() {
       {recipe ? (
         <article className="flex flex-col items-center justify-center">
           <h1 className="text-center">{recipe.title}</h1>
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap items-center justify-center">
             {recipe.img[0] &&
               recipe.img.map((i) => {
                 return (
