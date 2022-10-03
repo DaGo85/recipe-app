@@ -111,57 +111,61 @@ const getLastRecipes = (data) => {
 const getFacts = (data) => {
   const saveFact = [];
 
-  saveFact.push({
-    keyword: "Recipes: ",
-    fact: getAvgRecipes(data),
-    text: "That many recipes each active user uploads in average",
-  });
+  try {
+    saveFact.push({
+      keyword: "Recipes: ",
+      fact: getAvgRecipes(data),
+      text: "That many recipes each active user uploads in average",
+    });
 
-  saveFact.push({
-    keyword: "Most used Tag: ",
-    fact: getTagOccurence(data).most,
-    text: "This is the most used tag with an occurence of: ",
-    fact2: getTagOccurence(data).most2,
-  });
+    saveFact.push({
+      keyword: "Most used Tag: ",
+      fact: getTagOccurence(data).most,
+      text: "This is the most used tag with an occurence of: ",
+      fact2: getTagOccurence(data).most2,
+    });
 
-  saveFact.push({
-    keyword: "Least used tag is: ",
-    fact: getTagOccurence(data).rare,
-    text: "The less used tag has an occurence of: ",
-    fact2: getTagOccurence(data).rare2,
-  });
+    saveFact.push({
+      keyword: "Least used tag is: ",
+      fact: getTagOccurence(data).rare,
+      text: "The less used tag has an occurence of: ",
+      fact2: getTagOccurence(data).rare2,
+    });
 
-  saveFact.push({
-    keyword: "Most active user: ",
-    fact: getActiveUser(data).most,
-    text: "The most active user has created ",
-    fact2: getActiveUser(data).most2,
-    text2: " recipes",
-  });
+    saveFact.push({
+      keyword: "Most active user: ",
+      fact: getActiveUser(data).most,
+      text: "The most active user has created ",
+      fact2: getActiveUser(data).most2,
+      text2: " recipes",
+    });
 
-  saveFact.push({
-    keyword: "Number of ingredients: ",
-    fact: getIngredients(data),
-    text: "This is the average number of ingredients used in our recipes",
-  });
+    saveFact.push({
+      keyword: "Number of ingredients: ",
+      fact: getIngredients(data),
+      text: "This is the average number of ingredients used in our recipes",
+    });
 
-  saveFact.push({
-    keyword: "Recipes: ",
-    fact: getRecipesCount(data),
-    text: "The total amount of recipes available for you",
-  });
+    saveFact.push({
+      keyword: "Recipes: ",
+      fact: getRecipesCount(data),
+      text: "The total amount of recipes available for you",
+    });
 
-  saveFact.push({
-    keyword: "Difficulty: ",
-    fact: getAvgDifficulty(data),
-    text: "The average difficulty of all recipes out of ten",
-  });
+    saveFact.push({
+      keyword: "Difficulty: ",
+      fact: getAvgDifficulty(data),
+      text: "The average difficulty of all recipes out of ten",
+    });
 
-  saveFact.push({
-    keyword: "Recipes last 30 days: ",
-    fact: getLastRecipes(data),
-    text: "That many recipes were created by our users in the last 30 days",
-  });
+    saveFact.push({
+      keyword: "Recipes last 30 days: ",
+      fact: getLastRecipes(data),
+      text: "That many recipes were created by our users in the last 30 days",
+    });
+  } catch (err) {
+    console.log(err);
+  }
 
   const shuffled = saveFact.sort(() => 0.5 - Math.random());
 
