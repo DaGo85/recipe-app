@@ -10,7 +10,7 @@ import AddRecipeButton from "../../components/elements/AddRecipeButton";
 import HRIcon from "../../components/elements/HRIcon";
 import LastRecipe from "./components/LastRecipe";
 import RandomRecipe from "./components/RandomRecipe";
-//*import Statistics from "./components/Statistics";*//
+import Statistics from "./components/Statistics";
 import SubText from "./components/SubText";
 import BackGround from "../../components/background/BackGround";
 
@@ -47,7 +47,7 @@ function Home() {
         view="0 0 512 512"
       />
       <SubText text="Did you know?" />
-      {/*<Statistics />*/}
+      <Statistics />
       <RandomRecipe />
       <AddRecipeButton />
     </BackGround>
