@@ -10,6 +10,12 @@ const sequelize = new Sequelize(
   process.env.USER,
   process.env.PASSWORD,
   {
+    pool: {
+      max: 100,
+      min: 0,
+      acquire: 15000,
+      idle: 5000,
+    },
     host: process.env.HOST,
     dialect: process.env.DIALECT,
     operatorsAliases: 0,
