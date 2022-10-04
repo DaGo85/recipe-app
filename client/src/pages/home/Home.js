@@ -42,7 +42,7 @@ function Home() {
     <BackGround>
       <h1>Welcome to Foody!</h1>
       {error && (
-        <div className="bg-white">
+        <div className="bg-white border-2 rounded-lg">
           <h2 className="p-4">{error}</h2>
         </div>
       )}
