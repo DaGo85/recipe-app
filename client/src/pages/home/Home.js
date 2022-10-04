@@ -1,6 +1,6 @@
 //Landing Page
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 import RecipeService from "../../services/recipeService";
@@ -15,6 +15,7 @@ import SubText from "./components/SubText";
 import BackGround from "../../components/background/BackGround";
 
 function Home() {
+  const [error, setError] = useState("");
   const location = useLocation();
   const path = location.pathname;
 
@@ -22,8 +23,16 @@ function Home() {
 
   useEffect(() => {
     const fetchedRecipes = async () => {
-      const res = await RecipeService.getAll();
-      setRecipesData(res.data);
+      try {
+        const res = await RecipeService.getAll();
+        setRecipesData(res.data);
+      } catch (err) {
+        if (err.message === "Request failed with status code 500") {
+          setError(
+            "Sorry, there are some issues with the free tier of the MySQL DB! I'm working on it!"
+          );
+        }
+      }
     };
 
     fetchedRecipes();
@@ -32,6 +41,7 @@ function Home() {
   return (
     <BackGround>
       <h1>Welcome to Foody!</h1>
+      {error && <h2 className="">{error}</h2>}
       <HRIcon
         path={
           <path d="M280 145.3V112h16C309.3 112 320 101.3 320 88S309.3 64 296 64H215.1C202.7 64 192 74.75 192 87.1S202.7 112 215.1 112H232v33.32C119.6 157.3 32 252.4 32 368h448C480 252.4 392.4 157.3 280 145.3zM488 400h-464C10.75 400 0 410.7 0 423.1C0 437.3 10.75 448 23.1 448h464c13.25 0 24-10.75 24-23.1C512 410.7 501.3 400 488 400z" />
