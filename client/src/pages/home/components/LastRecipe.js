@@ -83,7 +83,9 @@ function LastRecipe() {
                 <HighlightText key={t} text={t} added="text-lg font-bold" />
               );
             })}
-            <span className="py-4">Difficulty: {recipe.difficulty}/10</span>
+            <span className="py-4 text-sm">
+              Difficulty: {recipe.difficulty}/10
+            </span>
           </p>
         </motion.article>
       ) : (
