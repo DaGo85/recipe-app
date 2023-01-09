@@ -125,7 +125,7 @@ function SingleRecipe() {
                   </li>
                 ))}
             </ul>
-            <h2 className="text-sm">Difficulty: {recipe.difficulty}</h2>
+            <h2 className="text-xl">Difficulty: {recipe.difficulty}</h2>
             <h2 className="text-xl">Description: </h2>
             <pre>
               <p className="whitespace-pre-line font-reset">

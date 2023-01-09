@@ -68,7 +68,7 @@ function FilteredRecipes({ currentGridData }) {
                       />
                     );
                   })}
-                  <span className="py-4 text-sm font-bold">
+                  <span className="py-4 text-base font-bold">
                     Difficulty: {d.difficulty}/10
                   </span>
                 </p>
