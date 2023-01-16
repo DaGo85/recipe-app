@@ -6,6 +6,7 @@ function WiggleButton({ handler, viewBox, svg, label }) {
   return (
     <motion.button
       aria-label={label}
+      type="button"
       onClick={() => {
         if (handler) handler();
       }}
